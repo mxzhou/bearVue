@@ -4,9 +4,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   debug: true,
   entry: [
+    'webpack-hot-middleware/client?path=http://localhost' + ':3000' + '/__webpack_hmr',
     './src/index'
   ],
   output: {
@@ -31,8 +32,8 @@ module.exports = {
     //   { test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/ }
     // ],
     loaders: [
-      { test: /\.vue$/,loader: 'vue', include: path.join(__dirname,'src')}, 
-      { test: /\.js$/, loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/}, 
+      { test: /\.vue$/,loader: 'vue', include: path.join(__dirname,'src')},
+      { test: /\.js$/, loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/},
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap' ) },
       { test: /\.(jpe?g|png|gif)$/i, loaders: [
         'url?limit=10000&name=images/[hash:8].[name].[ext]',
@@ -41,13 +42,11 @@ module.exports = {
       { test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'}
     ]
   },
+  progress: true,
   vue: {
     loaders: {
-      js: 'babel!eslint'
+      js: 'babel'
     }
-  },
-  eslint: {
-    configFile: './.eslintrc.json'
   },
   resolve: {
     root: path.resolve(__dirname, 'node_modules'),

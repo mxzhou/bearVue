@@ -5,15 +5,15 @@ var webpackConfig = require('./webpack.config.js');
 var compiler = webpack(webpackConfig);
 var port = 3000;
 var serverOptions = {
-    contentBase: 'http://' + 'localhost' + ':' + port,
-    quiet: true,
-    noInfo: false,
-    hot: true,
-    inline: true,
-    lazy: false,
-    publicPath: webpackConfig.output.publicPath,
-    headers: {'Access-Control-Allow-Origin': '*'},
-    stats: {colors: true}
+  contentBase: 'http://localhost' + ':' + port,
+  quiet: true,
+  noInfo: true,
+  hot: true,
+  inline: true,
+  lazy: false,
+  publicPath: webpackConfig.output.publicPath,
+  headers: {'Access-Control-Allow-Origin': '*'},
+  stats: {colors: true}
 };
 
 var app = new Express();
