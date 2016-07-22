@@ -5,7 +5,7 @@ var webpackConfig = require('./webpack.config.js');
 var compiler = webpack(webpackConfig);
 var port = 3000;
 var serverOptions = {
-  contentBase: 'http://localhost' + ':' + port,
+  contentBase: 'http://0.0.0.0' + ':' + port,
   quiet: true,
   noInfo: true,
   hot: true,
