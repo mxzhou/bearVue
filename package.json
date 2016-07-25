@@ -3,7 +3,7 @@
   "version": "1.2.3",
   "description": "Jackblog vue 版",
   "scripts": {
-    "wechat":" node build/webpack.wechat.js",
+    "wechat": " node build/webpack.wechat.js",
     "dev": "node build/webpack.server.js",
     "start": "gulp serve",
     "build": "gulp build",
@@ -55,6 +55,7 @@
     "postcss": "^5.1.0",
     "postcss-less": "^0.14.0",
     "react-cookie": "^0.4.7",
+    "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "vue": "^1.0.26",

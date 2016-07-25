@@ -30,7 +30,7 @@ module.exports = {
     }),
     new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
     new HtmlWebpackPlugin({
-      favicon:path.join(__dirname,'../src/favicon.ico'),
+      favicon:path.join(__dirname,'../src/assets/favicon.ico'),
       title: "JackHu's blog vue版",
       template: path.join(__dirname,'../src/index.html'),  //模板文件
       inject:'body',
@@ -47,7 +47,7 @@ module.exports = {
     // ],
     loaders: [
       { test: /\.vue$/,loader: 'vue', include: path.join(__dirname,'../src')},
-      { test: /\.js$/, loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/}, 
+      { test: /\.js$/, loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/},
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap' ) },
       { test: /\.(jpe?g|png|gif)$/i, loaders: [
         'url?limit=10000&name=images/[hash:8].[name].[ext]',
@@ -58,7 +58,7 @@ module.exports = {
   },
   vue: {
     loaders: {
-      js: 'babel!eslint'
+      js: 'babel'
     }
   },
   resolve: {

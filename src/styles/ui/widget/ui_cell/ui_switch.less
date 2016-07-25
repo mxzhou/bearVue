@@ -1,0 +1,51 @@
+@import "../../base/fn";
+@uiSwitchHeight: .32rem;
+.ui_cell_switch{
+    padding-top: (@uiCellHeight - @uiSwitchHeight) / 2;
+    padding-bottom: (@uiCellHeight - @uiSwitchHeight) / 2;
+}
+.ui_switch{
+    appearance: none;
+    position: relative;
+    width: .52rem;
+    height: @uiSwitchHeight;
+    border: .01rem solid #DFDFDF;
+    outline: 0;
+    border-radius: .16rem;;
+    box-sizing: border-box;
+    background: #DFDFDF;
+    &:before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: .50rem;
+        height: @uiSwitchHeight - .02;
+        border-radius: .15rem;
+        background-color: #FDFDFD;
+        transition:transform .3s;
+    }
+    &:after{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @uiSwitchHeight - .02;
+        height: @uiSwitchHeight - .02;
+        border-radius: .15rem;
+        background-color: #FFFFFF;
+        box-shadow: 0 .01rem .03rem rgba(0, 0, 0, 0.4);
+        transition:transform .3s;
+    }
+
+    &:checked{
+        border-color: #04BE02;
+        background-color: #04BE02;
+        &:before{
+            transform: scale(0);
+        }
+        &:after{
+            transform: translateX(.20rem);
+        }
+    }
+}

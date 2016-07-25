@@ -2,26 +2,22 @@ export default function (router) {
   router.map({
     '/': {
       name: 'home',
-      component: require('./components/Home/index.vue')
+      component: require('./modules/Home/index.vue')
     },
     '/login': {
       name: 'login',
-      component: require('./components/Login/index.vue')
+      component: require('./modules/Login/index.vue')
     },
-    '/settings': {
-      name: 'settings',
-      component: require('./components/Settings/index.vue')
+    '/alert': {
+      name: 'alert',
+      component: require('./modules/Alert/index.vue')
     },
-    '/article/:aid':{
-      name: 'article',
-      component: require('./components/Article/index.vue')
-    },
-    '/apps': {
-      name: 'apps',
-      component: require('./components/Apps/index.vue')
+    '/toast':{
+      name: 'toast',
+      component: require('./modules/Toast/index.vue')
     },
     '*': {
-      component: require('./components/NotFound.vue')
+      component: require('./modules/NotFound/index.vue')
     }
   })
   // router.beforeEach((transition)=>{

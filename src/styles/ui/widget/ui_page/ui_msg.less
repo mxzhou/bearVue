@@ -1,0 +1,46 @@
+@import "../../base/fn";
+@import "../ui_button/ui_button";
+
+.ui_msg {
+    padding-top: @uiMsgPaddingTop;
+    text-align: center;
+
+    .ui_icon_area {
+        margin-bottom: @uiMsgIconGap;
+    }
+
+    .ui_text_area {
+        margin-bottom: @uiMsgTextGap;
+        padding:0 20px;
+    }
+    .ui_msg_title {
+        margin-bottom: @uiMsgTitleGap;
+        font-weight: 400;
+        font-size: 20px;
+    }
+    .ui_msg_desc {
+        font-size: 14px;
+        color: @globalTextColor;
+    }
+
+    .ui_opr_area {
+        margin-bottom: @uiMsgOprGap;
+    }
+
+    .ui_extra_area {
+        margin-bottom: @uiMsgExtraAreaGap;
+        font-size: 14px;
+        color: @globalTextColor;
+        a{color: @globalLinkColor;}
+    }
+}
+
+@media screen and (min-height: @uiMsgExtraAreaOfMinHeight) {
+    .ui_extra_area {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

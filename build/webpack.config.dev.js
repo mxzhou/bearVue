@@ -20,8 +20,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
-      favicon:path.join(__dirname,'../src/favicon.ico'),
-      title: "JackHu's blog vue版",
+      favicon:path.join(__dirname,'../src/assets/favicon.ico'),
+      title: "",
       template: path.join(__dirname,'../src/index.html'),
       inject: true
     }),

@@ -1,0 +1,96 @@
+@import "../../base/fn";
+
+@uiDialogBackgroundColor: #FAFAFC;
+@uiDialogLineColor: #D5D5D6;
+@uiDialogLinkColor: #3CC51F;
+@uiDialogLinkActiveBc: #EEEEEE;
+
+.ui_dialog {
+    position: fixed;
+    z-index: 5000;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: @uiDialogBackgroundColor;
+    text-align: center;
+    border-radius: .03rem;
+    overflow: hidden;
+    .ui_dialog_confirm & {
+        .ui_dialog_hd {
+            padding: 1.2em 20px .5em;
+        }
+        .ui_dialog_bd {
+            text-align: left;
+        }
+    }
+}
+
+.ui_dialog_hd {
+    padding: .2rem 0 .1rem;
+}
+
+.ui_dialog_title {
+    font-weight: 400;
+    font-size: .17rem;
+}
+
+.ui_dialog_bd {
+    padding: 0 .2rem;
+    font-size: .15rem;
+    color: @globalTextColor;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.ui_dialog_ft {
+    position: relative;
+    line-height: .42rem;
+    margin-top: .20rem;
+    font-size: .17rem;
+    display: flex;
+    a {
+        display: block;
+        flex: 1;
+        color: @uiDialogLinkColor;
+        text-decoration: none;
+        .setTapColor;
+        &:active {
+            background-color: @uiDialogLinkActiveBc;
+        }
+    }
+    &:after {
+        content: " ";
+        .setTopLine(@uiDialogLineColor);
+    }
+    .ui_dialog_confirm & {
+        a {
+            position: relative;
+            &:after {
+                content: " ";
+                .setLeftLine(@uiDialogLineColor);
+            }
+            &:first-child {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.ui_btn_dialog {
+    &.default {
+        color: #353535;
+    }
+    &.primary {
+        color: #0BB20C;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .ui_dialog {
+        width: 3rem;
+    }
+}

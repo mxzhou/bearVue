@@ -1,0 +1,12 @@
+@import "../../base/fn";
+
+.ui_btn_primary {
+    background-color: @uiBtnPrimaryBg;
+    &:not(.ui_btn_disabled):visited {
+        color: @uiBtnFontColor;
+    }
+    &:not(.ui_btn_disabled):active {
+        color: @uiBtnActiveFontColor;
+        background-color: @uiBtnPrimaryActiveBg;
+    }
+}

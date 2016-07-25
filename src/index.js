@@ -5,12 +5,7 @@ import { sync } from 'vuex-router-sync'
 import store from './vuex/store'
 import configRouter from './routes'
 import filters from './utils/filters'
-import App from './components/App.vue'
-import 'font-awesome/css/font-awesome.css'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'jackblog-sass/dist/index.css'
-import 'vue-toast/dist/vue-toast.min.css'
-import './assets/styles/index.css'
+import App from './App.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueValidator)
