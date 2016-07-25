@@ -11,7 +11,7 @@ import open from 'open'
 
 const DEV_PORT = 3000,PROD_PORT = 8400
 gulp.task('serve', cb =>{
-  let webpackConfig = require('./webpack.config')
+  let webpackConfig = require('./build/webpack.config')
   let myConfig = Object.create(webpackConfig)
   myConfig.entry.unshift('webpack/hot/only-dev-server')
   myConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + DEV_PORT)
@@ -42,7 +42,7 @@ gulp.task('set-env-prod', ()=>{
 })
 
 gulp.task('webpack', cb => {
-  let webpackConfig = require('./webpack.config')
+  let webpackConfig = require('./build/webpack.config')
   let myConfig = Object.create(webpackConfig)
   webpack(myConfig, function(err, stats) {
       if(err) throw new gutil.PluginError("webpack", err)
