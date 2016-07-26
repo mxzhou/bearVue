@@ -4,7 +4,8 @@
     <group>
       <switch title="Toggle" :value.sync="show"></switch>
     </group>
-    <alert :show.sync="show" title="hahahhha">Message</alert>
+    <alert :show.sync="show" title="hahahhha" @on-show="onShow" @on-hide="onHide">Message</alert>
+
   </div>
 </template>
 
@@ -32,7 +33,7 @@ export default {
       console.log('on hide')
 
     },
-    onshow(){
+    onShow(){
       console.log('on show')
 
     }

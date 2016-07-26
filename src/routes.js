@@ -16,6 +16,10 @@ export default function (router) {
       name: 'toast',
       component: require('./modules/Toast/index.vue')
     },
+    '/loading':{
+      name: 'loading',
+      component: require('./modules/Loading/index.vue')
+    },
     '*': {
       component: require('./modules/NotFound/index.vue')
     }

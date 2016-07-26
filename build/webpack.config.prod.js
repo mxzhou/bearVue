@@ -2,7 +2,16 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var projectRootPath = path.resolve(__dirname, '../');
+var assetsPath = path.resolve(projectRootPath, './dist');
+var CleanPlugin = require('clean-webpack-plugin');
 
+var SOURCE_MAP = false
+function generateExtractLoaders (loaders) {
+  return loaders.map(function (loader) {
+    return loader + '-loader' + (SOURCE_MAP ? '?sourceMap' : '')
+  }).join('!')
+}
 module.exports = {
   entry: {
     vendor: ['vue','vuex','vue-router'],
@@ -14,6 +23,7 @@ module.exports = {
     publicPath: './'
   },
   plugins: [
+    new CleanPlugin([assetsPath], { root: projectRootPath }),
     new webpack.DefinePlugin({
       'process.env':{
         'NODE_ENV': JSON.stringify('production')
@@ -31,7 +41,7 @@ module.exports = {
     new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
     new HtmlWebpackPlugin({
       favicon:path.join(__dirname,'../src/assets/favicon.ico'),
-      title: "JackHu's blog vue版",
+      title: "",
       template: path.join(__dirname,'../src/index.html'),  //模板文件
       inject:'body',
       hash:false,    //为静态资源生成hash值
@@ -48,7 +58,6 @@ module.exports = {
     loaders: [
       { test: /\.vue$/,loader: 'vue', include: path.join(__dirname,'../src')},
       { test: /\.js$/, loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/},
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap' ) },
       { test: /\.(jpe?g|png|gif)$/i, loaders: [
         'url?limit=10000&name=images/[hash:8].[name].[ext]',
         'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
@@ -58,8 +67,13 @@ module.exports = {
   },
   vue: {
     loaders: {
-      js: 'babel'
+      js: 'babel',
+      css: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css'])),
+      less: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'less'])),
+      sass: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'sass'])),
+      stylus: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'stylus']))
     }
+
   },
   resolve: {
     root: path.resolve(__dirname, 'node_modules'),

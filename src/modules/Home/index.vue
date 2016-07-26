@@ -22,7 +22,8 @@
             return {
                 list: [
                     {path: 'alert', text: 'alert'},
-                    {path: 'toast', text: 'toast'}
+                    {path: 'toast', text: 'toast'},
+                    {path: 'loading', text: 'loading'}
                 ]
             }
         },

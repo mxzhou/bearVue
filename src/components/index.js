@@ -7,6 +7,7 @@ import InlineDesc from './inline-desc'
 import Toast from './toast'
 import Alert from './alert'
 import Dialog from './dialog'
+import Loading from './loading'
 
 
 const vux = {
@@ -16,7 +17,8 @@ const vux = {
   Alert,
   Dialog,
   Group,
-  Cell
+  Cell,
+  Loading
 }
 
 module.exports = vux
