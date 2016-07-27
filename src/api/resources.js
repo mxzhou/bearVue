@@ -16,6 +16,9 @@ Vue.http.interceptors.push((request, next)=>{
     request.headers.Authorization = 'Bearer ' + getCookie('token').replace(/(^\")|(\"$)/g, '')
   }
   next((response) => {
+    console.log('ajax filter');
+    console.log('response');
+    console.log(response);
     // 这里可以对响应的结果进行处理
     if (response.status === 401) {
       signOut()
@@ -30,3 +33,5 @@ export const ArticleResource = Vue.resource(API_ROOT + 'article{/id}{/controller
 export const TagResource = Vue.resource(API_ROOT + 'tags{/id}')
 export const CommentResource = Vue.resource(API_ROOT + 'comment{/id}{/controller}')
 export const MobileResource = Vue.resource(API_ROOT + 'mobile{/id}')
+
+export const AppResource = Vue.resource(API_ROOT + '{/id}')

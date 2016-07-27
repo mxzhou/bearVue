@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import middlewares from './middlewares'
-import apps from './modules/apps'
 import articleList from './modules/article.list'
 import prenextArticle from './modules/article.prenext'
 import articleDetail from './modules/article.detail'
@@ -12,6 +11,8 @@ import options from './modules/options'
 import logins from './modules/logins'
 import tagList from './modules/tag.list'
 import showmsg from './modules/showmsg'
+import demoList from './modules/demo.list'
+
 
 const debug = process.env.NODE_ENV !== 'production'
 Vue.use(Vuex)
@@ -20,7 +21,6 @@ Vue.config.warnExpressionErrors = false
 
 export default new Vuex.Store({
   modules: {
-    apps,
     articleList,
     prenextArticle,
     articleDetail,
@@ -30,7 +30,8 @@ export default new Vuex.Store({
     options,
     logins,
     tagList,
-    showmsg
+    showmsg,
+    demoList
   },
   strict: debug,
   middlewares

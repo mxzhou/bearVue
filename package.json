@@ -4,9 +4,8 @@
   "description": "bear",
   "scripts": {
     "wechat": "node build/webpack.wechat.js",
-    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\" \"npm run start-dev-api\"",
+    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev-api\"",
     "watch-client": " node build/webpack.server.js",
-    "start-dev": " node ./bin/server.js",
     "start-dev-api": " node ./bin/api.js",
     "build": "webpack --verbose --colors --display-error-details --config build/webpack.config.prod.js",
     "pm2-start": "pm2 start process.json",

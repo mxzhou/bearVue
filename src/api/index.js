@@ -1,4 +1,4 @@
-import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource} from './resources'
+import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource,AppResource} from './resources'
 
 export default {
   localLogin: function (data) {
@@ -53,5 +53,8 @@ export default {
   },
   delReply: function (id,data) {
     return CommentResource.update({id:id, controller:'delReply'},data)
-  }
+  },
+  getDemoList:function () {
+    return AppResource.get({id: 'loadInfo'})
+  },
 }

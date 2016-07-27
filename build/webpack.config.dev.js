@@ -3,7 +3,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var host =  'localhost';
-var port =  3001;
+var port =  3000;
 module.exports = {
   devtool: 'inline-source-map',
   debug: true,
@@ -14,14 +14,9 @@ module.exports = {
   output: {
     path: process.cwd(),
     filename: 'bundle.js',
-    publicPath: 'http://' + host + ':' + port + '/dist/'
+    publicPath: '/'
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      "window.jQuery": "jquery"
-    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

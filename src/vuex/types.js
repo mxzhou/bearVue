@@ -38,3 +38,6 @@ export const FAILURE_GET_APPS = 'FAILURE_GET_APPS'
 
 export const SHOW_MSG = 'SHOW_MSG'
 export const HIDE_MSG = 'HIDE_MSG'
+
+export const SUCCESS_GET_DEMO_LIST = 'SUCCESS_GET_DEMO_LIST'
+export const FAILURE_GET_DEMO_LIST = 'FAILURE_GET_DEMO_LIST'

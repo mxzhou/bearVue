@@ -13,19 +13,25 @@
 <script>
     import {Group,Cell} from '../../components'
     import {changeTitle} from '../../utils/hack'
+    import { getDemoList } from '../../vuex/actions'
     export default {
+        vuex:{
+                getters:{
+                    list: ({demoList}) => demoList.items
+                },
+                actions:{
+                    getDemoList
+                }
+        },
+        route:{
+            activate ({ next }) {
+                this.getDemoList()
+                next()
+            }
+        },
         components: {
             Group,
             Cell
-        },
-        data () {
-            return {
-                list: [
-                    {path: 'alert', text: 'alert'},
-                    {path: 'toast', text: 'toast'},
-                    {path: 'loading', text: 'loading'}
-                ]
-            }
         },
         ready(){
             changeTitle('Home')

@@ -214,3 +214,17 @@ export const getApps = ({ dispatch }) => {
     dispatch(types.FAILURE_GET_APPS)
   })
 }
+
+
+//getDemoList
+export const getDemoList = ({ dispatch }) => {
+  api.getDemoList().then(response => {
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_DEMO_LIST)
+    }
+    var data = JSON.parse(response.data)
+    dispatch(types.SUCCESS_GET_DEMO_LIST, { list: data.data })
+  }, response => {
+    dispatch(types.FAILURE_GET_DEMO_LIST)
+  })
+}
