@@ -222,7 +222,10 @@ export const getDemoList = ({ dispatch }) => {
     if(!response.ok){
       return dispatch(types.FAILURE_GET_DEMO_LIST)
     }
+    console.log('demolist action');
+    console.log( response.data);
     var data = JSON.parse(response.data)
+    console.log(data.data);
     dispatch(types.SUCCESS_GET_DEMO_LIST, { list: data.data })
   }, response => {
     dispatch(types.FAILURE_GET_DEMO_LIST)

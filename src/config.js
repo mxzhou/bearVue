@@ -10,7 +10,7 @@ const environment = {
 }[process.env.NODE_ENV || 'development'];
 
 module.exports = Object.assign({
-	API_ROOT:'api',
+	API_ROOT:'/api',
 	host: 'localhost',
 	port: 3000,
 	apiHost: 'localhost',

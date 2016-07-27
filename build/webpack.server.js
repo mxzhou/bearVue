@@ -5,12 +5,11 @@ var webpackConfig = require('./webpack.config.js');
 var compiler = webpack(webpackConfig);
 var httpProxy =require('http-proxy');
 var http = require( 'http');
-
 var port = (config.port) || 3000;
 var serverOptions = {
   contentBase: 'http://0.0.0.0' + ':' + port,
-  quiet: false,
-  noInfo: false,
+  quiet: true,
+  noInfo: true,
   hot: true,
   inline: true,
   lazy: false,
@@ -21,23 +20,12 @@ var serverOptions = {
 
 var app = new Express();
 var targetUrl = 'http://localhost:3030' ;
-var server = new http.Server(app);
 var proxy = httpProxy.createProxyServer({
-  target: targetUrl,
-  ws: true
+  target: targetUrl
 });
 app.use('/api', (req, res) => {
   proxy.web(req, res, {target: targetUrl});
 });
-
-app.use('/ws', (req, res) => {
-  proxy.web(req, res, {target: targetUrl + '/ws'});
-});
-
-server.on('upgrade', (req, socket, head) => {
-  proxy.ws(req, socket, head);
-});
-
 // added the error handling to avoid https://github.com/nodejitsu/node-http-proxy/issues/527
 proxy.on('error', (error, req, res) => {
   let json;
