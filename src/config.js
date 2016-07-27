@@ -1,7 +1,25 @@
-export const API_ROOT = (process.env.NODE_ENV === 'production')
-			? 'http://api.jackhu.top/'
-			:'http://api.jackhu.top/'
+require('babel-polyfill');
 
-export const CookieDomain = (process.env.NODE_ENV === 'production')
-			? '.jackhu.top'
-			:''
+const environment = {
+	development: {
+		isProduction: false
+	},
+	production: {
+		isProduction: true
+	}
+}[process.env.NODE_ENV || 'development'];
+
+module.exports = Object.assign({
+	host: 'localhost',
+	port: 3000,
+	apiHost: 'localhost',
+	apiPort: 3030,
+	app: {
+		title: 'Bear Vue Example',
+		description: 'All the modern best practices in one example.',
+		head: {
+			titleTemplate: 'Bear Vue Example: %s'
+		}
+	},
+
+}, environment);

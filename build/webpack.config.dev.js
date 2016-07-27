@@ -2,18 +2,19 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-
+var host =  'localhost';
+var port =  3001;
 module.exports = {
   devtool: 'inline-source-map',
   debug: true,
   entry: [
-    'webpack-hot-middleware/client?reload=true&path=http://localhost:3000' + '/__webpack_hmr',
+    'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
     './src/index.js'
   ],
   output: {
     path: process.cwd(),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: 'http://' + host + ':' + port + '/dist/'
   },
   plugins: [
     new webpack.ProvidePlugin({

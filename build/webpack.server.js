@@ -1,9 +1,9 @@
 var Express = require('express');
 var webpack = require('webpack');
-
+var config = require('../src/config.js');
 var webpackConfig = require('./webpack.config.js');
 var compiler = webpack(webpackConfig);
-var port = 3000;
+var port = (config.port+1) || 3001;
 var serverOptions = {
   contentBase: 'http://0.0.0.0' + ':' + port,
   quiet: false,
