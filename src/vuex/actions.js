@@ -224,7 +224,7 @@ export const getDemoList = ({ dispatch }) => {
     }
     console.log('demolist action');
     console.log( response.data);
-    var data = JSON.parse(response.data)
+    var data =response.data
     console.log(data.data);
     dispatch(types.SUCCESS_GET_DEMO_LIST, { list: data.data })
   }, response => {

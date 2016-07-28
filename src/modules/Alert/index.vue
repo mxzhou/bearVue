@@ -25,7 +25,7 @@ export default {
      show:false
     }
   },
-  ready(){
+  init(){
     changeTitle('Alert')
   },
   methods:{

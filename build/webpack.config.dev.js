@@ -22,7 +22,7 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       favicon:path.join(__dirname,'../src/assets/favicon.ico'),
-      title: "",
+      title: "bearVue",
       template: path.join(__dirname,'../src/index.html'),
       inject: true
     }),

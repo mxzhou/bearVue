@@ -2,17 +2,17 @@
  *   解决ios单页不能更新title
  **/
 export function changeTitle(title) {
-  setTimeout(function(){
-    //利用iframe的onload事件刷新页面
-    document.title = title ;
-    //var iframe = document.createElement('iframe');
-    //iframe.src="avatar.png"
-    //iframe.style.visibility = 'hidden';
-    //iframe.onload = function () {
-    //  setTimeout(function () {
-    //    document.body.removeChild(iframe);
-    //  }, 0);
-    //};
-    //document.body.appendChild(iframe);
-  },0);
+  var body = document.getElementsByTagName('body')[0];
+  document.title = title;
+  var iframe = document.createElement("iframe");
+  iframe.src =  "favicon.ico";
+  iframe.style.display = 'none';
+  iframe.addEventListener('load', function() {
+    setTimeout(function() {
+      iframe.removeEventListener('load',function () {
+      }, false);
+      document.body.removeChild(iframe);
+    }, 0);
+  },false);
+  document.body.appendChild(iframe);
 }

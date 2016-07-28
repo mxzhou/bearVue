@@ -26,9 +26,6 @@
       Group,
       Switch
     },
-    ready(){
-      changeTitle('Toast');
-    },
     data () {
       return {
         show1: false,
@@ -38,6 +35,9 @@
         show5: false,
         show6: false
       }
-    }
+    },
+    init(){
+      changeTitle('Toast');
+    },
   }
 </script>

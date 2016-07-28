@@ -9,6 +9,7 @@
 
 <script>
 import { Loading, Group, Switch } from '../../components'
+import {changeTitle} from '../../utils/hack'
 export default {
   components: {
     Loading,
@@ -20,6 +21,9 @@ export default {
       show1: false,
       text1: 'Processing'
     }
+  },
+  init() {
+    changeTitle('Loading')
   },
   methods: {
     show1change (val) {

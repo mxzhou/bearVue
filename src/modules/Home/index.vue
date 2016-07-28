@@ -11,33 +11,33 @@
 
 <!--VM定义 -->
 <script>
-    import {Group,Cell} from '../../components'
-    import {changeTitle} from '../../utils/hack'
-    import { getDemoList } from '../../vuex/actions'
-    export default {
-        vuex:{
-                getters:{
-                    list: ({demoList}) => demoList.items
-                },
-                actions:{
-                    getDemoList
-                }
+import {Group,Cell} from '../../components'
+import {changeTitle} from '../../utils/hack'
+import { getDemoList } from '../../vuex/actions'
+export default {
+    vuex:{
+        getters:{
+            list: ({demoList}) => demoList.items
         },
-        route:{
-            activate ({ next }) {
-                this.getDemoList()
-                next()
-            }
-        },
-        components: {
-            Group,
-            Cell
-        },
-        ready(){
-            changeTitle('Home')
+        actions:{
+            getDemoList
         }
-
+    },
+    route:{
+        activate ({ next }) {
+            this.getDemoList()
+            next()
+        }
+    },
+    components: {
+        Group,
+        Cell
+    },
+    init(){
+        changeTitle('Home')
     }
+
+}
 </script>
 <!-- 引入样式 -->
 <style lang="less" scoped>
