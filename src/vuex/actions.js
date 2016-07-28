@@ -87,8 +87,8 @@ export const updateUser = (store,userInfo) => {
   })
 }
 
-export const getTagList = ({ dispatch }) => {
-  api.getTagList().then(response => {
+export const getTagList = ({ dispatch },options) => {
+  api.getTagList(options).then(response => {
     if(!response.ok){
       return dispatch(types.GET_TAG_LIST_FAILURE)
     }
@@ -217,8 +217,8 @@ export const getApps = ({ dispatch }) => {
 
 
 //getDemoList
-export const getDemoList = ({ dispatch }) => {
-  api.getDemoList().then(response => {
+export const getDemoList = ({ dispatch },options) => {
+  api.getDemoList(options).then(response => {
     if(!response.ok){
       return dispatch(types.FAILURE_GET_DEMO_LIST)
     }

@@ -13,21 +13,24 @@
 <script>
 import {Group,Cell} from '../../components'
 import {changeTitle} from '../../utils/hack'
-import { getDemoList } from '../../vuex/actions'
+import { getDemoList,getArticleList } from '../../vuex/actions'
 export default {
     vuex:{
         getters:{
+            options: ({options}) => options.item,
+            articleList: ({articleList}) => articleList.items,
             list: ({demoList}) => demoList.items
         },
         actions:{
-            getDemoList
+            getDemoList,
+            getArticleList
         }
     },
     route:{
-        activate ({ next }) {
-            this.getDemoList()
-            next()
-        }
+//        activate ({ next }) {
+//            this.getDemoList(this.options)
+//            next()
+//        }
     },
     components: {
         Group,
@@ -35,7 +38,13 @@ export default {
     },
     init(){
         changeTitle('Home')
-    }
+    },
+    created(){
+        console.log(this.options)
+        this.getArticleList(this.options)
+        this.getDemoList(this.options)
+
+}
 
 }
 </script>

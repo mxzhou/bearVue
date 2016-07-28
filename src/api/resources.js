@@ -31,4 +31,4 @@ export const TagResource = Vue.resource(API_ROOT + 'tags{/id}')
 export const CommentResource = Vue.resource(API_ROOT + 'comment{/id}{/controller}')
 export const MobileResource = Vue.resource(API_ROOT + 'mobile{/id}')
 
-export const AppResource = Vue.resource(API_ROOT + '{/id}')
+export const AppResource = Vue.resource(API_ROOT + '/{/id}')

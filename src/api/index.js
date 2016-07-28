@@ -54,7 +54,7 @@ export default {
   delReply: function (id,data) {
     return CommentResource.update({id:id, controller:'delReply'},data)
   },
-  getDemoList:function () {
-    return AppResource.get({id: 'loadInfo'})
+  getDemoList:function (options) {
+    return AppResource.get({id: 'loadInfo',...options})
   },
 }
