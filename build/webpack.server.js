@@ -6,8 +6,8 @@ var compiler = webpack(webpackConfig);
 var port = (config.port) || 3000;
 var serverOptions = {
   contentBase: 'http://0.0.0.0' + ':' + port,
-  quiet: true,
-  noInfo: true,
+  quiet: false,
+  noInfo: false,
   hot: true,
   inline: true,
   lazy: false,

@@ -5,7 +5,7 @@ export function changeTitle(title) {
   var body = document.getElementsByTagName('body')[0];
   document.title = title;
   var iframe = document.createElement("iframe");
-  iframe.src =  "favicon.ico";
+  //iframe.src =  "favicon.ico";
   iframe.style.display = 'none';
   iframe.addEventListener('load', function() {
     setTimeout(function() {

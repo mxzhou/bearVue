@@ -20,6 +20,10 @@ export default function (router) {
       name: 'loading',
       component: require('./modules/Loading/index.vue')
     },
+    '/allProduct':{
+      name: 'allProduct',
+      component: require('./modules/AllProduct/index.vue')
+    },
     '*': {
       component: require('./modules/NotFound/index.vue')
     }

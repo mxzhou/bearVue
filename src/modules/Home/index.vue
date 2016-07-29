@@ -44,7 +44,7 @@ export default {
         this.getArticleList(this.options)
         this.getDemoList(this.options)
 
-}
+    }
 
 }
 </script>

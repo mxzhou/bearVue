@@ -11,6 +11,7 @@ const environment = {
 
 module.exports = Object.assign({
 	API_ROOT:'/api',
+	KUGOU_ROOT:'/kugouapi',
 	host: 'localhost',
 	port: 3000,
 	apiHost: 'localhost',

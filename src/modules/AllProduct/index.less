@@ -1,0 +1,60 @@
+@import "../../styles/ui/base/variable/ui_skin.less";
+@import "../../styles/ui/base/variable/ui_font.less";
+*{
+  box-sizing: border-box;
+}
+.menu {
+  width: 0.9rem;
+  float: left;
+  background-color: #f8f8f8;
+  border-right: solid 1px @color-border-default;
+
+  .typeList{
+
+    .item{
+      border-bottom: solid 1px @color-border-default;
+      text-align: center;
+      padding: .15rem 0.1rem;
+      line-height: 1;
+      font-size: @font-default-menu;
+
+      &.active{
+        background: #fff;
+        color: #ff0000;
+      }
+    }
+  }
+}
+
+.content{
+  width: 2.85rem;
+  float: left;
+  .goodsList{
+    li{
+      border-bottom: solid 1px @color-border-default;
+    }
+    .left{
+      margin: .1rem;
+      width: .4rem;
+      height: .4rem;
+      float: left;
+      img{
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+    .middle{
+      float: left;
+      width: 2rem;
+      p{
+        margin-top:.1rem ;
+        font-size: @font-default-13;
+        line-height: 1.5;
+      }
+    }
+    .right{
+      float: left;
+      width: .25rem
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource,AppResource} from './resources'
+import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource,AppResource,GoodsResource} from './resources'
 
 export default {
   localLogin: function (data) {
@@ -23,8 +23,8 @@ export default {
   getIndexImage:function () {
     return ArticleResource.get({id:'getIndexImage'})
   },
-  getFrontArticleList:function (options) {
-    return ArticleResource.get({id: 'getFrontArticleList', ...options})
+  getFrontArticleList:function (data) {
+    return GoodsResource.get({id: 'goods', controller:'list'},data)
   },
   getFrontArticleCount:function () {
     return ArticleResource.get({id: 'getFrontArticleCount'})
@@ -57,4 +57,10 @@ export default {
   getDemoList:function (options) {
     return AppResource.get({id: 'loadInfo',...options})
   },
+  getTypeList:function(){
+    return GoodsResource.get({id:'type'})
+  },
+  getGoodsList:function(){
+    return GoodsResource.get({id:'goods',controller:'list'})
+  }
 }

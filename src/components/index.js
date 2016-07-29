@@ -8,6 +8,8 @@ import Toast from './toast'
 import Alert from './alert'
 import Dialog from './dialog'
 import Loading from './loading'
+import Scroller from './scroller'
+import Masker from './masker'
 
 
 const vux = {
@@ -18,7 +20,9 @@ const vux = {
   Dialog,
   Group,
   Cell,
-  Loading
+  Loading,
+  Scroller,
+  Masker
 }
 
 module.exports = vux

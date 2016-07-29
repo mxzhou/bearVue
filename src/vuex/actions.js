@@ -231,3 +231,37 @@ export const getDemoList = ({ dispatch },options) => {
     dispatch(types.FAILURE_GET_DEMO_LIST)
   })
 }
+
+// 全部商品左侧列表
+export const getTypeList = ({ dispatch }) => {
+  api.getTypeList().then(response => {
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_TYPE_LIST)
+    }
+    var data =response.data
+    dispatch(types.SUCCESS_GET_TYPE_LIST, { list: data.data })
+  }, response => {
+    dispatch(types.FAILURE_GET_TYPE_LIST)
+  })
+}
+
+// 商品列表
+export const getGoodsList = ({ dispatch }) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+
+  api.getGoodsList().then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_GOODS_LIST)
+    }
+    var data =response.data;
+    dispatch(types.SUCCESS_GET_GOODS_LIST, { list: data.data })
+  }, response => {
+    dispatch(types.FAILURE_GET_GOODS_LIST)
+  })
+}
+
+
+export const changeLoading = ({ dispatch },loading) => {
+  dispatch(types.CHANGE_LOADING, { loading: loading })
+}

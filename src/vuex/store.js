@@ -12,6 +12,9 @@ import logins from './modules/logins'
 import tagList from './modules/tag.list'
 import showmsg from './modules/showmsg'
 import demoList from './modules/demo.list'
+import typeList from './modules/type.list'
+import goodsList from './modules/goods.list'
+import loaDing from './modules/loading'
 
 
 const debug = process.env.NODE_ENV !== 'production'
@@ -31,7 +34,10 @@ export default new Vuex.Store({
     logins,
     tagList,
     showmsg,
-    demoList
+    demoList,
+    typeList,
+    goodsList,
+    loaDing
   },
   strict: debug,
   middlewares
