@@ -11,6 +11,7 @@ import Loading from './loading'
 import Scroller from './scroller'
 import Masker from './masker'
 import XButton from './x-button'
+import { Tab, TabItem } from './tab'
 
 
 const vux = {
@@ -24,7 +25,9 @@ const vux = {
   Loading,
   Scroller,
   Masker,
-  XButton
+  XButton,
+  Tab,
+  TabItem
 }
 
 module.exports = vux

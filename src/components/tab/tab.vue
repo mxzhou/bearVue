@@ -103,8 +103,9 @@ export default {
 .vux-tab {
   display: flex;
   background-color: #fff;
-  height: 44px;
+  height: .44rem;
   position: relative;
+  border-bottom: solid 1px #d6d9dc
 }
 .vux-tab button {
   padding: 0;
@@ -121,14 +122,14 @@ export default {
   box-sizing: border-box;
   background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
   background-size: 100% 1px;
-  font-size: 14px;
+  font-size: .14rem;
   text-align: center;
-  line-height: 44px;
+  line-height: .44rem;
   color: #666;
 }
 .vux-tab .vux-tab-item.vux-tab-selected {
   color: #04be02;
-  border-bottom: 3px solid #04be02;
+  border-bottom: .03rem solid #04be02;
 }
 
 .vux-tab.vux-tab-no-animate .vux-tab-item.vux-tab-selected {

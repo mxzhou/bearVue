@@ -28,9 +28,9 @@ export default function (router) {
       name: 'mine',
       component: require('./modules/Mine/index/index.vue')
     },
-    '/mine':{
-      name: 'mine',
-      component: require('./modules/Mine/index/index.vue')
+    '/mine/snarchRecord':{
+      name: 'snarchRecord',
+      component: require('./modules/Mine/snarchRecord/index.vue')
     },
     '*': {
       component: require('./modules/NotFound/index.vue')

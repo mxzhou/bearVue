@@ -32,7 +32,6 @@
   import photo from './img/ic_s_photo.png'
   import pin from './img/ic_s_pin.png'
 
-
   export default {
     components: {
       Loading,
@@ -44,7 +43,7 @@
       return {
         list:[
           {
-            text:"夺宝记录",link:'1',img:notepad,isIcon:true
+            text:"夺宝记录",link:'mine/snarchRecord',img:notepad,isIcon:true
           },
           {
             text:"幸运记录",link:'2',img:cup,isIcon:true
