@@ -10,6 +10,7 @@ import Dialog from './dialog'
 import Loading from './loading'
 import Scroller from './scroller'
 import Masker from './masker'
+import XButton from './x-button'
 
 
 const vux = {
@@ -22,7 +23,8 @@ const vux = {
   Cell,
   Loading,
   Scroller,
-  Masker
+  Masker,
+  XButton
 }
 
 module.exports = vux

@@ -1,10 +1,11 @@
 <template>
-  <div class="ui_cell" :class="{'vux-tap-active': isLink || !!link}" @click="onClick">
+  <div class="ui_cell" :class="{'vux-tap-active': isLink || !!link,'ui_icon':isIcon}"  @click="onClick">
     <div class="ui_cell_hd">
+      <img v-if="isIcon" class="icon" :src="iconUrl">
       <slot name="icon"></slot>
     </div>
     <div class="ui_cell_bd" :class="{'ui_cell_primary':primary==='title'}">
-      <p>
+      <p class="ui_p">
         {{title}}
         <slot name="after-title"></slot>
       </p>
@@ -28,6 +29,8 @@ export default {
   },
   props: {
     title: String,
+    isIcon:Boolean,
+    iconUrl:String,
     value: String,
     isLink: Boolean,
     inlineDesc: String,
@@ -50,15 +53,26 @@ export default {
 <style lang="less">
 @import '../../styles/tap.less';
 @import '../../styles/ui/widget/ui_cell/ui_cell_global.less';
-
+.ui_p{
+  font-size: .16rem;
+}
+.ui_icon:before{
+  padding: .15rem .45rem;
+  left:.45rem;
+}
+.icon{
+  width: .16rem;
+  height: .16rem;
+  margin-right: .15rem;
+}
 .ui_cell_ft.with_arrow:after {
   content: " ";
   display: inline-block;
   transform: rotate(45deg);
-  height: .06rem;
-  width: .06rem;
+  height: .08rem;
+  width: .08rem;
   border-width: .02rem .02rem 0 0;
-  border-color: #C8C8CD;
+  border-color: #c7c7cc;
   border-style: solid;
   position: relative;
   top: -1px;

@@ -20,6 +20,6 @@ export default {
   @import './styles/ui/base/reset.less';
 
   body {
-    background-color: #fbf9fe;
+    background-color: #eee;
   }
 </style>

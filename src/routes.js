@@ -24,6 +24,14 @@ export default function (router) {
       name: 'allProduct',
       component: require('./modules/AllProduct/index.vue')
     },
+    '/mine':{
+      name: 'mine',
+      component: require('./modules/Mine/index/index.vue')
+    },
+    '/mine':{
+      name: 'mine',
+      component: require('./modules/Mine/index/index.vue')
+    },
     '*': {
       component: require('./modules/NotFound/index.vue')
     }
