@@ -4,7 +4,6 @@ import bodyParser from 'body-parser';
 import config from '../src/config'
 import http from 'http';
 import routes from './routes/index'
-import recharge from './routes/recharge'
 
 const app = express();
 
@@ -17,6 +16,7 @@ app.use(session({
 app.use(bodyParser.json());
 
 app.use('/', routes);
+app.use('/', home);
 app.use('/', recharge);
 
 

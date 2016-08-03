@@ -12,7 +12,8 @@ import Scroller from './scroller'
 import Masker from './masker'
 import XButton from './x-button'
 import { Tab, TabItem } from './tab'
-
+import Swiper from './swiper'
+import SwiperItem from './swiper-item'
 
 const vux = {
   Switch,
@@ -27,7 +28,9 @@ const vux = {
   Masker,
   XButton,
   Tab,
-  TabItem
+  TabItem,
+  Swiper,
+  SwiperItem
 }
 
 module.exports = vux
