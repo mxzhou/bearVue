@@ -1,4 +1,13 @@
-import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource,AppResource,GoodsResource} from './resources'
+import {
+  UserResource,
+  AuthResource,
+  ArticleResource,
+  TagResource,
+  MobileResource,
+  CommentResource,
+  AppResource,
+  GoodsResource,
+  RechargeResource} from './resources'
 
 export default {
   localLogin: function (data) {
@@ -62,5 +71,8 @@ export default {
   },
   getGoodsList:function(){
     return GoodsResource.get({id:'goods',controller:'list'})
+  },
+  getRechageRecord:function(){
+    return RechargeResource.get({id:'user',controller:'payLog'})
   }
 }

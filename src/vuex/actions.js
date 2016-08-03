@@ -260,8 +260,21 @@ export const getGoodsList = ({ dispatch }) => {
     dispatch(types.FAILURE_GET_GOODS_LIST)
   })
 }
+// 充值列表
+export const getRechargeRecordList = ({ dispatch }) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
 
-
+  api.getRechageRecord().then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET＿RECHARGE_RECORD_LIST)
+    }
+    var data =response.data;
+    dispatch(types.SUCCESS_GET＿RECHARGE_RECORD_LIST, { list: data.data.payLogList })
+  }, response => {
+    dispatch(types.FAILURE_GET＿RECHARGE_RECORD_LIST)
+  })
+}
 export const changeLoading = ({ dispatch },loading) => {
   dispatch(types.CHANGE_LOADING, { loading: loading })
 }

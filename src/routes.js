@@ -32,6 +32,14 @@ export default function (router) {
       name: 'snarchRecord',
       component: require('./modules/Mine/snarchRecord/index.vue')
     },
+    '/mine/rechargeRecord':{
+      name: 'rechargeRecord',
+      component: require('./modules/Mine/recharge/record.vue')
+    },
+    '/mine/displayRecord':{
+      name: 'displayRecord',
+      component: require('./modules/Mine/display/index.vue')
+    },
     '*': {
       component: require('./modules/NotFound/index.vue')
     }

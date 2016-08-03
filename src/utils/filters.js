@@ -33,12 +33,21 @@ exports.customTime = item => {
   return descTime
 }
 
-exports.formatDate =  time => {
-  let tmpDate = new Date(time)
-  let year = tmpDate.getFullYear()
-  let mathon = tmpDate.getMonth() + 1
-  let day = tmpDate.getDate()
-  let hours = tmpDate.getHours()
-  let minutes = tmpDate.getMinutes()
-  return year + '.' + mathon + '.' + day + ' ' + hours + ':' + minutes
+exports.formatDate =  (time) => {
+  let tmpDate = new Date(time);
+  let year = tmpDate.getFullYear();
+  let month = tmpDate.getMonth() + 1;
+  month = month<10 ? ('0'+month) : month;
+  let day = tmpDate.getDate();
+  day = day<10 ? ('0'+day) : day;
+  let hours = tmpDate.getHours();
+  hours = hours<10 ? ('0'+hours) : hours;
+
+  let minutes = tmpDate.getMinutes();
+  minutes = minutes<10 ? ('0'+minutes) : minutes;
+
+  let seconds = tmpDate.getSeconds();
+  seconds = seconds<10 ? ('0'+seconds) : seconds;
+
+  return year + '.' + month + '.' + day + ' ' + hours + ':' + minutes+ ':' + seconds
 }

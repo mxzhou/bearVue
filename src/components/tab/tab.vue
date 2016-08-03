@@ -19,7 +19,7 @@ export default {
   props: {
     lineWidth: {
       type: Number,
-      default: 3
+      default: 2
     },
     activeColor: {
       type: String,
@@ -27,7 +27,7 @@ export default {
     },
     defaultColor: {
       type: String,
-      default: '#666'
+      default: '#333'
     },
     animate: {
       type: Boolean,
@@ -122,10 +122,10 @@ export default {
   box-sizing: border-box;
   background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
   background-size: 100% 1px;
-  font-size: .14rem;
+  font-size: .16rem;
   text-align: center;
   line-height: .44rem;
-  color: #666;
+  color: #333
 }
 .vux-tab .vux-tab-item.vux-tab-selected {
   color: #04be02;
