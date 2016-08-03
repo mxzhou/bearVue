@@ -278,12 +278,28 @@ export const getRechargeRecordList = ({ dispatch }) => {
   api.getRechageRecord().then(response => {
     dispatch(types.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
-      return dispatch(types.FAILURE_GET＿RECHARGE_RECORD_LIST)
+      return dispatch(types.FAILURE_GET_RECHARGE_RECORD_LIST)
     }
     var data =response.data;
-    dispatch(types.SUCCESS_GET＿RECHARGE_RECORD_LIST, { list: data.data.payLogList })
+    dispatch(types.SUCCESS_GET_RECHARGE_RECORD_LIST, { list: data.data.payLogList })
   }, response => {
-    dispatch(types.FAILURE_GET＿RECHARGE_RECORD_LIST)
+    dispatch(types.FAILURE_GET_RECHARGE_RECORD_LIST)
+  })
+}
+
+// 夺宝列表
+export const getSnarchRecordList = ({ dispatch }) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+
+  api.getSnarchRecordList().then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_SNARCH_RECORD_LIST)
+    }
+    var data =response.data;
+    dispatch(types.SUCCESS_GET_SNARCH_RECORD_LIST, { list: data.data.buyLogList })
+  }, response => {
+    dispatch(types.FAILURE_GET_SNARCH_RECORD_LIST)
   })
 }
 export const changeLoading = ({ dispatch },loading) => {

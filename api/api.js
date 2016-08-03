@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import config from '../src/config'
 import http from 'http';
 import routes from './routes/index'
+import home from './routes/home'
+import recharge from './routes/recharge'
 
 const app = express();
 

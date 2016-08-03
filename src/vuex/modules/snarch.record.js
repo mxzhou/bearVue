@@ -1,6 +1,6 @@
 import {
-  SUCCESS_GET_RECHARGE_RECORD_LIST,
-  FAILURE_GET_RECHARGE_RECORD_LIST
+  SUCCESS_GET_SNARCH_RECORD_LIST,
+  FAILURE_GET_SNARCH_RECORD_LIST
 } from '../types'
 
 const state = {
@@ -8,10 +8,10 @@ const state = {
 }
 
 const mutations = {
-  [FAILURE_GET_RECHARGE_RECORD_LIST](state){
+  [FAILURE_GET_SNARCH_RECORD_LIST](state){
     state.items = []
   },
-  [SUCCESS_GET_RECHARGE_RECORD_LIST](state,action){
+  [SUCCESS_GET_SNARCH_RECORD_LIST](state,action){
     console.log( action.list)
     state.items = action.list
   }

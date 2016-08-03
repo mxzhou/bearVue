@@ -47,7 +47,7 @@ export default {
         right: this.barRight,
         display: 'block',
         backgroundColor: this.activeColor,
-        height: this.lineWidth + 'px',
+        height: this.lineWidth/100 + 'rem',
         transition: !this.hasReady ? 'none' : null
       }
     },
@@ -105,7 +105,7 @@ export default {
   background-color: #fff;
   height: .44rem;
   position: relative;
-  border-bottom: solid 1px #d6d9dc
+  border-bottom: solid .01rem #d6d9dc
 }
 .vux-tab button {
   padding: 0;

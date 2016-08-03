@@ -7,6 +7,7 @@ import {
   CommentResource,
   AppResource,
   GoodsResource,
+  MineResource,
   RechargeResource} from './resources'
 
 export default {
@@ -77,5 +78,8 @@ export default {
   },
   getRechageRecord:function(){
     return RechargeResource.get({id:'user',controller:'payLog'})
+  },
+  getSnarchRecordList:function(){
+    return MineResource.get({id:'user',controller:'buyLog/list'})
   }
 }
