@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import config from '../src/config'
 import http from 'http';
 import routes from './routes/index'
+import home from './routes/home'
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(session({
 app.use(bodyParser.json());
 
 app.use('/', routes);
+app.use('/', home);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

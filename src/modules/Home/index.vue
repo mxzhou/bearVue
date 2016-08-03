@@ -1,29 +1,25 @@
 <!--模板 -->
 <template>
     <div>
-        <group>
-            <template v-for="item in list">
-                <cell :title="item.text" :link="item.path"></cell>
-            </template>
-        </group>
+    
+    <Swiper :list="adList" :loop="true" :height="" ></Swiper>
+        
     </div>
 </template>
 
 <!--VM定义 -->
 <script>
-import {Group,Cell} from '../../components'
-import {changeTitle} from '../../utils/hack'
-import { getDemoList,getArticleList } from '../../vuex/actions'
+import { Swiper } from '../../components'
+import { changeTitle } from '../../utils/hack'
+import { getDemoList,getArticleList,getAdList } from '../../vuex/actions'
 export default {
     vuex:{
         getters:{
             options: ({options}) => options.item,
-            articleList: ({articleList}) => articleList.items,
-            list: ({demoList}) => demoList.items
+            adList: ({adList}) => adList.items
         },
         actions:{
-            getDemoList,
-            getArticleList
+            getAdList
         }
     },
     route:{
@@ -33,21 +29,22 @@ export default {
 //        }
     },
     components: {
-        Group,
-        Cell
+        Swiper
     },
     init(){
         changeTitle('Home')
     },
     created(){
         console.log(this.options)
-        this.getArticleList(this.options)
-        this.getDemoList(this.options)
-
+        this.getAdList()
+    },
+    ready(){
+        console.log(this.$data);
     }
 
 }
 </script>
 <!-- 引入样式 -->
-<style lang="less" scoped>
+<style lang="less">
+@import "Home.less";
 </style>

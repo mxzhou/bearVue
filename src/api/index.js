@@ -57,6 +57,9 @@ export default {
   getDemoList:function (options) {
     return AppResource.get({id: 'loadInfo',...options})
   },
+  getAdList:function (options) {
+    return GoodsResource.get({id: 'goods', controller:'head'})
+  },
   getTypeList:function(){
     return GoodsResource.get({id:'type'})
   },
