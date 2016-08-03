@@ -17,9 +17,9 @@ export default {
 </script>
 
 <style lang="less">
-  @import './styles/ui/base/reset.less';
-
   body {
     background-color: #eee;
+    width: 3.75rem;
+    margin: 0 auto;
   }
 </style>

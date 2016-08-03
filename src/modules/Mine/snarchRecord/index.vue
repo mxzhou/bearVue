@@ -1,51 +1,5 @@
 <style lang="less" scoped>
   @import "index.less";
-  @import "../../../styles/ui/widget/ui_bar/ui_bar.less";
-  .list{
-    background: #fff;
-    padding-top: .44rem;
-  }
-  .list li{
-    border-bottom: solid 1px #c7c7cc;
-    padding: .1rem;
-    display: flex;
-    align-items: flex-start;
-  }
-  .left{
-    width: .8rem;
-    margin-right: .1rem;
-  }
-  .img{
-    width: .8rem;
-    height: .8rem;
-  }
-  .right{
-    width: 2.65rem;
-    position: relative;
-  }
-  .desc{
-    width: 100%;
-    text-align: left;
-  }
-  .short{
-    width: 1.91rem;
-  }
-  .name{
-    line-height: .2rem;
-    color: #333;
-    font-size: .14rem;
-  }
-  .p{
-    font-size: .12rem;
-    color: #aaa;
-    line-height: .2rem;
-  }
-  .fix{
-    position: fixed;
-    top:0;
-    width: 100%;
-    z-index: 1000;
-  }
 </style>
 <template>
   <div>
@@ -98,19 +52,16 @@
       }
     },
     init() {
-      changeTitle('我的夺宝')
+      changeTitle('夺宝记录')
     },
     vuex:{
       getters:{
         items:({snarchRecord})=>snarchRecord.items
-    },
+      },
 
-    actions:{
-      getSnarchRecordList,
-    }
-    },
-    init(){
-      changeTitle('充值记录');
+      actions:{
+        getSnarchRecordList,
+      }
     },
     created(){
       this.getSnarchRecordList()

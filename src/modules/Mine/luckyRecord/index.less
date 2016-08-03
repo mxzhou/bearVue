@@ -1,25 +1,24 @@
 @import "../../../styles/ui/base/variable/ui_skin.less";
 @import "../../../styles/ui/widget/ui_bar/ui_bar.less";
-.list{
-  background: #fff;
-  padding-top: .44rem;
-}
 .list li{
-  border-bottom: solid 1px #c7c7cc;
-  padding: .1rem;
+  background: #fff;
+  padding-top: .1rem;
+  margin-bottom: .1rem;
+}
+.box{
   display: flex;
   align-items: flex-start;
 }
 .left{
   width: .8rem;
-  margin-right: .1rem;
+  margin:0 .15rem 0 .1rem;
 }
 .img{
   width: .8rem;
   height: .8rem;
 }
 .right{
-  width: 2.65rem;
+  width: 2.6rem;
   position: relative;
 }
 .desc{
@@ -32,6 +31,7 @@
 .name{
   line-height: .2rem;
   color: #333;
+  margin: .1rem 0 .05rem 0;
   font-size: .14rem;
 }
 .p{
@@ -44,4 +44,23 @@
   top:0;
   width: 100%;
   z-index: 1000;
+}
+.bottom{
+  margin-left: .15rem;
+  line-height: .44rem;
+  border-top: 1px solid #c7c7cc;
+  color: #aaa;
+  font-size: .14rem;
+}
+.btn{
+  color: @color-skin-blue;
+  background: transparent;
+  border: 1px solid @color-skin-blue;
+  border-radius: .04rem;
+  line-height: .32rem;
+  height: .32rem;
+  width: 1rem;
+  display: block;
+  margin: .08rem;
+  text-align: center;
 }

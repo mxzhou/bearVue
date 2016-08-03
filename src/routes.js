@@ -28,9 +28,17 @@ export default function (router) {
       name: 'mine',
       component: require('./modules/Mine/index/index.vue')
     },
+    '/mine/address':{
+      name: 'address',
+      component: require('./modules/Mine/address/index.vue')
+    },
     '/mine/snarchRecord':{
       name: 'snarchRecord',
       component: require('./modules/Mine/snarchRecord/index.vue')
+    },
+    '/mine/luckyRecord':{
+      name: 'luckyRecord',
+      component: require('./modules/Mine/luckyRecord/index.vue')
     },
     '/mine/rechargeRecord':{
       name: 'rechargeRecord',
