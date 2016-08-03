@@ -1,28 +1,5 @@
 <style lang="less" scoped>
-  .record{
-    background: #fff;
-    margin-bottom: .44rem;
-  }
-  .record li{
-    border-bottom: solid 1px #c7c7cc;
-    padding: .1rem .15rem;
-  }
-  .title{
-    font-size: .16rem;
-    color: #333;
-  }
-  .desc{
-    float: left;
-    color: #aaa;
-    font-size: .14rem;
-    line-height: .2rem;
-  }
-  .money{
-    float: right;
-    font-size: .18rem;
-    color: #333;
-    float: right;
-  }
+  @import "./index.less";
 </style>
 <template>
   <div>

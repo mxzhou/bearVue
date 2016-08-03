@@ -39,7 +39,7 @@
       </template>
     </group>
     <div class="ui-bottom">
-      <a class="ui_btn_bottom" @click="confirm()">确认充值</a>
+      <a class="ui_btn_bottom" @click="confirm">确认充值</a>
     </div>
   </div>
 </template>
@@ -53,7 +53,6 @@
   import wepay from '../../../assets/images/ic_wepay.png'
   import debitcard from '../../../assets/images/ic_debitcardpay.png'
   import creditcard from '../../../assets/images/ic_creditcardpay.png'
-  import pin from './img/ic_s_pin.png'
   export default {
     components: {
       Loading,Group,Cell
@@ -109,7 +108,7 @@
     },
     methods: {
       confirm:function(){
-        alert(0)
+        router.go('/mine/chargeSuccess')
       },
       selectFunc:function(index){
         this.index = index;
