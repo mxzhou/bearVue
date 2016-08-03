@@ -44,6 +44,18 @@ export default function (router) {
       name: 'rechargeRecord',
       component: require('./modules/Mine/recharge/record.vue')
     },
+    '/mine/charge':{
+      name: 'charge',
+      component: require('./modules/Mine/recharge/charge.vue')
+    },
+    '/mine/chargeSuccess':{
+      name: 'chargeSuccess',
+      component: require('./modules/Mine/recharge/success.vue')
+    },
+    '/mine/chargeFail':{
+      name: 'chargeSuccess',
+      component: require('./modules/Mine/recharge/fail.vue')
+    },
     '/mine/displayRecord':{
       name: 'displayRecord',
       component: require('./modules/Mine/display/index.vue')

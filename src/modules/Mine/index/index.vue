@@ -26,11 +26,11 @@
   import { Loading, Group, Cell } from '../../../components'
   import Bg from './header.vue'
   import {changeTitle} from '../../../utils/hack'
-  import clock from './img/ic_s_clock.png'
-  import cup from './img/ic_s_cup.png'
-  import notepad from './img/ic_s_notepad.png'
-  import photo from './img/ic_s_photo.png'
-  import pin from './img/ic_s_pin.png'
+  import clock from '../../../assets/images/ic_s_clock.png'
+  import cup from '../../../assets/images/ic_s_cup.png'
+  import notepad from '../../../assets/images/ic_s_notepad.png'
+  import photo from '../../../assets/images/ic_s_photo.png'
+  import pin from '../../../assets/images/ic_s_pin.png'
 
   export default {
     components: {

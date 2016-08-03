@@ -1,6 +1,6 @@
 <style lang="less" scoped>
 .header{
-  background: url(./img/bg_header.jpg);
+  background: url(../../../assets/images/bg_header.jpg);
   width: 3.75rem;
   height: 1rem;
   display: flex;
@@ -62,7 +62,7 @@
     },
     methods: {
       add:function(){
-        alert(0)
+        router.go('/mine/charge')
       }
     }
   }
