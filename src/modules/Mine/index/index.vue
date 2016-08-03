@@ -43,20 +43,20 @@
       return {
         list:[
           {
-            text:"夺宝记录",link:'mine/snarchRecord',img:notepad,isIcon:true
+            text:"夺宝记录",link:'/mine/snarchRecord',img:notepad,isIcon:true
           },
           {
-            text:"幸运记录",link:'mine/snarchRecord',img:cup,isIcon:true
+            text:"幸运记录",link:'/mine/snarchRecord',img:cup,isIcon:true
           },
           {
-            text:"晒单记录",link:'mine/displayRecord',img:photo,isIcon:true
+            text:"晒单记录",link:'/mine/displayRecord',img:photo,isIcon:true
           }],
         list2:[
           {
-            text:"收货地址",link:'mine/snarchRecord',img:pin,isIcon:true
+            text:"收货地址",link:'/mine/snarchRecord',img:pin,isIcon:true
           },
           {
-            text:"充值记录",link:'mine/rechargeRecord',img:clock,isIcon:true
+            text:"充值记录",link:'/mine/rechargeRecord',img:clock,isIcon:true
           }],
       }
     },
