@@ -1,6 +1,6 @@
 <template>
   <div class="vux-slider">
-    <div class="vux-swiper" :style="{height: xheight}">
+    <div class="vux-swiper" :style="{height: xheight,marginTop:top}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
         <a href="javascript:">
@@ -78,7 +78,7 @@ export default {
           return this.$el.offsetWidth * this.aspectRatio + 'px'
         }
         if (this.list.length) {
-          return '180px'
+          return '1.88rem'
         } else {
           return 'auto'
         }
@@ -126,6 +126,10 @@ export default {
       type: String,
       default: 'auto'
     },
+    top: {
+      type: String,
+      default: 'auto'
+    },
     aspectRatio: Number,
     minMovingDistance: {
       type: Number,
@@ -139,6 +143,7 @@ export default {
   data () {
     return {
       current: this.index,
+      mTop: this.top,
       xheight: 'auto',
       length: this.list.length
     }
@@ -167,30 +172,30 @@ export default {
 
 <style lang="less">
 @pre: vux;
-
+@rex : 1rem/100;
 .@{pre}-slider {
   overflow: hidden;
   position: relative;
 
   > .@{pre}-indicator, .@{pre}-indicator-right {
     position: absolute;
-    right: 15px;
-    bottom: 10px;
+    right: 0.1rem;
+    bottom: 0.02rem;
 
     > a {
       float: left;
-      margin-left: 6px;
+      margin-left: 6*@rex;
 
       > .@{pre}-icon-dot {
         display: inline-block;
         vertical-align: middle;
-        width: 6px;
-        height: 6px;
-        border-radius: 3px;
-        background-color: #d0cdd1;
+        width: 6*@rex;
+        height: 6*@rex;
+        border-radius: 3*@rex;
+        background-color: rgba(255,255,255,.4);
       }
       > .@{pre}-icon-dot.active {
-        background-color: #04BE02;
+        background-color: #FFF;
       }
 
     }
@@ -238,7 +243,6 @@ export default {
           height: 1.4em;
           font-size: 16px;
           padding: 20px 50px 12px 13px;
-          background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
           color: #fff;
           text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
           overflow: hidden;
