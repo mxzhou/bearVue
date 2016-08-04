@@ -472,6 +472,10 @@ router.get('/user/buyInfo/list', function (req, res, next) {
       "id" : 30001801,
       "buyTime" : 1470282945243,
       "buyNumber" : 2
+    } ,{
+      "id" : 30001801,
+      "buyTime" : 1470282945243,
+      "buyNumber" : 2
     } ]
   }
 

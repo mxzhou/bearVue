@@ -2,21 +2,29 @@
   @import "./index.less";
 </style>
 <template>
-  <div>
-    <ul class="record">
+  <div class="sDetail">
+    <div class="desc">
+      <p class="p1">外星人15.6英寸游戏本ALW15ER-3718</p>
+      <p class="p2">期号: 301221522</p>
+      <p class="p2">本期参与: <span class="color-red">2</span>人次</p>
+    </div>
+    <ul class="list2">
+      <li class="clearfix title">
+        <div class="left">购买时间</div>
+        <div class="right">参与人次</div>
+      </li>
       <template v-for="item in items">
         <li>
-          <p class="title">{{payType[item.payType]}}</p>
-          <div class="clearfix">
-            <div class="desc"><p>{{item.createTime|formatDate}}</p><p>{{payStatus[item.payStatus]}}</p></div>
-            <p class="money">{{item.money}}元</p>
+          <div class="border clearfix">
+            <div class="left">{{item.buyTime|formatDate}}</div>
+            <div class="right">
+              <p><span class="color-red">{{item.buyNumber}}</span>人次</p>
+              <a class="color-blue">查看号码></a>
+            </div>
           </div>
         </li>
       </template>
     </ul>
-    <div class="ui-bottom">
-      <a class="ui_btn_bottom">充值</a>
-    </div>
   </div>
 </template>
 
