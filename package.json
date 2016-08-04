@@ -64,7 +64,6 @@
     "postcss-less": "^0.14.0",
     "pretty-error": "^2.0.0",
     "react-cookie": "^0.4.7",
-    "sass-loader": "^4.0.0",
     "serve-favicon": "^2.3.0",
     "socket.io": "^1.4.8",
     "style-loader": "^0.13.1",
@@ -89,6 +88,7 @@
   "dependencies": {
     "array-filter": "^1.0.0",
     "array-find": "^1.0.0",
+    "array-from": "^2.1.1",
     "array-map": "0.0.0",
     "array-shuffle": "^1.0.1",
     "clean-webpack-plugin": "^0.1.10",
