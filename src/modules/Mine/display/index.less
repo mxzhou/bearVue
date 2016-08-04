@@ -1,23 +1,69 @@
 @import "../../../styles/ui/base/variable/ui_skin.less";
-.user{
-  width: 3.75rem;
-  margin: 0 auto;
+.list{
+  background: #fff;
+  padding-top: .44rem;
+  li{
+    border-bottom: solid 1px #c7c7cc;
+    padding: .1rem;
+    display: flex;
+    align-items: flex-start;
+  }
+  .left{
+    width: .8rem;
+    margin-right: .1rem;
+  }
+  .img{
+    width: .8rem;
+    height: .8rem;
+  }
+  .right{
+    width: 2.65rem;
+    position: relative;
+  }
+  .desc{
+    width: 100%;
+    text-align: left;
+  }
+  .short{
+    width: 1.91rem;
+  }
+  .name{
+    line-height: .24rem;
+    color: #333;
+    font-size: .14rem;
+  }
+  .p{
+    font-size: .12rem;
+    color: #aaa;
+    line-height: .24rem;
+  }
+  .add{
+    display: block;
+    position: absolute;
+    top: .24rem;
+    right: 0;
+    width: .6rem;
+    height: .32rem;
+    line-height: .32rem;
+    border-radius: .04rem;
+    background: #0c7;
+    color: #fff;
+    font-size: .14rem;
+    text-align: center;
+  }
+  .detail{
+    background: #eee;
+    padding: .1rem;
+  }
+  .received{
+    width: .44rem;
+    height: .45rem;
+    position: absolute;
+    bottom: .24rem;
+    right: 0
+  }
 }
-.icon{
-  width: .16rem;
-  height: .16rem;
-  overflow: hidden;
-}
-.icon img{
-  width: 100%;
-  height: 100%;
-}
-.desc{
-  line-height: .44rem;
-  text-align: center;
-  font-size: .14rem;
-  color: #9695B1;
-}
+
 .fix{
   position: fixed;
   top:0;
