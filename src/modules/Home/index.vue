@@ -3,6 +3,8 @@
 
         <Swiper :list="adList" :loop="true" :height="adHeight" :top="adTop"></Swiper>
         <Notes :list="announceList"></Notes>
+        <Lists :goods-list="goodsHomeList.goodsList"></Lists>
+        <Buy :numer="number"></Buy>
 
     </div>
 </template>
@@ -10,8 +12,10 @@
 <script>
 import { Swiper } from '../../components'
 import Notes from './notes.vue'
+import Lists from './list.vue'
+import Buy from './buy.vue'
 import { changeTitle } from '../../utils/hack'
-import { getAdList,getAnnounceList } from '../../vuex/actions.home'
+import { getAdList,getAnnounceList,getGoodsList } from '../../vuex/actions.home'
 export default {
     data(){
         return {
@@ -23,11 +27,13 @@ export default {
         getters:{
             options: ({options}) => options.item,
             adList: ({adList}) => adList.items,
-            announceList: ({announceList}) => announceList.items
+            announceList: ({announceList}) => announceList.items,
+            goodsHomeList: ({goodsHomeList}) => goodsHomeList.items
         },
         actions:{
             getAdList,
-            getAnnounceList
+            getAnnounceList,
+            getGoodsList
         }
     },
     route:{
@@ -36,9 +42,14 @@ export default {
 //            next()
 //        }
     },
+    ready() {
+        document.body.addEventListener('touchstart',function(){},false);
+    },
     components: {
         Swiper,
-        Notes
+        Notes,
+        Lists,
+        Buy
     },
     init(){
         changeTitle('胖熊一元买')
@@ -49,6 +60,9 @@ export default {
         }
         if(this.announceList.length < 1){
             this.getAnnounceList()
+        }
+        if(this.goodsHomeList.length < 1){
+            this.getGoodsList()
         }
     },
     ready(){

@@ -21,7 +21,7 @@ import rechargeRecord from './modules/recharge.record'
 import snarchRecord from './modules/snarch.record'
 import addressList from './modules/mine/address.list'
 import detailList from './modules/mine/detail.list'
-
+import goodsHomeList from './modules/home/goods.list'
 const debug = process.env.NODE_ENV !== 'production'
 Vue.use(Vuex)
 Vue.config.debug = debug
@@ -48,7 +48,8 @@ export default new Vuex.Store({
     rechargeRecord,
     snarchRecord,
     addressList,
-    detailList
+    detailList,
+    goodsHomeList
   },
   strict: debug,
   middlewares

@@ -9,5 +9,8 @@ export default {
   },
   getAnnounceList:function (options) {
     return GoodsResource.get({id: 'goods', controller:'announce'})
+  },
+  getGoodsList:function (options) {
+    return GoodsResource.get({id: 'goods', controller:'list'})
   }
 }
