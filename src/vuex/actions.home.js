@@ -1,4 +1,4 @@
-import api from '../api'
+import api from '../api/index.home'
 import * as types from './types.home'
 //广告bnner列表
 export const getAdList = ({ dispatch }) => {
