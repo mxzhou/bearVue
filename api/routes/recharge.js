@@ -461,4 +461,21 @@ router.get('/user/buyLog/list', function (req, res, next) {
   }
   res.json(json);
 });
+
+router.get('/user/buyInfo/list', function (req, res, next) {
+  var json = {
+    "status" : 1,
+    "errorCode" : 0,
+    "errorMessage" : null,
+    "servertime" : 1470299030973,
+    "data" : [ {
+      "id" : 30001801,
+      "buyTime" : 1470282945243,
+      "buyNumber" : 2
+    } ]
+  }
+
+  res.json(json);
+});
+
 module.exports = router;

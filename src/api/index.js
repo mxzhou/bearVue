@@ -84,5 +84,11 @@ export default {
   },
   getSnarchRecordList:function(){
     return MineResource.get({id:'user',controller:'buyLog/list'})
-  }
+  },
+  getAddressList:function(){
+    return MineResource.get({id:'user',controller:'address/list'})
+  },
+  getDetailList:function(){
+    return MineResource.get({id:'user',controller:'buyInfo/list'})
+  },
 }

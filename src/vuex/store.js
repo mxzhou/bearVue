@@ -19,7 +19,8 @@ import goodsList from './modules/goods.list'
 import loaDing from './modules/loading'
 import rechargeRecord from './modules/recharge.record'
 import snarchRecord from './modules/snarch.record'
-
+import addressList from './modules/mine/address.list'
+import detailList from './modules/mine/detail.list'
 
 const debug = process.env.NODE_ENV !== 'production'
 Vue.use(Vuex)
@@ -45,7 +46,9 @@ export default new Vuex.Store({
     goodsList,
     loaDing,
     rechargeRecord,
-    snarchRecord
+    snarchRecord,
+    addressList,
+    detailList
   },
   strict: debug,
   middlewares

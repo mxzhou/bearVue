@@ -13,7 +13,7 @@
     font-size: .16rem;
     color: #999;
     text-align: center;
-    border: 1px solid #999999;
+    border: .01rem solid #999999;
     border-radius: .04rem;
     margin-bottom: .15rem;
   }
@@ -21,6 +21,18 @@
     background: #0c7;
     color: #fff;
     border: none;
+  }
+  .select{
+    width: .2rem;
+    height: .2rem;
+    background: url(../../../assets/images/elm_unmark_2.png) no-repeat;
+    background-size: contain;
+    border-radius: 100%;
+    display: block;
+  }
+  .marked{
+    background: url(../../../assets/images/elm_marked_2.png) no-repeat;
+    background-size: contain;
   }
 </style>
 <template>
@@ -34,7 +46,8 @@
     </group>
     <group title="选择支付方式">
       <template v-for="item in list">
-        <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img">
+        <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img" @click="selecrFunc2($index)">
+          <a class="select" :class="{'marked':$index == index2}"></a>
         </cell>
       </template>
     </group>
@@ -60,7 +73,8 @@
 
     data () {
       return {
-        index:1000,
+        index:0,
+        index2:0,
         moneyList:[
           {
             key:'20'
@@ -108,12 +122,15 @@
     },
     methods: {
       confirm:function(){
-        router.go('/mine/chargeSuccess')
+        router.go({name:'/mine/chargeSuccess'})
       },
       selectFunc:function(index){
         this.index = index;
         alert(this.moneyList[index].key)
-      }
+      },
+      selecrFunc2:function(index){
+        this.index2 = index;
+      },
     }
   }
 

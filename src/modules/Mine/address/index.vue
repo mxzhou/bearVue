@@ -2,75 +2,87 @@
   @import "index.less";
 </style>
 <template>
-  <div class="user">
-    <Bg :money="188"></Bg>
-    <group>
-      <template v-for="item in list">
-        <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img">
-        </cell>
+  <div>
+    <ul v-show="items.length>0" class="address_list">
+      <template v-for="item in items">
+        <li class="box">
+          <div class="hd">
+            <div class="select" :class="{'marked':item.ifDefault}"></div>
+          </div>
+          <div class="bd">
+            <p class="clearfix">
+              <span class="color-blue">{{item.receiver}}</span>
+              <span class="phone">{{item.mobile}}</span>
+            </p>
+            <div class="clearfix">
+              <p class="address f-fl">
+                <span class="color-green" v-if="item.ifDefault">[默认]</span>
+                {{item.province+item.city+item.area+item.addressDetail}}
+              </p>
+              <div class="f-fr vertical">
+                <img src="../../../assets/images/ic_s_edit.png" class="edit">
+              </div>
+            </div>
+          </div>
+        </li>
       </template>
-    </group>
-    <group>
-      <template v-for="item in list2">
-        <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img">
-        </cell>
-      </template>
-    </group>
-    <group>
-        <p class="desc">我的ID:101100110</p>
-    </group>
+    </ul>
+    <div v-show="items.length == 0" class="noAddress">
+      <div class="content">
+        <img :src="noAddress">
+        <p class="p">您尚未添加任何收货地址</p>
+      </div>
+      <div class="desc">
+        <p class="p">
+          点击此处添加收货地址</p>
+        <img :src="arrow">
+      </div>
+    </div>
+    <div class="ui-bottom">
+      <a class="ui_btn_bottom" @click="addAddress">添加新地址</a>
+    </div>
     <loading :show="loading" :text="text1"></loading>
 
   </div>
 </template>
 
 <script>
-  import { Loading, Group, Cell } from '../../../components'
-  import Bg from './header.vue'
+  import { Loading } from '../../../components'
+  import {getAddressList} from '../../../vuex/actions'
   import {changeTitle} from '../../../utils/hack'
-  import clock from './img/ic_s_clock.png'
-  import cup from './img/ic_s_cup.png'
-  import notepad from './img/ic_s_notepad.png'
-  import photo from './img/ic_s_photo.png'
-  import pin from './img/ic_s_pin.png'
+  import noAddress from '../../../assets/images/img_noadd.png'
+  import arrow from '../../../assets/images/img_addaddressarrow.png'
 
   export default {
     components: {
-      Loading,
-      Group,
-      Cell,
-      Bg
+      Loading
     },
     data () {
       return {
-        list:[
-          {
-            text:"夺宝记录",link:'mine/snarchRecord',img:notepad,isIcon:true
-          },
-          {
-            text:"幸运记录",link:'2',img:cup,isIcon:true
-          },
-          {
-            text:"晒单记录",link:'3',img:photo,isIcon:true
-          }],
-        list2:[
-          {
-            text:"收货地址",link:'1',img:pin,isIcon:true
-          },
-          {
-            text:"充值记录",link:'2',img:clock,isIcon:true
-          }],
-        text1: '加载中...'
+        noAddress:noAddress,
+        arrow:arrow
       }
     },
     init() {
-      changeTitle('我的夺宝')
+      changeTitle('地址列表')
+    },
+    vuex:{
+      getters:{
+        items:function(store){
+          return store.addressList.items
+        }
+      },
+      actions:{getAddressList}
+    },
+    route:{
+      data () {
+        this.getAddressList()
+      }
     },
     methods: {
-
+      addAddress:function(){
+        router.go('/mine/addAddress')
+      }
     }
-  }
-
-  function tick (i, cb) {
   }
 </script>

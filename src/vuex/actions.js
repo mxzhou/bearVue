@@ -294,3 +294,36 @@ export const getSnarchRecordList = ({ dispatch }) => {
 export const changeLoading = ({ dispatch },loading) => {
   dispatch(types.CHANGE_LOADING, { loading: loading })
 }
+// 地址列表
+export const getAddressList = ({ dispatch }) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+
+  api.getAddressList().then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_ADDRESS_LIST)
+    }
+    var data =response.data;
+    dispatch(types.SUCCESS_GET_ADDRESS_LIST, { list: data.data })
+  }, response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    dispatch(types.FAILURE_GET_ADDRESS_LIST)
+  })
+}
+
+// 夺宝详情
+export const getDetailList = ({ dispatch }) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+
+  api.getDetailList().then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_DETAIL_LIST)
+    }
+    var data =response.data;
+    dispatch(types.SUCCESS_GET_DETAIL_LIST, { list: data.data })
+  }, response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    dispatch(types.FAILURE_GET_DETAIL_LIST)
+  })
+}

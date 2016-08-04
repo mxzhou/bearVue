@@ -1,20 +1,93 @@
 @import "../../../styles/ui/base/variable/ui_skin.less";
-.user{
-  width: 3.75rem;
-  margin: 0 auto;
+.noAddress{
+  position: relative;
+  .content{
+    margin-top: 2rem;
+    text-align: center;
+    img{
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+    .p{
+      color: #666;
+      font-size: .16rem;
+      line-height: 2;
+    }
+
+  }
+  .desc{
+    position: fixed;
+    bottom: 0;
+    padding-bottom: .44rem;
+    text-align: center;
+    width: 100%;
+    img{
+      width: .27rem;
+      height: .33rem;
+    }
+    .p{
+      color:#9695B1;
+      font-size: .14rem;
+      line-height: 1.5;
+    }
+  }
 }
-.icon{
-  width: .16rem;
-  height: .16rem;
-  overflow: hidden;
-}
-.icon img{
-  width: 100%;
-  height: 100%;
-}
-.desc{
-  line-height: .44rem;
-  text-align: center;
-  font-size: .14rem;
-  color: #9695B1;
+.address_list{
+  background: #fff;
+  padding-left: .15rem;
+  .box{
+    display: flex;
+    align-items: center;
+    padding: .1rem .1rem .1rem 0;
+    border-top: .01rem solid #D3D6DA;
+
+    .select{
+      width: .2rem;
+      height: .2rem;
+      background: url(../../../assets/images/elm_unmark_2.png) no-repeat;
+      background-size: contain;
+      border-radius: 100%;
+      display: block;
+    }
+    .marked{
+      background: url(../../../assets/images/elm_marked_2.png) no-repeat;
+      background-size: contain;
+    }
+    .hd{
+      padding-right: .15rem;
+    }
+    .bd{
+      flex: 1;
+      font-size: .14rem;
+      line-height: .2rem;
+      .phone{
+        color: #999;
+        float: right;
+      }
+      .address{
+        width: 2.81rem;
+        padding-right: .1rem;
+        border-right: .01rem solid #D3D6DA;
+        height: .4rem;
+        overflow: hidden;
+      }
+      .edit{
+        vertical-align: middle;
+        width: .16rem;
+        height: .16rem;
+        margin-right: .03rem;
+      }
+      .vertical{
+        height: .4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+    }
+
+  }
+  :first-child{
+    border-top: none;
+  }
 }

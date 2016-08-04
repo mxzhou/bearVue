@@ -3,7 +3,7 @@
 </style>
 <template>
   <div>
-    <tab>
+    <tab class="fix">
       <tab-item :selected="demo1 === '待晒单'" @click="demo1 = '待晒单'"><span>待晒单</span></tab-item>
       <tab-item :selected="demo1 === '已晒单'" @click="demo1 = '已晒单'">已晒单</tab-item>
     </tab>

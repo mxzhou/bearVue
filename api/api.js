@@ -3,6 +3,7 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import config from '../src/config'
 import http from 'http';
+import address from './routes/address'
 import routes from './routes/index'
 import home from './routes/home'
 import recharge from './routes/recharge'
@@ -16,7 +17,7 @@ app.use(session({
   cookie: { maxAge: 60000 }
 }));
 app.use(bodyParser.json());
-
+app.use('/', address);
 app.use('/', routes);
 app.use('/', home);
 app.use('/', recharge);
