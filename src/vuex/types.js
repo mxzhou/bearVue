@@ -50,9 +50,6 @@ export const SUCCESS_GET_GOODS_LIST = 'SUCCESS_GET_GOODS_LIST'
 export const FAILURE_GET_GOODS_LIST = 'FAILURE_GET_GOODS_LIST'
 
 // Loading State
-// 广告banner列表
-export const SUCCESS_GET_AD_LIST = 'SUCCESS_GET_AD_LIST'
-export const FAILURE_GET_AD_LIST = 'FAILURE_GET_AD_LIST'
 
 export const CHANGE_LOADING = 'CHANGE_LOADING'
 

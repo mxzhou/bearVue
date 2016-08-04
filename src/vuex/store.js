@@ -13,6 +13,7 @@ import tagList from './modules/tag.list'
 import showmsg from './modules/showmsg'
 import demoList from './modules/demo.list'
 import adList from './modules/home/ad.list'
+import announceList from './modules/home/announce.list'
 import typeList from './modules/type.list'
 import goodsList from './modules/goods.list'
 import loaDing from './modules/loading'
@@ -39,6 +40,7 @@ export default new Vuex.Store({
     showmsg,
     demoList,
     adList,
+    announceList,
     typeList,
     goodsList,
     loaDing,

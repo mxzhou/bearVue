@@ -231,18 +231,7 @@ export const getDemoList = ({ dispatch },options) => {
     dispatch(types.FAILURE_GET_DEMO_LIST)
   })
 }
-//广告bnner列表
-export const getAdList = ({ dispatch }) => {
-  api.getAdList().then(response => {
-    if(!response.ok){
-      return dispatch(types.FAILURE_GET_AD_LIST)
-    }
-    var data =response.data
-    dispatch(types.SUCCESS_GET_AD_LIST, { list: data.data })
-  }, response => {
-    dispatch(types.FAILURE_GET_AD_LIST)
-  })
-}
+
 // 全部商品左侧列表
 export const getTypeList = ({ dispatch }) => {
   api.getTypeList().then(response => {

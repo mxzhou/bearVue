@@ -70,9 +70,6 @@ export default {
   getAdList:function (options) {
     return GoodsResource.get({id: 'goods', controller:'head'})
   },
-  getAnnounceList:function (options) {
-    return GoodsResource.get({id: 'goods', controller:'announce'})
-  },
   getTypeList:function(){
     return GoodsResource.get({id:'type'})
   },

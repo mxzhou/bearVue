@@ -52,5 +52,36 @@ router.get('/goods/head', function (req, res, next) {
   res.json(json);
   next();
 })
-
+//中奖名单公告
+router.get('/goods/announce', function (req, res, next) {
+  var json = {
+    "status" : 1,
+    "errorCode" : 0,
+    "errorMessage" : null,
+    "servertime" : 1470036971089,
+    "data" : [ {
+      "id" : 12,
+      "username" : "了我的1",
+      "prize" : "iPhone6s 64G 港版"
+    },{
+      "id" : 22,
+      "username" : "了我的2",
+      "prize" : "iPhone6s 64G 港版"
+    },{
+      "id" : 32,
+      "username" : "了我的3",
+      "prize" : "iPhone6s 64G 港版"
+    },{
+      "id" : 42,
+      "username" : "了我的4",
+      "prize" : "iPhone6s 64G 港版"
+    },{
+      "id" : 52,
+      "username" : "了我的5",
+      "prize" : "iPhone6s 64G 港版"
+    }]
+  };
+  res.json(json);
+  next();
+})
 module.exports = router;

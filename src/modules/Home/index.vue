@@ -2,8 +2,8 @@
     <div>
 
         <Swiper :list="adList" :loop="true" :height="adHeight" :top="adTop"></Swiper>
-        <Notes></Notes>
-        
+        <Notes :list="announceList"></Notes>
+
     </div>
 </template>
 
@@ -11,7 +11,7 @@
 import { Swiper } from '../../components'
 import Notes from './notes.vue'
 import { changeTitle } from '../../utils/hack'
-import { getDemoList,getArticleList,getAdList } from '../../vuex/actions'
+import { getAdList,getAnnounceList } from '../../vuex/actions.home'
 export default {
     data(){
         return {
@@ -22,10 +22,12 @@ export default {
     vuex:{
         getters:{
             options: ({options}) => options.item,
-            adList: ({adList}) => adList.items
+            adList: ({adList}) => adList.items,
+            announceList: ({announceList}) => announceList.items
         },
         actions:{
-            getAdList
+            getAdList,
+            getAnnounceList
         }
     },
     route:{
@@ -42,8 +44,12 @@ export default {
         changeTitle('胖熊一元买')
     },
     created(){
-        console.log(this.options)
-        this.getAdList()
+        if(this.adList.length < 1){
+            this.getAdList()
+        }
+        if(this.announceList.length < 1){
+            this.getAnnounceList()
+        }
     },
     ready(){
         console.log(this.$data);

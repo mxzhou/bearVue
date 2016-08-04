@@ -1,6 +1,6 @@
 import {
-  SUCCESS_GET_AD_LIST,
-  FAILURE_GET_AD_LIST
+  SUCCESS_GET_ANNOUNCE_LIST,
+  FAILURE_GET_ANNOUNCE_LIST
 } from '../../types.home'
 
 const state = {
@@ -8,10 +8,10 @@ const state = {
 }
 
 const mutations = {
-  [FAILURE_GET_AD_LIST](state){
+  [FAILURE_GET_ANNOUNCE_LIST](state){
     state.items = []
   },
-  [SUCCESS_GET_AD_LIST](state,action){
+  [SUCCESS_GET_ANNOUNCE_LIST](state,action){
     state.items = action.list
   }
 }
