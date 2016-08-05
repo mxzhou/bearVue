@@ -14,7 +14,15 @@ import XButton from './x-button'
 import { Tab, TabItem } from './tab'
 import Swiper from './swiper'
 import SwiperItem from './swiper-item'
-
+import Picker from './picker'
+import Popup from './popup'
+import PopupPicker from './popup-picker'
+import Address from './address'
+import AddressChinaData from './address/list'
+import Flexbox from './flexbox'
+import FlexboxItem from './flexbox-item'
+import XInput from './x-input'
+import XTextarea from './x-textarea'
 const vux = {
   Switch,
   InlineDesc,
@@ -30,7 +38,16 @@ const vux = {
   Tab,
   TabItem,
   Swiper,
-  SwiperItem
+  SwiperItem,
+  Picker,
+  Popup,
+  PopupPicker,
+  Address,
+  AddressChinaData,
+  Flexbox,
+  FlexboxItem,
+  XInput,
+  XTextarea
 }
 
 module.exports = vux

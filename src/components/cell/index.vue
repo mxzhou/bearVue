@@ -1,5 +1,5 @@
 <template>
-  <div class="ui_cell" :class="{'vux-tap-active': isLink || !!link,'ui_icon':isIcon}"  @click="onClick">
+  <div class="ui_cell" :class="{'vux-tap-active': isLink || !!link}"  @click="onClick">
     <div class="ui_cell_hd">
       <img v-if="isIcon" class="icon" :src="iconUrl">
       <slot name="icon"></slot>
@@ -55,11 +55,12 @@ export default {
 @import '../../styles/ui/widget/ui_cell/ui_cell_global.less';
 .ui_p{
   font-size: .16rem;
+  min-width: .8rem;
 }
-.ui_icon:before{
-  padding: .15rem .45rem;
-  left:.45rem;
-}
+/*.ui_icon:before{*/
+  /*padding: .15rem .45rem;*/
+  /*left:.45rem;*/
+/*}*/
 .icon{
   width: .16rem;
   height: .16rem;
@@ -75,7 +76,7 @@ export default {
   border-color: #c7c7cc;
   border-style: solid;
   position: relative;
-  top: -1px;
-  margin-left: .3rem;
+  top: -0.01rem;
+  margin-left: .05rem;
 }
 </style>

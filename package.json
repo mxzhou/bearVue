@@ -36,6 +36,7 @@
     "babel-runtime": "^6.9.2",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.6",
+    "china-area-data": "^1.0.0",
     "compression": "^1.6.2",
     "concurrently": "^2.2.0",
     "css-loader": "^0.23.1",

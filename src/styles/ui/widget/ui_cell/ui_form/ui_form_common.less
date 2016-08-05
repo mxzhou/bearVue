@@ -2,7 +2,7 @@
 
 .ui_label{
     display:block;
-    width:@uiCellLabelWidth;
+    min-width: .8rem;
     .text_wrap();
 }
 .ui_input {
@@ -13,8 +13,8 @@
     background-color: transparent;
     font-size: inherit;
     color: inherit;
-    height: unit(@uiCellLineHeight, em);
-    line-height: @uiCellLineHeight;
+    height: .22rem;
+    line-height: .22rem;
 
     // hides the spin-button
     &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
@@ -28,7 +28,7 @@
     resize: none;
     width: 100%;
     color: inherit;
-    font-size: 1em;
+    font-size: .16rem;
     line-height: inherit;
     outline: 0;
 }

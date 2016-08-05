@@ -4,7 +4,7 @@
 
 <style>
 .vux-label-desc {
-  font-size:14px;
+  font-size:.14rem;
   color:#666;
 }
 </style>
