@@ -48,6 +48,10 @@ export default function (router) {
       name: 'luckyRecord',
       component: require('./modules/Mine/luckyRecord/index.vue')
     },
+    '/mine/luckyDetail':{
+      name: 'luckyDetail',
+      component: require('./modules/Mine/luckyRecord/detail.vue')
+    },
     '/mine/rechargeRecord':{
       name: 'rechargeRecord',
       component: require('./modules/Mine/recharge/record.vue')

@@ -23,6 +23,8 @@ import Flexbox from './flexbox'
 import FlexboxItem from './flexbox-item'
 import XInput from './x-input'
 import XTextarea from './x-textarea'
+import Empty from './empty'
+
 const vux = {
   Switch,
   InlineDesc,
@@ -47,7 +49,8 @@ const vux = {
   Flexbox,
   FlexboxItem,
   XInput,
-  XTextarea
+  XTextarea,
+  Empty
 }
 
 module.exports = vux

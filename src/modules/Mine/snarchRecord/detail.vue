@@ -15,7 +15,7 @@
       </li>
       <template v-for="item in items">
         <li>
-          <div class="border clearfix">
+          <div class="border clearfix" :class="{'noBorder':$index == 0}">
             <div class="left">{{item.buyTime|formatDate}}</div>
             <div class="right">
               <p><span class="color-red">{{item.buyNumber}}</span>人次</p>

@@ -2,66 +2,148 @@
 .list{
   background: #fff;
   padding-top: .44rem;
-  li{
+  .li{
     border-bottom: solid 1px #c7c7cc;
     padding: .1rem;
     display: flex;
     align-items: flex-start;
+    .left{
+      width: .8rem;
+      margin-right: .1rem;
+    }
+    .img{
+      width: .8rem;
+      height: .8rem;
+    }
+    .right{
+      width: 2.65rem;
+      position: relative;
+    }
+    .desc{
+      width: 100%;
+      text-align: left;
+    }
+    .short{
+      width: 1.91rem;
+    }
+    .name{
+      line-height: .24rem;
+      color: #333;
+      font-size: .14rem;
+    }
+    .p{
+      font-size: .12rem;
+      color: #aaa;
+      line-height: .24rem;
+    }
+    .add{
+      display: block;
+      position: absolute;
+      top: .24rem;
+      right: 0;
+      width: .6rem;
+      height: .32rem;
+      line-height: .32rem;
+      border-radius: .04rem;
+      background: #0c7;
+      color: #fff;
+      font-size: .14rem;
+      text-align: center;
+    }
+    .detail{
+      background: #eee;
+      padding: .1rem;
+    }
+    .received{
+      width: .44rem;
+      height: .45rem;
+      position: absolute;
+      bottom: .24rem;
+      right: 0
+    }
   }
-  .left{
-    width: .8rem;
-    margin-right: .1rem;
+
+  .box{
+    display: flex;
+    .left{
+      width: .4rem;
+      height: .4rem;
+      margin-right: .1rem;
+      border-radius: 100%;
+      overflow: hidden;
+      margin: .1rem;
+      .img{
+        width: .4rem;
+        height: .4rem;
+        border-radius: 100%;
+      }
+    }
+    .right{
+      flex: 1;
+      border-top:@color-border-default solid .01rem ;
+      padding: .1rem;
+      .hd{
+        font-size: .16rem;
+        line-height: .24rem;
+        .time{
+          font-size: .14rem;
+          color: #aaa;
+          float: right;
+        }
+      }
+      .bd{
+        font-size: .16rem;
+        color: #333;
+        line-height: .24rem;
+      }
+      .ft{
+        display: flex;
+        justify-content: space-between;
+        margin: 0.1rem 0;
+        .display-img{
+          width: .94rem;
+          height: .94rem;
+        }
+      }
+      .status{
+        position: relative;
+        background: #FFFAEB;
+        border: .01rem solid #D9C9C3;
+        border-radius: .04rem;
+        padding: .06rem .1rem;
+        color: #CC9F8F;
+        font-size: .14rem;
+        .recommend{
+          width: .85rem;
+          height: .48rem;
+          position: absolute;
+          top: -.3rem;
+          left: -.4rem;
+        }
+        .le{
+          line-height: .2rem;
+          p{
+            width: 2.04rem;
+          }
+        }
+        .re{
+          padding: .05rem 0;
+          .btn{
+            display: block;
+            width:.6rem;
+            height: .32rem;
+            border: .01rem solid @color-skin-blue;
+            border-radius: .04rem;
+            text-align: center;
+            line-height: .32rem;
+            font-size: .14rem;
+            color: @color-skin-blue;
+          }
+        }
+      }
+    }
   }
-  .img{
-    width: .8rem;
-    height: .8rem;
-  }
-  .right{
-    width: 2.65rem;
-    position: relative;
-  }
-  .desc{
-    width: 100%;
-    text-align: left;
-  }
-  .short{
-    width: 1.91rem;
-  }
-  .name{
-    line-height: .24rem;
-    color: #333;
-    font-size: .14rem;
-  }
-  .p{
-    font-size: .12rem;
-    color: #aaa;
-    line-height: .24rem;
-  }
-  .add{
-    display: block;
-    position: absolute;
-    top: .24rem;
-    right: 0;
-    width: .6rem;
-    height: .32rem;
-    line-height: .32rem;
-    border-radius: .04rem;
-    background: #0c7;
-    color: #fff;
-    font-size: .14rem;
-    text-align: center;
-  }
-  .detail{
-    background: #eee;
-    padding: .1rem;
-  }
-  .received{
-    width: .44rem;
-    height: .45rem;
-    position: absolute;
-    bottom: .24rem;
-    right: 0
-  }
+
 }
 
 .fix{
@@ -69,4 +151,20 @@
   top:0;
   width: 100%;
   z-index: 1000;
+}
+.noBorder{
+  border: none!important;
+}
+.f-pre {
+  overflow: hidden;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.f-toe {
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

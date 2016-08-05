@@ -4,11 +4,11 @@
 <template>
   <div>
     <tab class="fix">
-      <tab-item :selected="title === '全部'" @click="title = '全部'">全部</tab-item>
-      <tab-item :selected="title === '进行中'" @click="title = '进行中'">进行中</tab-item>
-      <tab-item :selected="title === '已揭晓'" @click="title = '已揭晓'">已揭晓</tab-item>
+      <template v-for="item in titleList">
+        <tab-item :selected="item === '全部'" @click="getList($index)">{{item}}</tab-item>
+      </template>
     </tab>
-    <ul class="list">
+    <ul class="list" v-show="!show">
       <template v-for="item in items">
         <li>
           <div class="left">
@@ -32,7 +32,7 @@
               <a class="f-fr color-blue" @click="detailFunc">查看详情></a>
               <img :src="received" v-if="item.status != 0" alt="已获得" class="received"/>
             </div>
-            <div class="detail" v-if="item.status == 5">
+            <div class="detailInfo" v-if="item.status == 5">
               <p class="p">获奖者：{{item.nickname}}</p>
               <p class="p color999">（{{item.address+' IP：'+item.ip}}）</p>
               <p class="p">用户ID：{{item.id}}</p>
@@ -41,16 +41,16 @@
               <p class="p">揭晓时间：{{item.openTime|formatDate}}</p>
             </div>
             <a class="add" v-if="item.status == 0" @click="addFunc">追加</a>
-
           </div>
         </li>
       </template>
     </ul>
+    <empty :fn="fn" :show="show" title="暂无夺宝记录" btn="立即夺宝" :pad="pad" :items="items"></empty>
   </div>
 </template>
 
 <script>
-  import { Tab, TabItem,Loading } from '../../../components'
+  import { Tab, TabItem,Loading,Empty} from '../../../components'
   import {changeTitle} from '../../../utils/hack'
   import {getSnarchRecordList} from '../../../vuex/actions'
   import {formatDate} from '../../../utils/filters'
@@ -59,14 +59,17 @@
 
   export default {
     components: {
-      Tab, TabItem, Loading
+      Tab, TabItem, Loading,Empty
     },
     filters: {
       formatDate
     },
     data () {
       return {
+        pad:true,
+        show:false,
         title: '全部',
+        titleList:['全部','进行中','已揭晓'],
         received:received
       }
     },
@@ -87,6 +90,17 @@
       this.getSnarchRecordList()
     },
     methods:{
+      getList:function(index){
+        if(index == 1){
+          this.show = true;
+        }else{
+          this.show = false;
+
+        }
+      },
+      fn:function(){
+        alert('立即夺宝')
+      },
       addFunc:function() {
         alert('add')
       },
