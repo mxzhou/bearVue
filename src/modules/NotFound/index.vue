@@ -1,8 +1,10 @@
 <!--模板 -->
 <template>
   <div class="box">
-    <img :src="emptyImg"/>
-    <p class="desc">暂无内容</p>
+    <div>
+      <img :src="emptyImg"/>
+      <p class="description">暂无内容</p>
+    </div>
   </div>
 </template>
 
@@ -23,10 +25,13 @@ export default {
 <!-- 引入样式 -->
 <style lang="less" scoped>
 .box{
-  display: flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items: center;
-  align-content:center;
+  padding-top: 1.94rem;
+  text-align: center;
+}
+.description{
+  margin-top: .1rem;
+  color: #666;
+  font-size: .16rem;
+  line-height: .24rem;
 }
 </style>
