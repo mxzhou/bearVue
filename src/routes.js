@@ -72,6 +72,14 @@ export default function (router) {
       name: 'displayRecord',
       component: require('./modules/Mine/display/index.vue')
     },
+    '/announce':{
+      name: 'announce',
+      component: require('./modules/Announce/index.vue')
+    },
+    '/calculate':{
+      name: 'calculate',
+      component: require('./modules/Announce/calculate.vue')
+    },
     '*': {
       component: require('./modules/NotFound/index.vue')
     }

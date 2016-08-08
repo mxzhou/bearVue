@@ -8,8 +8,10 @@
 </template>
 
 <script>
+import FastClick from 'fastclick'
 import store from './vuex/store'
-
+const options = {};
+FastClick.attach(document.body, options);
 export default {
   store,
   components: { }

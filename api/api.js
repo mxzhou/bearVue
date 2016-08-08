@@ -7,6 +7,7 @@ import address from './routes/address'
 import routes from './routes/index'
 import home from './routes/home'
 import recharge from './routes/recharge'
+import open from './routes/open'
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use('/', address);
 app.use('/', routes);
 app.use('/', home);
 app.use('/', recharge);
+// 最新揭晓
+app.use('/', open);
 
 
 // catch 404 and forward to error handler
