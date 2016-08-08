@@ -219,4 +219,269 @@ router.get('/goods/list',function(req, res, next){
     res.json(json);
     next();
 })
+//商品详情
+router.get('/goods/detail',function(req, res, next){
+  var json = {
+      "status" : 1,
+      "errorCode" : 0,
+      "errorMessage" : null,
+      "servertime" : 1470652267998,
+      "data" : {
+        "coverImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1lNKCBybj1RCvBVdK.jpg",
+        "id" : 100076783,
+        "goodsId" : 79,
+        "goodsName" : "飞利浦（PHILIPS）空气净化器 AC4076",
+        "goodsDesc" : "颜色随机",
+        "price" : 3298.0,
+        "needNumber" : 3298,
+        "surplusNumber" : 3298,
+        "status" : 0,
+        "hotSort" : 100000,
+        "lastStage" : 0,
+        "goodsImgList" : [ {
+          "goodsImgId" : 1211,
+          "goodsImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1lNKCBybj1RCvBVdK.jpg",
+          "goodsImgSort" : 1
+        }, {
+          "goodsImgId" : 1212,
+          "goodsImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1UzVCB_Av1RCvBVdK.jpg",
+          "goodsImgSort" : 2
+        }, {
+          "goodsImgId" : 1213,
+          "goodsImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T18XVCBbVg1RCvBVdK.jpg",
+          "goodsImgSort" : 3
+        }, {
+          "goodsImgId" : 1214,
+          "goodsImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1.X_CBbLQ1RCvBVdK.jpg",
+          "goodsImgSort" : 4
+        }, {
+          "goodsImgId" : 1215,
+          "goodsImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T15F_CBbWj1RCvBVdK.jpg",
+          "goodsImgSort" : 5
+        } ],
+        "winner" : null,
+        "beginTime" : 1470618085000,
+        "startTime" : 0,
+        "openTime" : 0
+      }
+    }
+    res.json(json);
+    next();
+})
+//参与者列表
+router.get('/goods/joiner',function(req, res, next){
+  var json = {
+      "status" : 1,
+      "errorCode" : 0,
+      "errorMessage" : null,
+      "servertime" : 1470652350976,
+      "data" : {
+        "total" : 0,
+        "userList" : [ {
+          "id" : 25058612,
+          "kgUid" : 1200284902,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1ikC4B5Cj1RCvBVdK.jpeg",
+          "nickname" : "开心就好",
+          "ip" : "222.78.226.94",
+          "address" : "福建省南平市",
+          "joinTime" : 1470652347903,
+          "joinNumber" : 15
+        }, {
+          "id" : 25058577,
+          "kgUid" : 1204602223,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1VkV4BsDj1RCvBVdK.jpeg",
+          "nickname" : "83039104",
+          "ip" : "14.18.29.147",
+          "address" : "广东省广州市",
+          "joinTime" : 1470652342693,
+          "joinNumber" : 15
+        }, {
+          "id" : 25058573,
+          "kgUid" : 1209189556,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1lkK4BbLg1RCvBVdK.jpeg",
+          "nickname" : "该我了",
+          "ip" : "113.57.182.120",
+          "address" : "湖北省武汉市",
+          "joinTime" : 1470652341846,
+          "joinNumber" : 7
+        }, {
+          "id" : 25058571,
+          "kgUid" : 1205312189,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png",
+          "nickname" : "让我中一次吧谢谢",
+          "ip" : "60.180.179.96",
+          "address" : "浙江省温州市",
+          "joinTime" : 1470652341752,
+          "joinNumber" : 8
+        }, {
+          "id" : 25058563,
+          "kgUid" : 1201762548,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png",
+          "nickname" : "啥就不中呢",
+          "ip" : "106.118.220.53",
+          "address" : "河北省衡水市",
+          "joinTime" : 1470652340199,
+          "joinNumber" : 15
+        }, {
+          "id" : 25058544,
+          "kgUid" : 1209957333,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1WhV5B_CT1RCvBVdK.jpeg",
+          "nickname" : "不中我就破产了",
+          "ip" : "110.80.101.141",
+          "address" : "福建省厦门市",
+          "joinTime" : 1470652338030,
+          "joinNumber" : 5
+        }, {
+          "id" : 25058519,
+          "kgUid" : 1209881895,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png",
+          "nickname" : "5***5@qq.com",
+          "ip" : "36.46.227.211",
+          "address" : "陕西省西安市",
+          "joinTime" : 1470652335098,
+          "joinNumber" : 7
+        }, {
+          "id" : 25058478,
+          "kgUid" : 1207101560,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1e5V4BKDj1RCvBVdK.jpeg",
+          "nickname" : "精神领袖",
+          "ip" : "117.136.40.21",
+          "address" : "广东省广州市",
+          "joinTime" : 1470652328144,
+          "joinNumber" : 36
+        }, {
+          "id" : 25058435,
+          "kgUid" : 1206272764,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1Vob4BbAQ1RCvBVdK.jpeg",
+          "nickname" : "158****3693",
+          "ip" : "59.38.232.226",
+          "address" : "广东省佛山市",
+          "joinTime" : 1470652321707,
+          "joinNumber" : 3
+        }, {
+          "id" : 25058368,
+          "kgUid" : 1205618461,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1gmE4BmCv1RCvBVdK.jpeg",
+          "nickname" : "胖熊该我中了吧",
+          "ip" : "223.74.139.10",
+          "address" : "广东省潮州市",
+          "joinTime" : 1470652309135,
+          "joinNumber" : 5
+        }, {
+          "id" : 25058334,
+          "kgUid" : 1209199455,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png",
+          "nickname" : "小胖熊石石石石石石石石",
+          "ip" : "106.226.14.89",
+          "address" : "江西省赣州市",
+          "joinTime" : 1470652302911,
+          "joinNumber" : 5
+        }, {
+          "id" : 25058321,
+          "kgUid" : 1201132569,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1YmJ4ByWj1RCvBVdK.jpeg",
+          "nickname" : "给个电脑",
+          "ip" : "113.110.241.173",
+          "address" : "广东省深圳市",
+          "joinTime" : 1470652300885,
+          "joinNumber" : 3
+        }, {
+          "id" : 25058275,
+          "kgUid" : 1205802584,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png",
+          "nickname" : "中了个毛",
+          "ip" : "211.97.129.228",
+          "address" : "福建省厦门市",
+          "joinTime" : 1470652292764,
+          "joinNumber" : 6
+        }, {
+          "id" : 25058260,
+          "kgUid" : 1202453100,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1AmE4B5Vv1RCvBVdK.jpeg",
+          "nickname" : "在不中直播放弃一元买",
+          "ip" : "112.96.168.99",
+          "address" : "广东省广州市",
+          "joinTime" : 1470652289975,
+          "joinNumber" : 1
+        }, {
+          "id" : 25058256,
+          "kgUid" : 1202836618,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1roW4BvW_1RCvBVdK.jpeg",
+          "nickname" : "156****6333",
+          "ip" : "120.34.19.132",
+          "address" : "福建省漳州市",
+          "joinTime" : 1470652289806,
+          "joinNumber" : 6
+        }, {
+          "id" : 25058197,
+          "kgUid" : 1207731598,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1skb4B5dQ1RCvBVdK.jpeg",
+          "nickname" : "就中一次吧",
+          "ip" : "157.61.208.202",
+          "address" : "广东省潮州市",
+          "joinTime" : 1470652281777,
+          "joinNumber" : 12
+        }, {
+          "id" : 25058152,
+          "kgUid" : 1207631046,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png",
+          "nickname" : "xzy***@yeah.net",
+          "ip" : "223.93.205.104",
+          "address" : "浙江省丽水市",
+          "joinTime" : 1470652274160,
+          "joinNumber" : 1
+        }, {
+          "id" : 25058044,
+          "kgUid" : 1203616491,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1v__5BjJ_1RCvBVdK.jpeg",
+          "nickname" : "林家之子",
+          "ip" : "112.17.246.244",
+          "address" : "浙江省杭州市",
+          "joinTime" : 1470652259071,
+          "joinNumber" : 1
+        }, {
+          "id" : 25058028,
+          "kgUid" : 1204399717,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1ooV4BmxQ1RCvBVdK.jpeg",
+          "nickname" : "看来的放弃了",
+          "ip" : "27.153.58.104",
+          "address" : "福建省泉州市",
+          "joinTime" : 1470652257520,
+          "joinNumber" : 11
+        }, {
+          "id" : 25058006,
+          "kgUid" : 1209001171,
+          "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1mcZ4BCKv1RCvBVdK.jpeg",
+          "nickname" : "再不中破产了",
+          "ip" : "175.43.112.96",
+          "address" : "福建省泉州市",
+          "joinTime" : 1470652254879,
+          "joinNumber" : 2
+        } ]
+      }
+    }
+    res.json(json);
+    next();
+})
+//参与者本人
+router.get('/goods/user',function(req, res, next){
+  var json = {
+  "status" : 1,
+  "errorCode" : 0,
+  "errorMessage" : null,
+  "servertime" : 1470652350990,
+  "data" : {
+    "joinNumber" : 0,
+    "joinFlag" : false,
+    "joinCodeList" : null
+  }
+}
+    res.json(json);
+    next();
+})
+/*router.get('/goods/detail',function(req, res, next){
+  var json = 
+    res.json(json);
+    next();
+})*/
 module.exports = router;

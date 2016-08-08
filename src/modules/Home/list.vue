@@ -2,7 +2,7 @@
     <div>
     	<ul class="goods-list">
     		<li v-for="item in goodsList" class="article-item">
-    			<div class="pic"><img :src="item.coverImgUrl"></div>
+    			<div class="pic"><a v-link="{ name: 'goodsDetail',params: {aid: item.id } }"><img :src="item.coverImgUrl"></a></div>
     			<h3>{{item.goodsName}}</h3>
     			<div class="goods-control"><div class="goods-status">
                     <div class="progress-bar">
@@ -25,7 +25,7 @@ export default {
   props: ['goodsList'],
   methods: {
     onClick () {
-      
+      this.$parent.showBuyFunc()
     }
   }
 }

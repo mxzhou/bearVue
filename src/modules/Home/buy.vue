@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="buy-block">
-      <div class="bg"></div>
+    <div class="buy-block" :class="show ? 'active' : ''">
+      <div class="bg" @click="close()"></div>
       <div class="buy-container">
         <h3>参与人数</h3>
-        <a class="btn-close"><img :src="imgClose"></a>
+        <a class="btn-close"  @click="close()"><img :src="imgClose"></a>
         <div class="input-area">
           <a class="btn-minus" @click="minus()">-</a>
           <input type="tel" maxlength="10" :value="money">
@@ -24,7 +24,7 @@
 <script>
 import imgClose from '../../assets/images/ic_s_close_p.png'
 export default {
-  props: ['number'],
+  props: ['number','show'],
   data () {
     return {
       imgClose: imgClose,
@@ -49,6 +49,10 @@ export default {
         this.money--
       }
     },
+    close () {
+      this.show = false
+      this.$parent.showBuy = false
+    },
     selectMoney (index) {
       this.index = index;
       let money = this.list[index].money
@@ -57,6 +61,19 @@ export default {
       }else{
         this.money = money
       }
+    }
+  },
+  watch : {
+    show () {
+        let $buy = this.$el.querySelector('.buy-block')
+        if(this.show){
+          setTimeout(function(){
+            $buy.className = $buy.className + ' animatein'
+          },20)
+        }else{
+          $buy.className = 'buy-block'
+        }
+      
     }
   }
 }
@@ -68,14 +85,27 @@ export default {
     height: 100%;
     top: 0;
     left: 0;
-    display: none;  
     z-index: 101;  
+    display: none;
+    &.active {
+      display: block;      
+    }
+    &.animatein {
+      .bg {
+        -webkit-transition-duration: .3s;
+        background: rgba(0,0,0,0.8);
+      }
+      .buy-container {
+        -webkit-transition-duration: .3s;
+        -webkit-transform: translateY(0%);
+      }
+    }
     .bg {
       position: absolute;
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0);
-      -webkit-transition-duration: .5s;
+      -webkit-transition-duration: .3s;
     }
     .buy-container {
       position: absolute;
@@ -84,6 +114,8 @@ export default {
       width: 100%;
       height: 2.5rem;
       background: #FFF;
+      -webkit-transition-duration: .3s;
+      -webkit-transform: translateY(100%);
       h3 {
         font-size: .16rem;
         color: #333;
