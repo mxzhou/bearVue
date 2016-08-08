@@ -122,11 +122,11 @@
     },
     methods: {
       confirm:function(){
-        router.go({name:'/mine/chargeSuccess'})
+        router.go('/mine/chargeSuccess')
       },
       selectFunc:function(index){
         this.index = index;
-        alert(this.moneyList[index].key)
+        console.log(this.moneyList[index].key);
       },
       selecrFunc2:function(index){
         this.index2 = index;

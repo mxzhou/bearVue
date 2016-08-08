@@ -84,7 +84,7 @@ export default function (router) {
     // 我的夺宝 晒单
     '/mine/displayRecord':{
       name: 'displayRecord',
-      component: require('./modules/Mine/display/index.vue')
+      component: require('./modules/Mine/share/index.vue')
     },
 
     // 最新揭晓
@@ -97,6 +97,24 @@ export default function (router) {
     '/calculate':{
       name: 'calculate',
       component: require('./modules/Announce/calculate.vue')
+    },
+
+    // 晒单
+    '/share':{
+      name: 'share',
+      component: require('./modules/Share/index.vue')
+    },
+    '/share/unShare':{
+      name: 'unShare',
+      component: require('./modules/Share/unShare.vue')
+    },
+    '/share/rule':{
+      name: 'rule',
+      component: require('./modules/Share/rule.vue')
+    },
+    '/share/share':{
+      name: 'shareSubmit',
+      component: require('./modules/Share/share.vue')
     },
     '*': {
       component: require('./modules/NotFound/index.vue')

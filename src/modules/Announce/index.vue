@@ -3,7 +3,7 @@
 </style>
 <template>
   <div>
-    <ul class="list" v-show="!show">
+    <ul class="list">
       <template v-for="item in items">
         <li>
           <div class="left">
