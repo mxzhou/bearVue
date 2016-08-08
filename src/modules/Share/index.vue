@@ -37,12 +37,12 @@
     <div class="edit" @click="goRule">
       <img class="img" :src="edit"/>
     </div>
-
+    <nav-bar active="share"></nav-bar>
   </div>
 </template>
 
 <script>
-  import { Tab, TabItem,Loading } from '../../components'
+  import { Tab, TabItem,Loading ,NavBar} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getSnarchRecordList} from '../../vuex/actions'
   import {formatDate} from '../../utils/filters'
@@ -50,7 +50,7 @@
   import edit from '../../assets/images/ic_addarticle.png'
   export default {
     components: {
-      Tab, TabItem,Loading
+      Tab, TabItem,Loading,NavBar
     },
     filters: {
       formatDate

@@ -24,6 +24,7 @@ import FlexboxItem from './flexbox-item'
 import XInput from './x-input'
 import XTextarea from './x-textarea'
 import Empty from './empty'
+import NavBar from './nav-bar'
 
 const vux = {
   Switch,
@@ -50,7 +51,8 @@ const vux = {
   FlexboxItem,
   XInput,
   XTextarea,
-  Empty
+  Empty,
+  NavBar
 }
 
 module.exports = vux

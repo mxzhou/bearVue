@@ -27,11 +27,12 @@
         </li>
       </template>
     </ul>
+    <nav-bar active="announce"></nav-bar>
   </div>
 </template>
 
 <script>
-  import {Loading} from '../../components'
+  import {Loading,NavBar} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
   import {formatDate} from '../../utils/filters'
@@ -41,7 +42,7 @@
 
   export default {
     components: {
-      Loading
+      Loading,NavBar
     },
     filters: {
       formatDate

@@ -1,6 +1,10 @@
 export default function (router) {
   router.map({
     '/': {
+      name: 'index',
+      component: require('./modules/Home/index.vue')
+    },
+    '/home': {
       name: 'home',
       component: require('./modules/Home/index.vue')
     },

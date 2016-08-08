@@ -19,11 +19,12 @@
     <group>
         <p class="desc">我的ID:101100110</p>
     </group>
+    <nav-bar active="mine"></nav-bar>
   </div>
 </template>
 
 <script>
-  import { Loading, Group, Cell } from '../../../components'
+  import { Loading, Group, Cell,NavBar } from '../../../components'
   import Bg from './header.vue'
   import {changeTitle} from '../../../utils/hack'
   import clock from '../../../assets/images/ic_s_clock.png'
@@ -37,10 +38,24 @@
       Loading,
       Group,
       Cell,
-      Bg
+      Bg,
+      NavBar
     },
     data () {
       return {
+        navList:[{
+          name:'全部商品',
+          link:''
+        },{
+          name:'最新揭晓',
+          link:'share'
+        },{
+          name:'晒单',
+          link:'announce'
+        },{
+          name:'我的夺宝',
+          link:'mine'
+        }],
         list:[
           {
             text:"夺宝记录",link:'/mine/snarchRecord',img:notepad,isIcon:true
