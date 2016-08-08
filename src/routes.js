@@ -24,10 +24,14 @@ export default function (router) {
       name: 'allProduct',
       component: require('./modules/AllProduct/index.vue')
     },
+
+    // 我的夺宝 个人中心
     '/mine':{
       name: 'mine',
       component: require('./modules/Mine/index/index.vue')
     },
+
+    // 我的夺宝 地址
     '/mine/address':{
       name: 'address',
       component: require('./modules/Mine/address/index.vue')
@@ -36,6 +40,8 @@ export default function (router) {
       name: 'address',
       component: require('./modules/Mine/address/addAddress.vue')
     },
+
+    // 我的夺宝 夺宝记录
     '/mine/snarchRecord':{
       name: 'snarchRecord',
       component: require('./modules/Mine/snarchRecord/index.vue')
@@ -44,6 +50,8 @@ export default function (router) {
       name: 'snarchDetail',
       component: require('./modules/Mine/snarchRecord/detail.vue')
     },
+
+    // 我的夺宝 幸运记录
     '/mine/luckyRecord':{
       name: 'luckyRecord',
       component: require('./modules/Mine/luckyRecord/index.vue')
@@ -52,10 +60,14 @@ export default function (router) {
       name: 'luckyDetail',
       component: require('./modules/Mine/luckyRecord/detail.vue')
     },
+
+    // 我的夺宝 充值记录
     '/mine/rechargeRecord':{
       name: 'rechargeRecord',
       component: require('./modules/Mine/recharge/record.vue')
     },
+
+    // 我的夺宝 充值
     '/mine/charge':{
       name: 'charge',
       component: require('./modules/Mine/recharge/charge.vue')
@@ -68,14 +80,20 @@ export default function (router) {
       name: 'chargeSuccess',
       component: require('./modules/Mine/recharge/fail.vue')
     },
+
+    // 我的夺宝 晒单
     '/mine/displayRecord':{
       name: 'displayRecord',
       component: require('./modules/Mine/display/index.vue')
     },
+
+    // 最新揭晓
     '/announce':{
       name: 'announce',
       component: require('./modules/Announce/index.vue')
     },
+
+    // 计算详情
     '/calculate':{
       name: 'calculate',
       component: require('./modules/Announce/calculate.vue')
