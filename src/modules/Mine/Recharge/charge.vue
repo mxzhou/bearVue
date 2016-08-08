@@ -1,4 +1,7 @@
 <style lang="less" scoped>
+  .charge{
+    padding-bottom: .44rem;
+  }
   .box{
     display: flex;
     flex-wrap:wrap;
@@ -36,7 +39,7 @@
   }
 </style>
 <template>
-  <div>
+  <div class="charge">
     <group title="请选择充值金额（元）">
       <div class="box">
         <template v-for="item in moneyList">
