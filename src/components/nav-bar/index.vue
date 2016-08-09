@@ -30,19 +30,21 @@ export default {
   props: {
     list: {
       type: Array,
-      default: [{
-        name:'全部商品',
-        link:'home'
-      },{
-        name:'最新揭晓',
-        link:'share'
-      },{
-        name:'晒单',
-        link:'announce'
-      },{
-        name:'我的夺宝',
-        link:'mine'
-      }]
+      default: function () {
+        return [{
+          name:'全部商品',
+          link:'home'
+        },{
+          name:'最新揭晓',
+          link:'share'
+        },{
+          name:'晒单',
+          link:'announce'
+        },{
+          name:'我的夺宝',
+          link:'mine'
+        }]
+      },
     },
     active: {
       type: String,

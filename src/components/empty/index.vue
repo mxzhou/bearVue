@@ -1,10 +1,10 @@
 <template>
-  <div class="empty" :class="{'pad':pad}" v-show="show">
+  <div class="empty" :class="{'pad':pad}" v-if="show">
     <img :src="imgEmpty"/>
     <p class="desc">{{title}}</p>
     <a class="empty-btn" @click="fn">{{btn}}</a>
   </div>
-  <div class="guess" v-show="show">
+  <div class="guess" v-if="show">
     <h3 class="hd">猜你喜欢</h3>
     <div class="bd">
       <scroller lock-y scrollbar-x>
@@ -44,8 +44,7 @@ export default {
   computed: {
     styles () {
       return {
-        'width': (this.items.length+(this.items.length-1)*0.15)+'rem',
-
+        'width': (this.items.length+(this.items.length-1)*0.15)+'rem'
       }
     }
   },
@@ -73,6 +72,7 @@ export default {
     fn:{
       type:Function,
       default:function(){
+        alert(1)
       }
     }
   },
