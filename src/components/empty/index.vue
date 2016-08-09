@@ -13,7 +13,7 @@
            <div class="li_hd">
              <img class="coverImg" :src="item.coverImgUrl">
            </div>
-           <div class="li_bd f-toe">
+           <div class="li_bd">
              {{item.goodsName}}
            </div>
            <div class="li-ft">

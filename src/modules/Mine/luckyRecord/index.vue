@@ -5,7 +5,7 @@
   <div>
     <ul class="list">
       <template v-for="item in items">
-        <li>
+        <li @click="detailFunc(item.id)">
           <div class="box">
             <div class="left">
               <img class="img" :src="item.coverImgUrl">
@@ -29,7 +29,7 @@
           </div>
           <div class="bottom clearfix">
             {{'已支付'}}
-            <a class="btn f-fr">选择收货地址</a>
+            <a class="btn f-fr" @click.stop="selectAddress(item.id)">选择收货地址</a>
           </div>
         </li>
       </template>
@@ -57,7 +57,9 @@
     },
     vuex:{
       getters:{
-        items:({snarchRecord})=>snarchRecord.items
+        items:function(store){
+          return store.snarchRecord.items
+        }
       },
 
       actions:{
@@ -68,7 +70,12 @@
       this.getSnarchRecordList()
     },
     methods: {
-
+      selectAddress:function(id){
+        router.go({ name: 'selectAddress',params: { id: id }})
+      },
+      detailFunc:function(id){
+        router.go({name:'luckyDetail',params: { id: id }})
+      }
     }
   }
 

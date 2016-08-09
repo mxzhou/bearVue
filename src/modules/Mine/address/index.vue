@@ -6,20 +6,20 @@
     <ul v-show="items.length>0" class="address_list">
       <template v-for="item in items">
         <li class="box">
-          <div class="hd">
-            <div class="select" :class="{'marked':item.ifDefault}"></div>
-          </div>
+          <!--<div class="hd">-->
+            <!--<div class="select" :class="{'marked':item.ifDefault}"></div>-->
+          <!--</div>-->
           <div class="bd">
             <p class="clearfix">
               <span class="color-blue">{{item.receiver}}</span>
               <span class="phone">{{item.mobile}}</span>
             </p>
             <div class="clearfix">
-              <p class="address f-fl">
+              <p class="address f-fl selected">
                 <span class="color-green" v-if="item.ifDefault">[默认]</span>
                 {{item.province+item.city+item.area+item.addressDetail}}
               </p>
-              <div class="f-fr vertical">
+              <div class="f-fr vertical" @click.stop="editFunc(item.id)">
                 <img src="../../../assets/images/ic_s_edit.png" class="edit">
               </div>
             </div>
@@ -37,6 +37,9 @@
           点击此处添加收货地址</p>
         <img :src="arrow">
       </div>
+    </div>
+    <div class="ui-bottom">
+      <a class="ui_btn_bottom" @click="addAddress">添加新地址</a>
     </div>
     <div class="ui-bottom">
       <a class="ui_btn_bottom" @click="addAddress">添加新地址</a>
@@ -66,6 +69,9 @@
     init() {
       changeTitle('地址列表')
     },
+    created(){
+
+    },
     vuex:{
       getters:{
         items:function(store){
@@ -82,6 +88,11 @@
     methods: {
       addAddress:function(){
         router.go('/mine/addAddress')
+      },
+      editFunc:function(id){
+        alert(id)
+        router.go({name:'editAddress'})
+
       }
     }
   }

@@ -53,7 +53,7 @@
       }
     },
     init() {
-      changeTitle('幸运记录')
+      changeTitle('商品详情')
     },
     vuex:{
       getters:{

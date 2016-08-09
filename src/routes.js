@@ -40,11 +40,19 @@ export default function (router) {
       name: 'address',
       component: require('./modules/Mine/address/index.vue')
     },
+    // 选择地址
+    '/mine/selectAddress/:id':{
+      name: 'selectAddress',
+      component: require('./modules/Mine/address/select.vue')
+    },
     '/mine/addAddress':{
       name: 'address',
       component: require('./modules/Mine/address/addAddress.vue')
     },
-
+    '/mine/editAddress':{
+      name: 'editAddress',
+      component: require('./modules/Mine/address/editAddress.vue')
+    },
     // 我的夺宝 夺宝记录
     '/mine/snarchRecord':{
       name: 'snarchRecord',
@@ -60,7 +68,7 @@ export default function (router) {
       name: 'luckyRecord',
       component: require('./modules/Mine/luckyRecord/index.vue')
     },
-    '/mine/luckyDetail':{
+    '/mine/luckyDetail/:id':{
       name: 'luckyDetail',
       component: require('./modules/Mine/luckyRecord/detail.vue')
     },

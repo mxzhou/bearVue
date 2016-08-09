@@ -20,6 +20,21 @@
     border-radius: .04rem;
     margin-bottom: .15rem;
   }
+  .btn::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  .btn::-webkit-outer-spin-button {
+    -webkit-appearance: none;	/* 有无看不出差别 */
+  }
+  input.btn{
+    outline: none;
+    -webkit-appearance: none;
+    padding: .1rem;
+  }
+  .btn:focus{
+    border: .01rem solid #0c7;
+    color: #333;
+  }
   .btn.selected{
     background: #0c7;
     color: #fff;
@@ -45,6 +60,7 @@
         <template v-for="item in moneyList">
           <a class="btn" :class="{'selected':$index == index}" @click="selectFunc($index)">{{item.key}}</a>
         </template>
+        <input type="number" class="btn" @focus="focusFunc" v-model="other" placeholder="其他金额">
       </div>
     </group>
     <group title="选择支付方式">
@@ -78,6 +94,7 @@
       return {
         index:0,
         index2:0,
+        other:'',
         moneyList:[
           {
             key:'20'
@@ -90,8 +107,6 @@
             key:'200'
           },{
             key:'500'
-          },{
-            key:'其他金额'
           }
         ],
         list:[
@@ -125,6 +140,13 @@
     },
     methods: {
       confirm:function(){
+        var index = this.index
+        if(index<6){
+          alert(this.moneyList[index].key)
+        }else if(index == 6){
+          alert(this.other)
+        }
+        alert(this.list[this.index2]['text'])
         router.go('/mine/chargeSuccess')
       },
       selectFunc:function(index){
@@ -134,6 +156,9 @@
       selecrFunc2:function(index){
         this.index2 = index;
       },
+      focusFunc:function(){
+        this.index = 6;
+      }
     }
   }
 
