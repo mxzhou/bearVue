@@ -20,7 +20,7 @@ export default {
     data(){
         return {
             adHeight: '1.88rem',
-            adTop: '-0.2rem' 
+            adTop: '-0.2rem'
         }
     },
     vuex:{
