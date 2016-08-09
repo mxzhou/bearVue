@@ -1,5 +1,5 @@
-export default function (router) {
-  router.map({
+import routesHome from './routes/routes.home'
+let maps = {
     '/': {
       name: 'index',
       component: require('./modules/Home/index.vue')
@@ -28,7 +28,6 @@ export default function (router) {
       name: 'allProduct',
       component: require('./modules/AllProduct/index.vue')
     },
-
     // 我的夺宝 个人中心
     '/mine':{
       name: 'mine',
@@ -123,7 +122,10 @@ export default function (router) {
     '*': {
       component: require('./modules/NotFound/index.vue')
     }
-  })
+  }
+Object.assign(maps,routesHome)
+export default function (router) {
+  router.map(maps)
   // router.beforeEach((transition)=>{
   //   transition.next()
   // })
