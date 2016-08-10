@@ -38,11 +38,12 @@
       <img class="img" :src="edit"/>
     </div>
     <nav-bar active="share"></nav-bar>
+    <confirm :show.sync="show" title="弹出框" cancel-text="取消" confirm-text="确定">{{lStorage}}1{{sStorage}}</confirm>
   </div>
 </template>
 
 <script>
-  import { Tab, TabItem,Loading ,NavBar} from '../../components'
+  import { Alert,Confirm,Tab, TabItem,Loading ,NavBar} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getSnarchRecordList} from '../../vuex/actions'
   import {formatDate} from '../../utils/filters'
@@ -50,7 +51,7 @@
   import edit from '../../assets/images/ic_addarticle.png'
   export default {
     components: {
-      Tab, TabItem,Loading,NavBar
+      Alert,Confirm,Tab, TabItem,Loading,NavBar
     },
     filters: {
       formatDate
@@ -58,7 +59,10 @@
     data () {
       return {
         recommend:recommend,
-        edit:edit
+        edit:edit,
+        show:false,
+        lStorage:localStorage,
+        sStorage:sessionStorage
       }
     },
     init() {
@@ -76,6 +80,8 @@
     },
     created(){
       this.getSnarchRecordList();
+      alert(0)
+      this.show = true;
     },
     methods: {
       goRule:function(){

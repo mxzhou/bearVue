@@ -6,6 +6,7 @@ import Cell from './cell'
 import InlineDesc from './inline-desc'
 import Toast from './toast'
 import Alert from './alert'
+import Confirm from './confirm'
 import Dialog from './dialog'
 import Loading from './loading'
 import Scroller from './scroller'
@@ -31,6 +32,7 @@ const vux = {
   InlineDesc,
   Toast,
   Alert,
+  Confirm,
   Dialog,
   Group,
   Cell,

@@ -36,10 +36,10 @@ export default {
           link:'home'
         },{
           name:'最新揭晓',
-          link:'share'
+          link:'announce'
         },{
           name:'晒单',
-          link:'announce'
+          link:'share'
         },{
           name:'我的夺宝',
           link:'mine'
