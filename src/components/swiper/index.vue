@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-slider">
+  <div class="vux-slider" :class="theme ? 'white' : ''">
     <div class="vux-swiper" :style="{height: xheight,marginTop:top}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
@@ -96,6 +96,10 @@ export default {
       type: String,
       default: 'horizontal'
     },
+    theme: {
+      type: Boolean,
+      default: false
+    },
     showDots: {
       type: Boolean,
       default: true
@@ -129,6 +133,10 @@ export default {
     top: {
       type: String,
       default: 'auto'
+    },
+    bgsize: {
+      type: String,
+      default: 'cover'
     },
     aspectRatio: Number,
     minMovingDistance: {
@@ -173,6 +181,19 @@ export default {
 <style lang="less">
 @pre: vux;
 @rex : 1rem/100;
+.vux-slider.white {
+  .vux-img {
+    background-color: #FFF!important;
+    background-size: auto 100%!important;
+  }
+  .vux-icon-dot {
+    background-color: #CCC!important;
+  }
+  .vux-icon-dot.active {
+    background-color: #00CC77!important;
+  }
+}
+
 .@{pre}-slider {
   overflow: hidden;
   position: relative;

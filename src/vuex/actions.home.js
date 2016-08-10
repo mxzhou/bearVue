@@ -40,35 +40,41 @@ export const getGoodsList = ({ dispatch }) => {
 export const getGoodsDetail = ({ dispatch }) => {
   api.getGoodsDetail().then(response => {
     if(!response.ok){
-      return dispatch(types.FAILURE_GET_GOODS_LIST)
+      return dispatch(types.FAILURE_GET_GOODS_DETAIL)
     }
     var data =response.data
-    dispatch(types.SUCCESS_GET_GOODS_LIST, { list: data.data })
+    var goodsImgList = data.data.goodsImgList
+    for(var i in goodsImgList){
+      var item = goodsImgList[i];
+      item.coverImgUrl = item.goodsImgUrl
+    }
+    data.data.goodsImgList = goodsImgList
+    dispatch(types.SUCCESS_GET_GOODS_DETAIL, { list: data.data })
   }, response => {
-    dispatch(types.FAILURE_GET_GOODS_LIST)
+    dispatch(types.FAILURE_GET_GOODS_DETAIL)
   })
 }
 //商品参与者
 export const getGoodsJoiner = ({ dispatch }) => {
   api.getGoodsJoiner().then(response => {
     if(!response.ok){
-      return dispatch(types.FAILURE_GET_GOODS_LIST)
+      return dispatch(types.FAILURE_GET_GOODS_JOINER)
     }
     var data =response.data
-    dispatch(types.SUCCESS_GET_GOODS_LIST, { list: data.data })
+    dispatch(types.SUCCESS_GET_GOODS_JOINER, { list: data.data })
   }, response => {
-    dispatch(types.FAILURE_GET_GOODS_LIST)
+    dispatch(types.FAILURE_GET_GOODS_JOINER)
   })
 }
 //商品参与者本人
 export const getGoodsUser = ({ dispatch }) => {
   api.getGoodsUser().then(response => {
     if(!response.ok){
-      return dispatch(types.FAILURE_GET_GOODS_LIST)
+      return dispatch(types.FAILURE_GET_GOODS_USER)
     }
     var data =response.data
-    dispatch(types.SUCCESS_GET_GOODS_LIST, { list: data.data })
+    dispatch(types.SUCCESS_GET_GOODS_USER, { list: data.data })
   }, response => {
-    dispatch(types.FAILURE_GET_GOODS_LIST)
+    dispatch(types.FAILURE_GET_GOODS_USER)
   })
 }
