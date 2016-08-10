@@ -17,11 +17,11 @@
             <div v-show="item.status==5">
               <p class="p">中奖者：{{item.nickname}}</p>
               <p class="p">本期参与：<span class="color-red">{{item.winnerJoinNumber}}</span>人次</p>
-              <p class="p">揭晓时间：{{item.openTime|formatDate}}</p>
+              <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
             </div>
             <div v-show="item.status==3" class="last">
               <img class="em" :src="imgRecount"/>
-              <span>04:31:26</span>
+              <span>{{(3*60*1000-(item.openTime-item.startTime))|leaveTime}}</span>
             </div>
           </div>
         </li>
@@ -35,7 +35,6 @@
   import {Loading,NavBar} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
-  import {formatDate} from '../../utils/filters'
   import imglabel from '../../assets/images/img_lable.png'
   import imgRecount from '../../assets/images/ic_s_recount.png'
 
@@ -45,7 +44,7 @@
       Loading,NavBar
     },
     filters: {
-      formatDate
+      formatDate,leaveTime
     },
     data () {
       return {
@@ -63,6 +62,9 @@
     vuex: {
       getters: {
         items: function(store){
+          return store.openList.items.data.goodsList
+        },
+        data:function(store){
           return store.openList.items
         }
       },
@@ -92,6 +94,36 @@
         alert(0)
         router.go('/mine/snarchDetail')
       }
+    }
+  }
+  function intNumber(n){
+    return n < 10 ? '0'+n:n;s
+  }
+  function leaveTime(minus){
+    if(minus<0){
+      return 0;
+    }else{
+      var t =  minus;
+      var h = 60*60*1000,
+          m = 60*1000,
+          s = 1000;
+      var H = parseInt(t/h),
+          M = parseInt((t-H*h)/m),
+          S = parseInt((t-H*h-M*m)/s),
+          HS = parseInt((t-H*h-M*m-S*s)/100);
+      return intNumber(M)+":"+intNumber(S)+":"+HS;
+    }
+  }
+  function formatDate(time){
+
+    var servertime = time.split('|')[0];
+    var date = time.split('|')[1];
+    var st = new Date(Number(servertime));
+    var dt = new Date(Number(date));
+    if(st.getFullYear()==dt.getFullYear() && st.getMonth()==dt.getMonth() && st.getDate()==dt.getDate()){
+      return '今天'+intNumber(dt.getHours())+":"+intNumber(dt.getMinutes());
+    }else {
+      return dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate()+' '+intNumber(dt.getHours())+":"+intNumber(dt.getMinutes());
     }
   }
 </script>
