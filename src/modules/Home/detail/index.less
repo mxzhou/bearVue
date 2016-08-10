@@ -19,6 +19,12 @@
 			&.green {
 				background-color: #40C256;
 			}
+			&.blue {
+				background-color: #5EC8F7;
+			}
+			&.gray {
+				background-color: #C7C7CD;
+			}
 		}
 	}
 	p {
@@ -69,4 +75,123 @@
     color: #FCA826;
     font-style: normal; 
   }
+  .removed {
+  	position: relative;
+  	width: 3.55rem;
+  	height: .64rem;
+  	font-size: .18rem;
+  	background: #C7C7CD;
+  	color: #FFF;
+  	text-align: center;
+  	line-height: .64rem;
+  }
+  .countdown {
+  	position: relative;
+  	width: 7.1rem/2;
+  	height: 1.4rem/2;
+  	background: url(../../../assets/images/bg_counting.png) center center no-repeat;
+  	background-size: 100% auto;
+  	margin-bottom: .4rem;
+  	padding: .1rem;
+  	p {
+  		font-size: .14rem;
+  		color: #FFF;
+  	}
+  	h3 {
+  		font-size: .18rem;
+  		color: #FFF;
+  		font-weight: normal;
+  	}
+  	.btn {
+  		display: block;
+  		border-radius: .04rem;
+  		border: .01rem solid #FFF;
+  		color: #FFF;
+  		font-size: .14rem;
+  		width: .72rem;
+  		height: .32rem;
+  		line-height: .32rem;
+  		text-align: center;
+  		margin-top: .1rem;
+  	}
+  }
+}
+.status-block {
+	position: relative;
+	width: 100%;
+	background: #FFF;
+	padding-bottom: .2rem;
+}
+.winner-block {
+	position: relative;
+	width: 3.55rem;
+	height: 1.93rem;
+	background: #FFF;
+	margin: 0 auto;
+	border: .01rem solid #CCC;
+	border-radius: .04rem;
+	.inner {
+		position: relative;
+		width: 6.78rem/2;
+		height: 1.45rem;
+		background: #fff3f3;
+		margin: .07rem;
+		.user-pic {
+			position: absolute;
+			width: .72rem;
+			height: .5rem;
+			text-align: center;
+			left: .05rem;
+			top: .08rem;
+			img {
+				width: .4rem;
+				height: .4rem;
+				border-radius: 50%;
+			}
+			&:after {
+				width: .72rem;
+				height: .21rem;
+				left: 0;
+				bottom: 0;
+				position: absolute;
+				content: " ";
+				background: url(../../../assets/images/img_rewarder.png) center center no-repeat;
+				background-size: 100% auto;
+			}
+		}
+		h4 {
+			padding-top: .1rem;
+		}
+		h4,p {
+			padding-left: .9rem;
+			color: #333;
+			font-weight: normal;
+			line-height: .22rem;
+			font-size: .14rem;			
+		}
+		.winnerName {
+			color: #5393E0;
+		}
+		.red {
+			color: #ef4835;
+		}
+	}
+	.lucky-num {
+		position: absolute;
+		bottom: .05rem;
+		left: 50%;
+		height: .82rem/2;
+		width: 7.34rem/2;
+		margin-left: -7.34rem/4;
+  		background: url(../../../assets/images/bg_award.png) center center no-repeat;
+  		background-size: 100% auto;
+  		color: #FFF;
+  		font-size: .18rem;
+  		line-height: .46rem;
+  		padding: 0 .15rem;
+  		.fr {
+  			font-size: .14rem;
+  			color: #FFF;
+  		}
+	}
 }
