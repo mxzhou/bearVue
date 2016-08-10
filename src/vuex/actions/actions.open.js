@@ -14,7 +14,7 @@ export const getOpenList = ({ dispatch }) => {
       return dispatch(openTypes.FAILURE_GET_OPEN_LIST)
     }
     var data =response.data;
-    dispatch(openTypes.SUCCESS_GET_OPEN_LIST, { list: data.data.goodsList })
+    dispatch(openTypes.SUCCESS_GET_OPEN_LIST, { list: data })
   }, response => {
     dispatch(types.CHANGE_LOADING, { loading: {show:false} })
     dispatch(openTypes.FAILURE_GET_OPEN_LIST)
