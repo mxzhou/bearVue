@@ -29,7 +29,7 @@
             </div>
             <div class="clearfix p f-pr">
               本期参与：<span class="color-red">{{item.userJoinNumber}}</span>人次
-              <a class="f-fr color-blue" @click="detailFunc">查看详情></a>
+              <a class="f-fr color-blue" @click.stop="detailFunc(item.id)">查看详情></a>
               <img :src="received" v-if="item.status != 0" alt="已获得" class="received"/>
             </div>
             <div class="detailInfo" v-if="item.status == 5">
@@ -104,9 +104,9 @@
       addFunc:function() {
         alert('add')
       },
-      detailFunc:function(){
-        alert(0)
-        router.go('/mine/snarchDetail')
+      detailFunc:function(id){
+        alert(id)
+        router.go({name:'snarchDetail',params:{id:id}});
       }
     }
   }

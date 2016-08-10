@@ -57,7 +57,7 @@ let maps = {
       name: 'snarchRecord',
       component: require('./modules/Mine/snarchRecord/index.vue')
     },
-    '/mine/snarchDetail':{
+    '/mine/snarchDetail/:id':{
       name: 'snarchDetail',
       component: require('./modules/Mine/snarchRecord/detail.vue')
     },
