@@ -80,7 +80,6 @@
     },
     created(){
       this.getSnarchRecordList();
-      alert(0)
       this.show = true;
     },
     methods: {

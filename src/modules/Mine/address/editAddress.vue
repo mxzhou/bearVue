@@ -1,13 +1,19 @@
 <style lang="less" scoped>
   @import "index.less";
 </style>
+<style>
+  .text-area .ui_label{
+    position: relative;
+    top:-.2rem;
+  }
+</style>
 <template>
   <div class="row">
     <group>
       <x-input title="用户名" placeholder="请输入收货人姓名" :required="false" :value.sync="name"></x-input>
       <x-input title="手机号码" placeholder="请输入手机号码" :required="false" :value.sync="phone"></x-input>
       <address @on-hide="logHide" @on-show="logShow" :title="title" :value.sync="array" :list="addressData" placeholder="请选择"></address>
-      <x-textarea title="详细地址" placeholder="" :required="false" :value.sync="detail"></x-textarea>
+      <x-textarea title="详细地址" placeholder="" :required="false" :value.sync="detail" class="text-area"></x-textarea>
       <switch title="设置为默认地址" :value.sync="show"></switch>
     </group>
 
