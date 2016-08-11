@@ -20,3 +20,18 @@ export const getOpenList = ({ dispatch }) => {
     dispatch(openTypes.FAILURE_GET_OPEN_LIST)
   })
 }
+
+export const getWin = ({ dispatch }) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+  api.getWin().then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(openTypes.FAILURE_GET_WIN)
+    }
+    var data =response.data;
+    dispatch(openTypes.SUCCESS_GET_WIN, { data: data })
+  }, response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    dispatch(openTypes.FAILURE_GET_WIN)
+  })
+}

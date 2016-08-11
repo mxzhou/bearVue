@@ -37,7 +37,7 @@ export default {
   components: { Winning},
   data(){
     return{
-      show:true
+      show:false
     }
   }
 }

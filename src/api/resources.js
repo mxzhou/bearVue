@@ -13,9 +13,6 @@ Vue.http.interceptors.push((request, next)=>{
   // 这里对请求体进行处理
   request.headers = request.headers || {}
   next((response) => {
-    console.log('ajax filter');
-    console.log('response');
-    console.log(response);
     // 这里可以对响应的结果进行处理
     if (response.status === 401) {
       signOut()

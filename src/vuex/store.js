@@ -21,6 +21,8 @@ import snarchRecord from './modules/snarch.record'
 import addressList from './modules/mine/address.list'
 import detailList from './modules/mine/detail.list'
 import openList from './modules/open/open.list'
+import win from './modules/open/win'
+
 import modulesHome from './store.home'
 const debug = process.env.NODE_ENV !== 'production'
 Vue.use(Vuex)
@@ -47,7 +49,8 @@ let modules = {
     snarchRecord,
     addressList,
     detailList,
-    openList
+    openList,
+    win
 }
 Object.assign(modules,modulesHome)
 export default new Vuex.Store({

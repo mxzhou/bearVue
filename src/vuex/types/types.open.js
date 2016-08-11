@@ -1,3 +1,7 @@
 // 广告banner列表
 export const SUCCESS_GET_OPEN_LIST = 'SUCCESS_GET_OPEN_LIST'
 export const FAILURE_GET_OPEN_LIST = 'FAILURE_GET_OPEN_LIST'
+
+//  揭晓的获奖结果
+export const SUCCESS_GET_WIN = 'SUCCESS_GET_WIN'
+export const FAILURE_GET_WIN = 'FAILURE_GET_WIN'

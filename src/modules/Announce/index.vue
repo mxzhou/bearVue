@@ -8,7 +8,6 @@
         <li>
           <div class="left">
             <img class="img" :src="item.coverImgUrl">
-            <img :src="imglabel" class="label"  v-show="item.status==3">
           </div>
           <div class="right">
             <p class="name">{{item.goodsName}}</p>
@@ -19,9 +18,8 @@
               <p class="p">本期参与：<span class="color-red">{{item.winnerJoinNumber}}</span>人次</p>
               <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
             </div>
-            <div v-show="item.status==3" class="last">
-              <img class="em" :src="imgRecount"/>
-              <count-down :time="item.startTime+3*60*1000-data.servertime"></count-down>
+            <div v-if="item.status==3">
+              <count-down :time="item.startTime+2*60*1000-data.servertime" :item-id="item.id"></count-down>
             </div>
           </div>
         </li>
@@ -35,16 +33,15 @@
   import {CountDown,Loading,NavBar} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
-  import imglabel from '../../assets/images/img_lable.png'
-  import imgRecount from '../../assets/images/ic_s_recount.png'
 
   export default {
     components: {
       Loading,NavBar,CountDown
     },
     filters: {
-      formatDate,leaveTime
+      formatDate
     },
+
     computed:{
     },
     data () {
@@ -53,8 +50,6 @@
         show:false,
         title: '全部',
         titleList:['全部','进行中','已揭晓'],
-        imglabel:imglabel,
-        imgRecount:imgRecount,
         lastTime:0
       }
     },
@@ -100,21 +95,6 @@
   }
   function intNumber(n){
     return n < 10 ? '0'+n:n;s
-  }
-  function leaveTime(minus){
-    if(minus<0){
-      return 0;
-    }else{
-      var t =  minus;
-      var h = 60*60*1000,
-          m = 60*1000,
-          s = 1000;
-      var H = parseInt(t/h),
-          M = parseInt((t-H*h)/m),
-          S = parseInt((t-H*h-M*m)/s),
-          HS = parseInt((t-H*h-M*m-S*s)/100);
-      return intNumber(M)+":"+intNumber(S)+":"+HS;
-    }
   }
 
   function formatDate(time){

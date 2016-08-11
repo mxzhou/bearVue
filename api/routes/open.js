@@ -165,4 +165,31 @@ router.get('/goods/open', function (req, res, next) {
 
   res.json(json);
 });
+router.get('/goods/win', function (req, res, next) {
+  var json ={
+    "status" : 1,
+    "errorCode" : 0,
+    "errorMessage" : null,
+    "servertime" : 1470893330734,
+    "data" : {
+      "kgUid" : 1209145396,
+      "nickname" : "大莆田"+Math.random(1000),
+      "status" : 5,
+      "ip" : "221.204.218.112",
+      "address" : "山西省太原市",
+      "joinCode" : "10000043",
+      "id" : 100159890,
+      "joinTime" : 1470885475033,
+      "joinNumber" : 21,
+      "openTime" : 1470893155004,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1j6J4BCCT1RCvBVdK.jpeg",
+      "shareType" : 1,
+      "myWin" : false
+    }
+  }
+
+
+  res.json(json);
+});
+
 module.exports = router;
