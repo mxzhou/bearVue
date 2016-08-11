@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Loading, Group, Cell } from '../../../components'
   import {getRechargeRecordList} from '../../../vuex/actions'
   import {changeTitle} from '../../../utils/hack'
