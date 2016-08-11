@@ -109,7 +109,6 @@ export default {
           _this.$http.get('/api/goods/win').then((response) => {
             _this.$set('items', response.data);
             _this.$set('show', false);
-            console.log(_this.$parent)
           }, (response) => {
             // error callback
           });

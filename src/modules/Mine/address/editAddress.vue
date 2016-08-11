@@ -27,9 +27,7 @@
   import { XInput,XTextarea,Group, Address, AddressChinaData, XButton, Cell,Switch} from '../../../components'
   import value2name from '../../../filters/value2name'
   import {changeTitle} from '../../../utils/hack'
-  console.log('-------------')
-  console.log(AddressChinaData)
-  console.log('-------------')
+
   export default {
     components: {
       Group,
