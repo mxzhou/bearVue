@@ -106,7 +106,7 @@ export default {
           remain_minute = remain_sec = remain_hour = 0;
           _this.$set('lastTime', '正在开奖');
 
-          _this.$http.get('/api/goods/win').then((response) => {
+          _this.$http.post('/api/goods/win',{aaa:1}).then((response) => {
             _this.$set('items', response.data);
             _this.$set('show', false);
           }, (response) => {

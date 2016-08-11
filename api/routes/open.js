@@ -165,7 +165,7 @@ router.get('/goods/open', function (req, res, next) {
 
   res.json(json);
 });
-router.get('/goods/win', function (req, res, next) {
+router.post('/goods/win', function (req, res, next) {
   var json ={
     "status" : 1,
     "errorCode" : 0,
