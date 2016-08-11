@@ -64,7 +64,7 @@
     </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import { Group, Cell, Swiper } from '../../../components'
 import { changeTitle } from '../../../utils/hack'
 import Buy from '../buy.vue'

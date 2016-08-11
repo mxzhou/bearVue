@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import { Swiper,NavBar } from '../../components'
 import Notes from './notes.vue'
 import Lists from './list.vue'

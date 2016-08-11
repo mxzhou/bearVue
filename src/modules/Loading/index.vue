@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import { Loading, Group, Switch } from '../../components'
 import {changeTitle} from '../../utils/hack'
 export default {
