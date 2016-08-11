@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Loading } from '../../../components'
   import {getAddressList} from '../../../vuex/actions'
   import {changeTitle} from '../../../utils/hack'

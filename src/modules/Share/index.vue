@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Alert,Confirm,Tab, TabItem,Loading ,NavBar} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getSnarchRecordList} from '../../vuex/actions'

@@ -9,7 +9,7 @@
 </template>
 
 <!--VM定义 -->
-<script>
+<script type="text/ecmascript-6">
 import img from '../../assets/images/img_empty.png'
 export default {
 

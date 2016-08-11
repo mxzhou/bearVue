@@ -47,7 +47,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import {XButton} from '../../../components'
   export default {
     props: {

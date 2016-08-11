@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import {Loading } from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getSnarchRecordList} from '../../vuex/actions'

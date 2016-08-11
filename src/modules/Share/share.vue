@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import {Loading,XTextarea} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'

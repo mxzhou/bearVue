@@ -9,7 +9,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
 import arrow from '../../assets/images/ic_s_arrow.png'
 import announce from '../../assets/images/ic_announce.png'
 export default {

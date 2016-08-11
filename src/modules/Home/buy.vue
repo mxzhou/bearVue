@@ -21,7 +21,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
 import imgClose from '../../assets/images/ic_s_close_p.png'
 export default {
   props: ['number','show'],

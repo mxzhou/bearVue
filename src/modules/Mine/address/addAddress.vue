@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { XInput,XTextarea,Group, Address, AddressChinaData, XButton, Cell,Switch} from '../../../components'
   import value2name from '../../../filters/value2name'
   import {changeTitle} from '../../../utils/hack'

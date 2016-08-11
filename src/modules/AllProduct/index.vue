@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Scroller, Masker ,Loading } from '../../components'
   import {getTypeList,getGoodsList} from '../../vuex/actions'
 

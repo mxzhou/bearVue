@@ -10,7 +10,7 @@
 </template>
 
 <!--VM定义 -->
-<script>
+<script type="text/ecmascript-6">
 import {Alert,Switch,Group} from '../../components'
 import {changeTitle} from '../../utils/hack'
 

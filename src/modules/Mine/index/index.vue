@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Loading, Group, Cell,NavBar } from '../../../components'
   import Bg from './header.vue'
   import {changeTitle} from '../../../utils/hack'

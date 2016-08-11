@@ -49,7 +49,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Tab, TabItem,Loading,Empty} from '../../../components'
   import {changeTitle} from '../../../utils/hack'
   import {getSnarchRecordList} from '../../../vuex/actions'

@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Toast, Group, Switch } from '../../components'
   import {changeTitle} from '../../utils/hack'
   export default {
