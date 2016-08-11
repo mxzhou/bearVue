@@ -27,6 +27,7 @@ import XTextarea from './x-textarea'
 import Empty from './empty'
 import NavBar from './nav-bar'
 import Winning from './winning'
+import CountDown from './count-down'
 
 const vux = {
   Switch,
@@ -56,7 +57,8 @@ const vux = {
   XTextarea,
   Empty,
   NavBar,
-  Winning
+  Winning,
+  CountDown
 }
 
 module.exports = vux

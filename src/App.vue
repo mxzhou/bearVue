@@ -9,6 +9,24 @@
 </template>
 
 <script>
+// support requestAnimationFrame
+(function(window) {
+  "use strict";
+  var lastTime = 0;
+  window.requestAnimationFrame = window.requestAnimationFrame ||
+      window.webkitrequestAnimationFrame ||
+      function(callback) {
+        var currTime = Date.now(),
+            timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+            id = setTimeout(function() {
+              callback(currTime + timeToCall);
+            }, timeToCall);
+
+        lastTime = currTime + timeToCall;
+
+        return id;
+      };
+})(window);
 import FastClick from 'fastclick'
 import store from './vuex/store'
 import {Winning} from './components'

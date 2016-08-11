@@ -21,7 +21,7 @@
             </div>
             <div v-show="item.status==3" class="last">
               <img class="em" :src="imgRecount"/>
-              <span>{{(3*60*1000-(item.openTime-item.startTime))|leaveTime}}</span>
+              <count-down :time="item.startTime+3*60*1000-data.servertime"></count-down>
             </div>
           </div>
         </li>
@@ -32,19 +32,20 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {Loading,NavBar} from '../../components'
+  import {CountDown,Loading,NavBar} from '../../components'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
   import imglabel from '../../assets/images/img_lable.png'
   import imgRecount from '../../assets/images/ic_s_recount.png'
 
-
   export default {
     components: {
-      Loading,NavBar
+      Loading,NavBar,CountDown
     },
     filters: {
       formatDate,leaveTime
+    },
+    computed:{
     },
     data () {
       return {
@@ -53,7 +54,8 @@
         title: '全部',
         titleList:['全部','进行中','已揭晓'],
         imglabel:imglabel,
-        imgRecount:imgRecount
+        imgRecount:imgRecount,
+        lastTime:0
       }
     },
     init() {
@@ -114,8 +116,8 @@
       return intNumber(M)+":"+intNumber(S)+":"+HS;
     }
   }
-  function formatDate(time){
 
+  function formatDate(time){
     var servertime = time.split('|')[0];
     var date = time.split('|')[1];
     var st = new Date(Number(servertime));

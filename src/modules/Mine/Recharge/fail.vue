@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import { Loading, Group, Cell } from '../../../components'
   import {changeTitle} from '../../../utils/hack'
   import img from '../../../assets/images/img_empty.png'
