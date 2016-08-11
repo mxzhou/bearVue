@@ -19,7 +19,7 @@
               <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
             </div>
             <div v-if="item.status==3">
-              <count-down :time="item.startTime+2*60*1000-data.servertime" :item-id="item.id"></count-down>
+              <count-down :time="item.startTime+3*60*1000-data.servertime" :item-id="item.id"></count-down>
             </div>
           </div>
         </li>
@@ -30,7 +30,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {CountDown,Loading,NavBar} from '../../components'
+  import {Loading,NavBar} from '../../components'
+  import CountDown from './count-down.vue'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
 
@@ -41,7 +42,6 @@
     filters: {
       formatDate
     },
-
     computed:{
     },
     data () {
