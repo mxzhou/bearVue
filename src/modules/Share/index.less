@@ -127,7 +127,36 @@
           }
         }
         .re{
+          position: relative;
           padding: .05rem 0;
+          .separate{
+            position: absolute;
+            top: -.02rem;
+            left: -0.11rem;
+            width: .03rem;
+            height: .45rem;
+            border-left: .01rem dashed #D9C9C3;
+          }
+          .before{
+            position: absolute;
+            left: -.055rem;
+            top: -.05rem;
+            width: 0.1rem;
+            height: .05rem;
+            border: .01rem solid #D9C9C3;
+            border-top: 0;
+            border-radius: 0 0 .1rem .1rem;
+          }
+          .after{
+            bottom: -0.06rem;
+            left: -0.055rem;
+            position: absolute;
+            width: 0.1rem;
+            height: .05rem;
+            border: .01rem solid #D9C9C3;
+            border-bottom: 0;
+            border-radius: .1rem .1rem 0 0;
+          }
           .btn{
             display: block;
             width:.6rem;
@@ -143,7 +172,6 @@
       }
     }
   }
-
 }
 
 .edit{

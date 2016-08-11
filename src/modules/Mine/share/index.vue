@@ -50,6 +50,10 @@
                 <p class="f-toe">期号：{{item.id}}</p>
               </div>
               <div class="re f-fr">
+                <div class="separate">
+                  <em class="before"></em>
+                  <em class="after"></em>
+                </div>
                 <a class="btn">我也要</a>
               </div>
             </div>

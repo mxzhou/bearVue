@@ -3,41 +3,43 @@
 </style>
 <template>
   <div>
-    <ul class="list">
-      <template v-for="item in items">
-        <li>
-          <div class="left">
-            <img class="img" :src="item.coverImgUrl">
-          </div>
-          <div class="right">
-            <p class="name">{{item.goodsName}}</p>
-            <p class="p">总需：{{item.needNumber}}</p>
+    <scroller lock-x scrollbar-y use-pulldown @pulldown:loading="load">
+      <ul class="list">
+        <template v-for="item in items">
+          <li>
+            <div class="left">
+              <img class="img" :src="item.coverImgUrl">
+            </div>
+            <div class="right">
+              <p class="name">{{item.goodsName}}</p>
+              <p class="p">总需：{{item.needNumber}}</p>
 
-            <div v-show="item.status==5">
-              <p class="p">中奖者：{{item.nickname}}</p>
-              <p class="p">本期参与：<span class="color-red">{{item.winnerJoinNumber}}</span>人次</p>
-              <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
+              <div v-show="item.status==5">
+                <p class="p">中奖者：{{item.nickname}}</p>
+                <p class="p">本期参与：<span class="color-red">{{item.winnerJoinNumber}}</span>人次</p>
+                <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
+              </div>
+              <div v-if="item.status==3">
+                <count-down :time="item.startTime+60*1000-data.servertime" :item-id="item.id"></count-down>
+              </div>
             </div>
-            <div v-if="item.status==3">
-              <count-down :time="item.startTime+60*1000-data.servertime" :item-id="item.id"></count-down>
-            </div>
-          </div>
-        </li>
-      </template>
-    </ul>
+          </li>
+        </template>
+      </ul>
+    </scroller>
     <nav-bar active="announce"></nav-bar>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import {Loading,NavBar} from '../../components'
+  import {Loading,NavBar,Scroller} from '../../components'
   import CountDown from './count-down.vue'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
 
   export default {
     components: {
-      Loading,NavBar,CountDown
+      Loading,NavBar,CountDown,Scroller
     },
     filters: {
       formatDate
@@ -73,6 +75,12 @@
       this.getOpenList()
     },
     methods:{
+      load (uuid) {
+        this.getOpenList()
+        setTimeout(() => {
+          this.$broadcast('pulldown:reset', uuid)
+        }, 20)
+      },
       getList:function(index){
         if(index == 1){
           this.show = true;
