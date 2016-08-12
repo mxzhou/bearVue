@@ -57,6 +57,7 @@ export default {
       return `#vux-picker-${this.uuid}-${i}`
     },
     getScroller:function(data,index){
+      console.log(this.scroller)
       if (this.columns === 0) {
         return
       }
@@ -94,15 +95,15 @@ export default {
       });
     },
     renderChain:function(data,index){
-      alert(index)
-      this.scroller[index].destroy()
       if (this.columns === 0) {
         return
       }
       if(index >= 3){
         return;
       }
-      let ID = this.getId(index)
+
+      this.scroller[index].destroy();
+      let ID = this.getId(index);
 
       const _this = this;
       this.show = true;
@@ -146,42 +147,42 @@ export default {
       uuid: Math.random().toString(36).substring(3, 8)
     }
   },
-  watch: {
-    value (val, oldVal) {
-      // render all the scroller for chain datas
-      if (this.columns !== 0) {
-        if (val !== oldVal) {
-          this.data = this.store.getColumns(val)
-          this.$nextTick(function () {
-            this.render(this.data, val)
-          })
-        }
-      } else {
-        for (let i = 0; i < val.length; i++) {
-          if (this.scroller[i].value !== val[i]) {
-            this.scroller[i].select(val[i])
-          }
-        }
-      }
-    },
-    data (newData) {
-      if (Object.prototype.toString.call(newData[0]) === '[object Array]') {
-        this.$nextTick(() => {
-          this.render(newData, this.value)
-          // emit on-change after rerender
-          this.$nextTick(() => {
-            this.$emit('on-change', this.getValue())
-          })
-        })
-      } else {
-        if (this.columns !== 0) {
-          const length = this.columns
-          this.store = new Manager(newData, length)
-          this.data = this.store.getColumns(this.value)
-        }
-      }
-    }
-  },
+//  watch: {
+//    value (val, oldVal) {
+//      // render all the scroller for chain datas
+//      if (this.columns !== 0) {
+//        if (val !== oldVal) {
+//          this.data = this.store.getColumns(val)
+//          this.$nextTick(function () {
+//            this.render(this.data, val)
+//          })
+//        }
+//      } else {
+//        for (let i = 0; i < val.length; i++) {
+//          if (this.scroller[i].value !== val[i]) {
+//            this.scroller[i].select(val[i])
+//          }
+//        }
+//      }
+//    },
+//    data (newData) {
+//      if (Object.prototype.toString.call(newData[0]) === '[object Array]') {
+//        this.$nextTick(() => {
+//          this.render(newData, this.value)
+//          // emit on-change after rerender
+//          this.$nextTick(() => {
+//            this.$emit('on-change', this.getValue())
+//          })
+//        })
+//      } else {
+//        if (this.columns !== 0) {
+//          const length = this.columns
+//          this.store = new Manager(newData, length)
+//          this.data = this.store.getColumns(this.value)
+//        }
+//      }
+//    }
+//  },
   beforeDestroy () {
     for (let i = 0; i < this.count; i++) {
       this.scroller[i].destroy()
