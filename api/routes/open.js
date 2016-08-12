@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/goods/open', function (req, res, next) {
+router.post('/goods/open', function (req, res, next) {
   var json ={
     "status" : 1,
     "errorCode" : 0,
@@ -162,8 +162,9 @@ router.get('/goods/open', function (req, res, next) {
       } ]
     }
   }
-
-  res.json(json);
+  setTimeout(function(){
+    res.json(json);
+  },1000)
 });
 router.post('/goods/win', function (req, res, next) {
   var json ={

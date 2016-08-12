@@ -5,16 +5,20 @@ import { saveCookie,signOut } from '../../utils/authService'
 import img from '../../assets/images/shanghai.jpg'
 
 // 夺宝详情
-export const getOpenList = ({ dispatch }) => {
+export const getOpenList = ({ dispatch },data,isAdd) => {
   dispatch(types.CHANGE_LOADING, { loading: {show:true} })
 
-  api.getOpenList().then(response => {
+  api.getOpenList(data).then(response => {
     dispatch(types.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(openTypes.FAILURE_GET_OPEN_LIST)
     }
     var data =response.data;
-    dispatch(openTypes.SUCCESS_GET_OPEN_LIST, { list: data })
+    if(isAdd){
+      dispatch(openTypes.SUCCESS_GET_OPEN_ADD_LIST, { list: data })
+    }else{
+      dispatch(openTypes.SUCCESS_GET_OPEN_LIST, { list: data })
+    }
   }, response => {
     dispatch(types.CHANGE_LOADING, { loading: {show:false} })
     dispatch(openTypes.FAILURE_GET_OPEN_LIST)

@@ -47,7 +47,7 @@ var Scroller = function (container, options) {
   var html = ''
   if (data.length && data[0].constructor === Object) {
     data.forEach(function (row) {
-      html += '<div class="' + self.options.itemClass + '" data-value="' + row.value + '">' + row.name + '</div>'
+      html += '<div class="' + self.options.itemClass + '" data-value="' + row.id + '">' + row.addressName + '</div>'
     })
   } else {
     data.forEach(function (val) {

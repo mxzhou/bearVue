@@ -30,6 +30,7 @@
       </scroller>
     </div>
     <nav-bar active="announce"></nav-bar>
+    <loading :show="loading" :text="text1"></loading>
   </div>
 </template>
 
@@ -38,6 +39,7 @@
   import CountDown from './count-down.vue'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
+  import {getAreaList} from '../../vuex/actions'
 
   export default {
     components: {
@@ -54,7 +56,8 @@
         show:false,
         title: '全部',
         titleList:['全部','进行中','已揭晓'],
-        lastTime:0
+        lastTime:0,
+        text1: '加载中...'
       }
     },
     init() {
@@ -63,14 +66,16 @@
     vuex: {
       getters: {
         items: function(store){
-          return store.openList.items.data.goodsList
+          return store.openList.items
         },
         data:function(store){
-          return store.openList.items
-        }
+          return store.openList.data
+        },
+        loading:({loaDing}) => loaDing.item.show
+
       },
       actions: {
-        getOpenList
+        getOpenList,getAreaList
       }
     },
     watch: {
@@ -81,17 +86,18 @@
       }
     },
     created(){
-      this.getOpenList()
+      this.getOpenList({pageSize:10,lastId:0},false)
+      this.getAreaList({addressId:460300,addressType:3})
     },
     methods:{
       load (uuid) {
-        this.getOpenList()
+        this.getOpenList({pageSize:10,lastId:0},false)
         setTimeout(() => {
           this.$broadcast('pulldown:reset', uuid)
         }, 20)
       },
       loadBottom:function(uuid){
-        alert(1)
+        this.getOpenList({pageSize:10,lastId:0},true)
         setTimeout(() => {
           this.$nextTick(() => {
             this.$broadcast('pullup:reset', uuid)

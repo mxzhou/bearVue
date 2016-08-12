@@ -3,8 +3,8 @@ import {
 } from './resources'
 
 export default {
-  getOpenList:function (options) {
-    return openResource.get({id: 'goods', controller:'open'})
+  getOpenList:function (data) {
+    return openResource.save({id: 'goods', controller:'open'},data)
   },
   getWin: function(){
     return openResource.get({id: 'goods', controller:'win'})

@@ -88,6 +88,9 @@ export default {
   getAddressList:function(){
     return MineResource.get({id:'user',controller:'address/list'})
   },
+  getAreaList:function(data){
+    return MineResource.save({id: 'address', controller:'get'},data)
+  },
   getDetailList:function(){
     return MineResource.get({id:'user',controller:'buyInfo/list'})
   },

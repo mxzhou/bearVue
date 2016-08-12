@@ -311,6 +311,24 @@ export const getAddressList = ({ dispatch }) => {
   })
 }
 
+// 地址列表
+export const getAreaList = ({ dispatch },data) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+
+  api.getAreaList(data).then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_AREA_LIST)
+    }
+    var data =response.data;
+    console.log(data.data)
+    dispatch(types.SUCCESS_GET_AREA_LIST, { list: data.data })
+  }, response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    dispatch(types.FAILURE_GET_AREA_LIST)
+  })
+}
+
 // 夺宝详情
 export const getDetailList = ({ dispatch }) => {
   dispatch(types.CHANGE_LOADING, { loading: {show:true} })
