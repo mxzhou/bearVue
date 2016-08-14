@@ -4,30 +4,30 @@
         <Swiper :list="goodsDetail.goodsImgList" :loop="true" :height="adHeight" :theme="theme" :top="adTop"></Swiper>
         <!-- 商品信息 satrt -->
         <div class="info">
-            <h3><span class="status green">进行中</span><span class="status blue">已揭晓</span><span class="status gray">已下架</span>{{goodsDetail.goodsName}}</h3>
-            <p>狂酷拽霸叼炸天的手机，秒杀安卓WP，装逼实用一样不落，新时代人类的首选</p>
+            <h3><span class="status green" v-if="goodsDetail.status!=1&&goodsDetail.status!=5">进行中</span><span class="status blue" v-if="goodsDetail.status==5">已揭晓</span><span class="status gray" v-if="goodsDetail.status==1">已下架</span>{{goodsDetail.goodsName}}</h3>
+            <p>{{goodsDetail.goodsDesc}}</p>
         </div>
-        <div class="status-bar" style="display:none;">
-            期号：2394024923424
+        <div class="status-bar" v-if="goodsDetail.status!=1&&goodsDetail.status!=5">
+            期号：{{goodsDetail.id}}
             <div class="progress-bar">
-              <div class="inner"></div>
+              <div class="inner" style="{{(goodsDetail.surplusNumber+'|'+goodsDetail.needNumber)|caProgress}}"></div>
             </div>
-            <div class="fr">剩余: <em>2333</em></div>
-            <div class="fl">总需: 10086</div>
+            <div class="fr">剩余: <em>{{goodsDetail.surplusNumber}}</em></div>
+            <div class="fl">总需: {{goodsDetail.needNumber}}</div>
         </div>
-        <div class="status-bar" style="height:0.9rem;display:none;">
+        <div class="status-bar" style="height:0.9rem;" v-if="goodsDetail.status==3">
             <div class="countdown">
                 <a class="fr btn">计算详情</a>
                 <p>期号: 301221284</p>
                 <h3>揭晓倒计时 00:08:13</h3>
             </div>
         </div>
-        <div class="status-bar" style="height:0.9rem;">
+        <div class="status-bar" style="height:0.9rem;" v-if="goodsDetail.status==1">
             <div class="removed">
                 奖品已下架
             </div>
         </div>
-        <div class="status-block" style="display:none;">
+        <div class="status-block" v-if="goodsDetail.status==5">
             <div class="winner-block">
                 <div class="inner">
                     <div class="user-pic">
@@ -146,8 +146,17 @@ export default {
         }
     },
     ready(){
+    },
+    filters: {
+        caProgress
     }
 
+}
+
+function caProgress(number){
+    let surplusNumber = number.split('|')[0]
+    let needNumber = number.split('|')[1]
+    return 'width:'+((needNumber-surplusNumber)/needNumber*100)+'%'
 }
 </script>
 <!-- 引入样式 -->

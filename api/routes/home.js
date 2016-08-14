@@ -234,7 +234,7 @@ router.get('/goods/detail',function(req, res, next){
         "goodsDesc" : "颜色随机",
         "price" : 3298.0,
         "needNumber" : 3298,
-        "surplusNumber" : 3298,
+        "surplusNumber" : 2423,
         "status" : 0,
         "hotSort" : 100000,
         "lastStage" : 0,
