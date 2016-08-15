@@ -8,6 +8,7 @@ import routes from './routes/index'
 import home from './routes/home'
 import recharge from './routes/recharge'
 import open from './routes/open'
+import share from './routes/share'
 
 const app = express();
 
@@ -22,6 +23,8 @@ app.use('/', address);
 app.use('/', routes);
 app.use('/', home);
 app.use('/', recharge);
+app.use('/', share);
+
 // 最新揭晓
 app.use('/', open);
 

@@ -22,6 +22,7 @@ import addressList from './modules/mine/address.list'
 import detailList from './modules/mine/detail.list'
 import openList from './modules/open/open.list'
 import win from './modules/open/win'
+import shareList from './modules/share/share.list'
 
 import modulesHome from './store.home'
 const debug = process.env.NODE_ENV !== 'production'
@@ -50,7 +51,8 @@ let modules = {
     addressList,
     detailList,
     openList,
-    win
+    win,
+    shareList
 }
 Object.assign(modules,modulesHome)
 export default new Vuex.Store({

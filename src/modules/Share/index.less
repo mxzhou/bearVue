@@ -62,118 +62,116 @@
       right: 0
     }
   }
-
-  .box{
-    display: flex;
-    .left{
+}
+.box{
+  display: flex;
+  .left{
+    width: .4rem;
+    height: .4rem;
+    margin-right: .1rem;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: .1rem;
+    .img{
       width: .4rem;
       height: .4rem;
-      margin-right: .1rem;
       border-radius: 100%;
-      overflow: hidden;
-      margin: .1rem;
-      .img{
-        width: .4rem;
-        height: .4rem;
-        border-radius: 100%;
+    }
+  }
+  .right{
+    flex: 1;
+    border-top:@color-border-default solid .01rem ;
+    padding: .1rem;
+    .hd{
+      font-size: .16rem;
+      line-height: .24rem;
+      .time{
+        font-size: .14rem;
+        color: #aaa;
+        float: right;
       }
     }
-    .right{
-      flex: 1;
-      border-top:@color-border-default solid .01rem ;
-      padding: .1rem;
-      .hd{
-        font-size: .16rem;
-        line-height: .24rem;
-        .time{
-          font-size: .14rem;
-          color: #aaa;
-          float: right;
+    .bd{
+      font-size: .16rem;
+      color: #333;
+      line-height: .24rem;
+    }
+    .ft{
+      display: flex;
+      justify-content: space-between;
+      margin: 0.1rem 0;
+      .display-img{
+        width: .94rem;
+        height: .94rem;
+      }
+    }
+    .status{
+      position: relative;
+      background: #FFFAEB;
+      border: .01rem solid #D9C9C3;
+      border-radius: .04rem;
+      padding: .06rem .1rem;
+      color: #CC9F8F;
+      font-size: .14rem;
+      .recommend{
+        width: .85rem;
+        height: .48rem;
+        position: absolute;
+        top: -.3rem;
+        left: -.4rem;
+      }
+      .le{
+        line-height: .2rem;
+        p{
+          width: 2.04rem;
         }
       }
-      .bd{
-        font-size: .16rem;
-        color: #333;
-        line-height: .24rem;
-      }
-      .ft{
-        display: flex;
-        justify-content: space-between;
-        margin: 0.1rem 0;
-        .display-img{
-          width: .94rem;
-          height: .94rem;
-        }
-      }
-      .status{
+      .re{
         position: relative;
-        background: #FFFAEB;
-        border: .01rem solid #D9C9C3;
-        border-radius: .04rem;
-        padding: .06rem .1rem;
-        color: #CC9F8F;
-        font-size: .14rem;
-        .recommend{
-          width: .85rem;
-          height: .48rem;
+        padding: .05rem 0;
+        .separate{
           position: absolute;
-          top: -.3rem;
-          left: -.4rem;
+          top: -.02rem;
+          left: -0.11rem;
+          width: .03rem;
+          height: .45rem;
+          border-left: .01rem dashed #D9C9C3;
         }
-        .le{
-          line-height: .2rem;
-          p{
-            width: 2.04rem;
-          }
+        .before{
+          position: absolute;
+          left: -.055rem;
+          top: -.05rem;
+          width: 0.1rem;
+          height: .05rem;
+          border: .01rem solid #D9C9C3;
+          border-top: 0;
+          border-radius: 0 0 .1rem .1rem;
         }
-        .re{
-          position: relative;
-          padding: .05rem 0;
-          .separate{
-            position: absolute;
-            top: -.02rem;
-            left: -0.11rem;
-            width: .03rem;
-            height: .45rem;
-            border-left: .01rem dashed #D9C9C3;
-          }
-          .before{
-            position: absolute;
-            left: -.055rem;
-            top: -.05rem;
-            width: 0.1rem;
-            height: .05rem;
-            border: .01rem solid #D9C9C3;
-            border-top: 0;
-            border-radius: 0 0 .1rem .1rem;
-          }
-          .after{
-            bottom: -0.06rem;
-            left: -0.055rem;
-            position: absolute;
-            width: 0.1rem;
-            height: .05rem;
-            border: .01rem solid #D9C9C3;
-            border-bottom: 0;
-            border-radius: .1rem .1rem 0 0;
-          }
-          .btn{
-            display: block;
-            width:.6rem;
-            height: .32rem;
-            border: .01rem solid @color-skin-blue;
-            border-radius: .04rem;
-            text-align: center;
-            line-height: .32rem;
-            font-size: .14rem;
-            color: @color-skin-blue;
-          }
+        .after{
+          bottom: -0.06rem;
+          left: -0.055rem;
+          position: absolute;
+          width: 0.1rem;
+          height: .05rem;
+          border: .01rem solid #D9C9C3;
+          border-bottom: 0;
+          border-radius: .1rem .1rem 0 0;
+        }
+        .btn{
+          display: block;
+          width:.6rem;
+          height: .32rem;
+          border: .01rem solid @color-skin-blue;
+          border-radius: .04rem;
+          text-align: center;
+          line-height: .32rem;
+          font-size: .14rem;
+          color: @color-skin-blue;
         }
       }
     }
   }
 }
-
 .edit{
   width: .62rem;
   height: .62rem;
