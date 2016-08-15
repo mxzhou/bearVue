@@ -57,6 +57,7 @@
         title: '全部',
         titleList:['全部','进行中','已揭晓'],
         lastTime:0,
+        lastId:0,
         text1: '加载中...'
       }
     },
@@ -80,6 +81,7 @@
     },
     watch: {
       items(val,oldVal) {
+        this.lastId = val[val.length-1].id
         if(val.length>0){
           this.show = true
         }
@@ -97,7 +99,7 @@
         }, 20)
       },
       loadBottom:function(uuid){
-        this.getOpenList({pageSize:10,lastId:0},true)
+        this.getOpenList({pageSize:10,lastId:this.lastId},true)
         setTimeout(() => {
           this.$nextTick(() => {
             this.$broadcast('pullup:reset', uuid)
