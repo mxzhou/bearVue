@@ -3,32 +3,30 @@
 </style>
 <template>
   <div>
-    <div style="margin-bottom: .6rem;">
-      <scroller lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom">
-        <ul class="list">
-          <template v-for="item in items">
-            <li>
-              <div class="left">
-                <img class="img" :src="item.coverImgUrl">
-              </div>
-              <div class="right">
-                <p class="name">{{item.goodsName}}</p>
-                <p class="p">总需：{{item.needNumber}}</p>
+    <scroller lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom" :height="height">
+      <ul class="list">
+        <template v-for="item in items">
+          <li>
+            <div class="left">
+              <img class="img" :src="item.coverImgUrl">
+            </div>
+            <div class="right">
+              <p class="name">{{item.goodsName}}</p>
+              <p class="p">总需：{{item.needNumber}}</p>
 
-                <div v-show="item.status==5">
-                  <p class="p">中奖者：{{item.nickname}}</p>
-                  <p class="p">本期参与：<span class="color-red">{{item.winnerJoinNumber}}</span>人次</p>
-                  <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
-                </div>
-                <div v-if="item.status==3">
-                  <count-down :time="item.startTime+60*1000-data.servertime" :item-id="item.id"></count-down>
-                </div>
+              <div v-show="item.status==5">
+                <p class="p">中奖者：{{item.nickname}}</p>
+                <p class="p">本期参与：<span class="color-red">{{item.winnerJoinNumber}}</span>人次</p>
+                <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
               </div>
-            </li>
-          </template>
-        </ul>
-      </scroller>
-    </div>
+              <div v-if="item.status==3">
+                <count-down :time="item.startTime+60*1000-data.servertime" :item-id="item.id"></count-down>
+              </div>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </scroller>
     <nav-bar active="announce"></nav-bar>
     <loading :show="loading" :text="text1"></loading>
   </div>
@@ -58,7 +56,8 @@
         titleList:['全部','进行中','已揭晓'],
         lastTime:0,
         lastId:0,
-        text1: '加载中...'
+        text1: '加载中...',
+        height:''
       }
     },
     init() {
@@ -88,6 +87,16 @@
       }
     },
     created(){
+      var doc = document,
+          metaEl = doc.querySelector('meta[name="viewport"]'),
+          scale,
+          dpr,
+          font = doc.documentElement.style['font-size'].replace('px',''),
+          match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/);
+      scale = parseFloat(match[1]);
+      var dHeight = document.documentElement.getBoundingClientRect().height;
+      var height = dHeight - 0.6*font;
+      this.$set('height',height+'px');
       this.getOpenList({pageSize:10,lastId:0},false)
       this.getAreaList({addressId:460300,addressType:3})
     },

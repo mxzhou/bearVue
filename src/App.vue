@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style lang="less">
+  html{
+    height: 100%;
+  }
   body {
     background-color: #eee;
     width: 3.75rem;
