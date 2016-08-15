@@ -62,8 +62,10 @@ export default {
   /*left:.45rem;*/
 /*}*/
 .icon{
-  width: .16rem;
-  height: .16rem;
+  width: .3rem;
+  height: .3rem;
+  margin-top: -0.3rem;
+  margin-bottom: -0.1rem;
   margin-right: .15rem;
 }
 .ui_cell_ft.with_arrow:after {

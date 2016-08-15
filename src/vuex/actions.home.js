@@ -54,6 +54,30 @@ export const getGoodsDetail = ({ dispatch }) => {
     dispatch(types.FAILURE_GET_GOODS_DETAIL)
   })
 }
+//清单详情
+export const getCartDetail = ({ dispatch }) => {
+  api.getCartDetail().then(response => {
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_CART_DETAIL)
+    }
+    var data =response.data
+    dispatch(types.SUCCESS_GET_CART_DETAIL, { list: data.data })
+  }, response => {
+    dispatch(types.FAILURE_GET_CART_DETAIL)
+  })
+}
+//用户余额
+export const getUserConsumeMoney = ({ dispatch }) => {
+  api.getUserConsumeMoney().then(response => {
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_USER_CONSUME_MONEY)
+    }
+    var data =response.data
+    dispatch(types.SUCCESS_GET_USER_CONSUME_MONEY, { list: data.data })
+  }, response => {
+    dispatch(types.FAILURE_GET_USER_CONSUME_MONEY)
+  })
+}
 //商品参与者
 export const getGoodsJoiner = ({ dispatch }) => {
   api.getGoodsJoiner().then(response => {

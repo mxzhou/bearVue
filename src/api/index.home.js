@@ -1,7 +1,8 @@
 import {
   UserResource,
   AuthResource,
-  GoodsResource} from './resources'
+  GoodsResource,
+  CartResource} from './resources'
 
 export default {
   getAdList:function (options) {
@@ -21,5 +22,11 @@ export default {
   },
   getGoodsUser:function (options) {
     return GoodsResource.get({id: 'goods', controller:'user'})
+  },
+  getCartDetail:function (options) {
+    return CartResource.get({id: 'cart', controller:'detail'})
+  },
+  getUserConsumeMoney:function (options) {
+    return CartResource.get({id: 'user', controller:'consumeMoney'})
   }
 }

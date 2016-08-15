@@ -30,6 +30,7 @@ export const MobileResource = Vue.resource(API_ROOT + 'mobile{/id}')
 
 export const AppResource = Vue.resource(API_ROOT + '{/id}')
 export const GoodsResource = Vue.resource(API_ROOT + '{/id}{/controller}')
+export const CartResource = Vue.resource(API_ROOT + '{/id}{/controller}')
 export const RechargeResource = Vue.resource(API_ROOT + '{/id}{/controller}');
 export const MineResource = Vue.resource(API_ROOT + '{/id}{/controller}');
 

@@ -16,7 +16,7 @@
           </template>
         </div>
         <div class="status">商品夺宝正火热进行</div>
-        <a class="btn">立即夺宝</a>
+        <a class="btn" @click="toBuy()">立即夺宝</a>
       </div>
     </div>
   </div>
@@ -38,6 +38,9 @@ export default {
     }
   },
   methods: {
+    toBuy () {
+      router.go('/pay/index');
+    },
     onClick () {
       go(this.link, this.$router)
     },

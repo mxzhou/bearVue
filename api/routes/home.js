@@ -463,6 +463,48 @@ router.get('/goods/joiner',function(req, res, next){
     res.json(json);
     next();
 })
+//购物车清单
+router.get('/cart/detail',function(req, res, next){
+  var json = {
+      "status" : 1,
+      "errorCode" : 0,
+      "errorMessage" : null,
+      "servertime" : 1471245821023,
+      "data" : {
+        "total" : 2,
+        "goodsList" : [ {
+          "id" : 1526053,
+          "goodsId" : 227,
+          "goodsName" : "Apple iPhone 6S PLUS 128G",
+          "goodsDesc" : "颜色随机",
+          "coverImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1GUA4BQhv1RCvBVdK.jpg",
+          "surplusStatus" : 0,
+          "status" : 0,
+          "lastId" : 100172572,
+          "needNumber" : 8480,
+          "surplusNumber" : 795,
+          "number" : 5,
+          "createTime" : 1471245780000
+        }, {
+          "id" : 1465386,
+          "goodsId" : 1985,
+          "goodsName" : "中国黄金 Au9999金元宝100g",
+          "goodsDesc" : "",
+          "coverImgUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T15dAmB5Cv1RCvBVdK.jpg",
+          "surplusStatus" : 0,
+          "status" : 0,
+          "lastId" : 100172585,
+          "needNumber" : 35999,
+          "surplusNumber" : 31918,
+          "number" : 5,
+          "createTime" : 1470990967000
+        } ],
+        "totalCost" : 10
+      }
+    }
+    res.json(json);
+    next();
+})
 //参与者本人
 router.get('/goods/user',function(req, res, next){
   var json = {
@@ -478,6 +520,19 @@ router.get('/goods/user',function(req, res, next){
 }
     res.json(json);
     next();
+})
+
+//用户余额
+router.get('/user/consumeMoney',function(req, res, next){
+  var json = {
+    "status" : 1,
+    "errorCode" : 0,
+    "errorMessage" : null,
+    "servertime" : 1471250639141,
+    "data" : 12.5
+  }
+  res.json(json);
+  next();
 })
 /*router.get('/goods/detail',function(req, res, next){
   var json = 
