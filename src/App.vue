@@ -1,7 +1,7 @@
 <template>
   <div class="top-box">
     <router-view
-            transition
+            transition="fade"
             transition-mode="out-in">
     </router-view>
     <winning :show.sync="show" num="100000000" name="iPhone 6s Plus 128G 颜色…"></winning>
@@ -51,5 +51,11 @@ export default {
     background-color: #eee;
     width: 3.75rem;
     margin: 0 auto;
+  }
+  .fade-transition {
+    transition: opacity  .1s ease;
+  }
+  .fade-enter, .fade-leave {
+    opacity: 0;
   }
 </style>

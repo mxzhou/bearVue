@@ -534,6 +534,18 @@ router.get('/user/consumeMoney',function(req, res, next){
   res.json(json);
   next();
 })
+//查看夺宝号码
+router.get('/user/buyInfo/codes',function(req, res, next){
+  var json = {
+    "status" : 1,
+    "errorCode" : 0,
+    "errorMessage" : null,
+    "servertime" : 1471313572785,
+    "data" : [ 10000004, 10000610, 10000418, 10000472, 10000497, 10000148, 10000322, 10000343, 10000032, 10000566 ]
+  }
+  res.json(json);
+  next();
+})
 /*router.get('/goods/detail',function(req, res, next){
   var json = 
     res.json(json);

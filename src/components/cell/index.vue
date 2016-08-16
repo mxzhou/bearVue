@@ -1,7 +1,7 @@
 <template>
   <div class="ui_cell" :class="{'vux-tap-active': isLink || !!link}"  @click="onClick">
     <div class="ui_cell_hd">
-      <img v-if="isIcon" class="icon" :src="iconUrl">
+      <img v-if="isIcon" class="icon" :class="big ? 'big':''" :src="iconUrl">
       <slot name="icon"></slot>
     </div>
     <div class="ui_cell_bd" :class="{'ui_cell_primary':primary==='title'}">
@@ -34,6 +34,7 @@ export default {
     value: String,
     isLink: Boolean,
     inlineDesc: String,
+    big: Boolean,
     primary: {
       type: String,
       default: 'title'
@@ -62,11 +63,15 @@ export default {
   /*left:.45rem;*/
 /*}*/
 .icon{
-  width: .3rem;
-  height: .3rem;
-  margin-top: -0.3rem;
-  margin-bottom: -0.1rem;
+  width: .16rem;
+  height: .16rem;
   margin-right: .15rem;
+  &.big {
+    width: .3rem;
+    height: .3rem;
+    margin-top: -0.3rem;
+    margin-bottom: -0.1rem;
+  }
 }
 .ui_cell_ft.with_arrow:after {
   content: " ";

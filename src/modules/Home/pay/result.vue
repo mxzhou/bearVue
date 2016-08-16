@@ -14,7 +14,7 @@
         <p class="p">成功参与一元买！</p>
         <p class="desc">请等待系统为您揭晓</p>
         <a class="btn" @click="handle">继续夺宝</a>
-        <a class="btn transparent" @click="handle">查看夺宝记录</a>
+        <a class="btn transparent" @click="goMyRecord()">查看夺宝记录</a>
       </div>
       <div class="list-area">
           <div class="list-title">您成功参与了1件商品共34人次一元买，信息如下</div>
@@ -99,6 +99,9 @@
       handle:function(){
         router.go('/');
       },
+      goMyRecord () {
+        router.go('/mine/snarchRecord');
+      }
     }
   }
   function tick (i, cb) {

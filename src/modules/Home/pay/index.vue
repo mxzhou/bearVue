@@ -31,11 +31,14 @@
         </div>
         <group v-if="showPay" style="margin-top:-.2rem;" :hide="hideTop">
           <template v-for="item in list">
-            <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img" @click="selectFunc($index)">
+            <cell :title="item.text" :link="item.link" :big="true" :is-icon="item.isIcon" :icon-url="item.img" @click="selectFunc($index)">
               <a class="select" :class="{'marked':$index == index}"></a>
             </cell>
           </template>
         </group>
+      </div>
+      <div class="ui-bottom">
+        <a class="ui_btn_bottom" @click="pay()">确认支付</a>
       </div>
   </div>
 </template>
@@ -85,7 +88,22 @@
       if(this.cartDetail.length < 1){
           this.getCartDetail()
       }
-      this.getUserConsumeMoney()
+      if(this.userConsumeMoney.length < 1){
+        this.getUserConsumeMoney()
+      }else{
+        if(this.userConsumeMoney<=0){
+          this.otherPayNum = this.cartDetail.totalCost
+        }else{
+          if(this.userConsumeMoney < this.cartDetail.totalCost){
+            this.otherPayNum = this.cartDetail.totalCost - this.userConsumeMoney
+            this.consumePayNum = this.userConsumeMoney
+          }else if(this.userConsumeMoney == this.cartDetail.totalCost){
+            this.consumePayNum = this.userConsumeMoney
+          }else{
+            this.consumePayNum = this.cartDetail.totalCost
+          }
+        }
+      }
 
     },
     watch: {
@@ -132,6 +150,9 @@
           this.otherPayNum = this.cartDetail.totalCost
           this.consumePayNum = 0
         }
+      },
+      pay () {
+          router.go('/pay/check');
       },
       dropFunc () {
         this.show = !this.show
