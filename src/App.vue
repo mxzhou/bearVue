@@ -5,6 +5,7 @@
             transition-mode="out-in">
     </router-view>
     <winning :show.sync="show" num="100000000" name="iPhone 6s Plus 128G 颜色…"></winning>
+    <nav-bar :active="page"></nav-bar>
   </div>
 </template>
 
@@ -29,15 +30,32 @@
 })(window);
 import FastClick from 'fastclick'
 import store from './vuex/store'
-import {Winning} from './components'
+import {Winning,NavBar} from './components'
 const options = {};
 FastClick.attach(document.body, options);
 export default {
   store,
-  components: { Winning},
+  components: { Winning,NavBar },
   data(){
     return{
-      show:false
+      show: false,
+      page: 'none'
+    }
+  },
+  methods: {
+    goRouter (link) {
+      link = link.replace(/\//gi,'')
+      if(link == 'home'){
+        this.page = 'home'
+      }else if(link == 'announce'){
+        this.page = 'announce'
+      }else if(link == 'share'){
+        this.page = 'share'
+      }else if(link == 'mine'){
+        this.page = 'mine'
+      }else{
+        this.page = 'none' 
+      }
     }
   }
 }

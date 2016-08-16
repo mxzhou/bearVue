@@ -1,5 +1,5 @@
 <template>
-  <nav class="ui_nav">
+  <nav class="ui_nav" v-if="active != 'none'">
     <template v-for="item in list">
       <div class="item" :class="{'active':item.link==active}" v-link="item.link">
         <img class="img" v-if="item.link==active" :src="oImg[item.link]"/>
@@ -8,7 +8,7 @@
     </template>
   </nav>
 </template>
-<script>
+<script type="text/ecmascript-6">
 import home from '../../assets/images/ic_tap1.png'
 import share from '../../assets/images/ic_tap2.png'
 import announce from '../../assets/images/ic_tap3.png'
@@ -18,6 +18,7 @@ export default {
   },
   data(){
     return{
+      show: false,
       oImg:{
         home:home,
         share:share,
@@ -53,8 +54,13 @@ export default {
     }
   },
   methods: {
+    
+  },
+  attached () {
+    console.log(124234323244)
   }
 }
+
 </script>
 
 <style lang="less">

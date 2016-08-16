@@ -19,7 +19,6 @@
     <group>
         <p class="desc">我的ID:101100110</p>
     </group>
-    <nav-bar active="mine"></nav-bar>
   </div>
 </template>
 

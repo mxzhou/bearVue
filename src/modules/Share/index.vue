@@ -15,7 +15,6 @@
     <div class="edit" @click="goRule">
       <img class="img" :src="edit"/>
     </div>
-    <nav-bar active="share"></nav-bar>
     <loading :show="loading" :text="text1"></loading>
   </div>
 </template>

@@ -27,7 +27,6 @@
         </template>
       </ul>
     </scroller>
-    <nav-bar active="announce"></nav-bar>
     <loading :show="loading" :text="text1"></loading>
   </div>
 </template>

@@ -5,7 +5,6 @@
         <Notes :list="announceList"></Notes>
         <Lists :goods-list="goodsHomeList.goodsList"></Lists>
         <Buy :numer="number"></Buy>
-        <nav-bar active="home"></nav-bar>
     </div>
 </template>
 

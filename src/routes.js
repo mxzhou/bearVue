@@ -1,4 +1,5 @@
 import routesHome from './routes/routes.home'
+import Vue from 'vue'
 let maps = {
     '/': {
       name: 'index',
@@ -134,7 +135,15 @@ let maps = {
 Object.assign(maps,routesHome)
 export default function (router) {
   router.map(maps)
-  // router.beforeEach((transition)=>{
-  //   transition.next()
-  // })
+  router.beforeEach(function (transition) {
+
+    //一级页面增加底部导航，其他去掉
+    router.app.goRouter(transition.to.path)
+    
+    if (transition.to.path === '/forbidden') {
+      transition.abort()
+    } else {
+      transition.next()
+    }
+  })
 }
