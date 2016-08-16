@@ -42,7 +42,7 @@ export default {
 //        }
     },
     ready() {
-        document.body.addEventListener('touchstart',function(){},false);
+        
     },
     components: {
         Swiper,
