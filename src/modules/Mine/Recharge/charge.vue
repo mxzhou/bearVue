@@ -65,7 +65,7 @@
     </group>
     <group title="选择支付方式">
       <template v-for="item in list">
-        <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img" @click="selecrFunc2($index)">
+        <cell :title="item.text" :link="item.link" :big="true" :is-icon="item.isIcon" :icon-url="item.img" @click="selecrFunc2($index)">
           <a class="select" :class="{'marked':$index == index2}"></a>
         </cell>
       </template>
