@@ -1,7 +1,7 @@
 <template>
   <cell :title="title" primary="content" is-link :inline-desc="inlineDesc" @click="onClick">
-    <span class="vux-popup-picker-value" v-if="!showName && value.length">{{value | array2string}}</span>
-    <span class="vux-popup-picker-value" v-else="showName && value.length">{{value | value2name data}}</span>
+    <span class="vux-popup-picker-value" style="display: none">{{value}}</span>
+    <span class="vux-popup-picker-value" v-else="showName && value.length">{{name}}</span>
     <span v-if="!value.length && placeholder" v-html="placeholder"></span>
   </cell>
   <popup :show.sync="show" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="$emit('on-show')">
@@ -12,7 +12,7 @@
           <flexbox-item style="text-align:right;padding-right:.15rem;line-height:44px;" @click="onHide(true)">完成</flexbox-item>
         </flexbox>
       </div>
-      <picker :data="data" :value.sync="tempValue" :columns="columns" :container="'#vux-popup-picker-'+uuid" @on-change="onPickerChange"></picker>
+      <picker :data="data" :value.sync="tempValue" :columns="columns"  @on-change="onPickerChange"></picker>
     </div>
   </popup>
 </template>
@@ -85,22 +85,22 @@ export default {
       this.tempValue = getObject(this.value)
       this.$emit('on-hide', this.closeType)
     },
-    onPickerChange (val) {
-      this.value = getObject(val)
+    onPickerChange (val,name) {
+      this.value = val
+      this.name = name;
+      console.log(name)
     }
   },
   watch: {
     value (val) {
-      if (JSON.stringify(val) !== JSON.stringify(this.tempValue)) {
-        this.tempValue = getObject(val)
-      }
     }
   },
   data () {
     return {
       show: false,
       tempValue: getObject(this.value),
-      closeType: false
+      closeType: false,
+      name:[]
     }
   }
 }

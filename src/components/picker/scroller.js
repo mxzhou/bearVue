@@ -47,7 +47,7 @@ var Scroller = function (container, options) {
   var html = ''
   if (data.length && data[0].constructor === Object) {
     data.forEach(function (row) {
-      html += '<div class="' + self.options.itemClass + '" data-value="' + row.id + '">' + row.addressName + '</div>'
+      html += '<div class="' + self.options.itemClass + '" data-value="' + row.id + '" data-name="'+row.addressName+'">' + row.addressName + '</div>'
     })
   } else {
     data.forEach(function (val) {
@@ -200,6 +200,8 @@ var members = {
     }
 
     self.value = selectedItem.dataset.value
+    self.name = selectedItem.dataset.name
+
   },
 
   __scrollingComplete () {
@@ -210,7 +212,7 @@ var members = {
     self.__selectItem(self.__content.children[index])
 
     if (self.__prevValue !== null && self.__prevValue !== self.value) {
-      self.options.onSelect(self.value)
+      self.options.onSelect(self.value,self.name)
     }
   },
 
