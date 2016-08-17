@@ -4,7 +4,7 @@
 <template>
   <div>
     <div>
-      <scroller lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom" :height="height">
+      <scroller lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom" :height="height" v-rel:scroller lock>
         <ul class="list">
           <template v-for="item in items">
             <single :item="item"></single>
@@ -42,6 +42,8 @@
         pageNumber:1,
         text1: '加载中...',
         height:'',
+        bAdd:false,
+        uuid:''
       }
     },
     init() {
@@ -77,27 +79,27 @@
     watch: {
       items(val, oldVal) {
         if (val.length > 0) {
+          if(this.bAdd){
+            this.$broadcast('pullup:reset', this.uuid);
+          }else{
+            this.$broadcast('pulldown:reset', this.uuid);
+          }
           this.show = true;
           this.pageNumber++
-          console.log(this.pageNumber)
         }
       },
     },
     methods: {
       load (uuid) {
+        this.bAdd = false;
+        this.uuid = uuid
         this.pageNumber = 1;
         this.getShareList({pageSize:20,pageNumber:1},false)
-        setTimeout(() => {
-          this.$broadcast('pulldown:reset', uuid)
-        }, 20)
       },
       loadBottom:function(uuid){
+        this.bAdd = true;
+        this.uuid = uuid;
         this.getShareList({pageSize:20,pageNumber:this.pageNumber},true)
-        setTimeout(() => {
-          this.$nextTick(() => {
-            this.$broadcast('pullup:reset', uuid)
-          })
-        }, 20)
       },
       goRule:function(){
         router.go('/share/rule')

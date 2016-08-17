@@ -45,7 +45,7 @@ export default {
   methods: {
     goRouter (link) {
       link = link.replace(/\//gi,'')
-      if(link == 'home'){
+      if(link == 'home'||link == ''){
         this.page = 'home'
       }else if(link == 'announce'){
         this.page = 'announce'
@@ -54,7 +54,7 @@ export default {
       }else if(link == 'mine'){
         this.page = 'mine'
       }else{
-        this.page = 'none' 
+        this.page = 'none'
       }
     }
   }

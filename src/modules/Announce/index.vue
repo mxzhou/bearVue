@@ -3,7 +3,7 @@
 </style>
 <template>
   <div>
-    <scroller lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom" :height="height">
+    <scroller lock-x scrollbar-y use-pullup use-pulldown v-if="show" @pulldown:loading="load"  @pullup:loading="loadBottom" :height="height" v-ref:scroller>
       <ul class="list">
         <template v-for="item in items">
           <li>
@@ -56,7 +56,9 @@
         lastTime:0,
         lastId:0,
         text1: '加载中...',
-        height:''
+        bAdd:false,
+        height:'',
+        uuid:''
       }
     },
     init() {
@@ -79,10 +81,13 @@
     },
     watch: {
       items(val,oldVal) {
-        this.lastId = val[val.length-1].id
-        if(val.length>0){
-          this.show = true
+        if(this.bAdd){
+          this.$broadcast('pullup:reset', this.uuid);
+        }else{
+          this.$broadcast('pulldown:reset', this.uuid);
         }
+        this.show = true
+        this.lastId = val[val.length-1].id
       }
     },
     created(){
@@ -97,29 +102,23 @@
       var height = dHeight - 0.6*font;
       this.$set('height',height+'px');
       this.getOpenList({pageSize:10,lastId:0},false)
-      this.getAreaList({addressId:460300,addressType:3})
     },
     methods:{
       load (uuid) {
+        this.bAdd = false;
+        this.uuid = uuid
         this.getOpenList({pageSize:10,lastId:0},false)
-        setTimeout(() => {
-          this.$broadcast('pulldown:reset', uuid)
-        }, 20)
       },
       loadBottom:function(uuid){
-        this.getOpenList({pageSize:10,lastId:this.lastId},true)
-        setTimeout(() => {
-          this.$nextTick(() => {
-            this.$broadcast('pullup:reset', uuid)
-          })
-        }, 20)
+        this.bAdd = true;
+        this.uuid = uuid
+        this.getOpenList({pageSize:10,lastId:this.lastId},true);
       },
       getList:function(index){
         if(index == 1){
           this.show = true;
         }else{
           this.show = false;
-
         }
       },
       fn:function(){

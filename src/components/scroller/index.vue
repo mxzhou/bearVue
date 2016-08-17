@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
 import Pulldown from 'vux-xscroll/build/cmd/plugins/pulldown'
 import Pullup from 'vux-xscroll/build/cmd/plugins/pullup'
