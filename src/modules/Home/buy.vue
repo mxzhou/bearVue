@@ -4,10 +4,10 @@
       <div class="bg" @click="close()"></div>
       <div class="buy-container">
         <h3>参与人数</h3>
-        <a class="btn-close"  @click="close()"><img :src="imgClose"></a>
+        <a class="btn-close" @click="close()"><img :src="imgClose"></a>
         <div class="input-area">
           <a class="btn-minus" @click="minus()">-</a>
-          <input type="tel" maxlength="10" :value="money">
+          <input type="tel" maxlength="10" v-model="money" @focus="focus()" @blur="blur()">
           <a class="btn-plus" @click="plus()">+</a>
         </div>
         <div class="btn-area">
@@ -24,11 +24,15 @@
 <script type="text/ecmascript-6">
 import imgClose from '../../assets/images/ic_s_close_p.png'
 export default {
-  props: ['number','show'],
+  props: {
+     number: Number,
+     show: Boolean
+  },
   data () {
     return {
       imgClose: imgClose,
       money: 1,
+      canTouchMove: true,
       list: [
         { money: '5' },
         { money: '20' },
@@ -42,7 +46,6 @@ export default {
       router.go('/pay/index');
     },
     onClick () {
-      go(this.link, this.$router)
     },
     plus () {
       this.money++
@@ -60,24 +63,61 @@ export default {
       this.index = index;
       let money = this.list[index].money
       if(money=='包尾'){
-        this.money = 100
+        this.money = this.number
       }else{
         this.money = money
       }
+    },
+    focus () {
+      this.canTouchMove = false
+    },
+    blur () {
+      this.canTouchMove = true
     }
   },
   watch : {
     show () {
         let $buy = this.$el.querySelector('.buy-block')
         if(this.show){
+          $buy.className = 'buy-block active'
           setTimeout(function(){
             $buy.className = $buy.className + ' animatein'
-          },20)
+          },50)
         }else{
-          $buy.className = 'buy-block'
+          $buy.className = 'buy-block active'
+          setTimeout(function(){
+            $buy.className = 'buy-block'
+          },300)
+        }      
+    },
+    money () {
+      if(!/^[1-9]\d*$/g.test(this.money)){
+        if(this.number > 100){
+          this.money = 10
+        }else{
+          this.money = 1
         }
-      
+      }
+      if(this.money>this.number){
+        this.money = this.number
+      }
+    },
+    number () {
+      if(this.number > 100){
+        this.money = 10
+      }else {
+        this.money = 1
+      }
     }
+  },
+  ready () {
+    let _this = this
+    document.body.addEventListener('touchmove',function(e){
+      if(!_this.canTouchMove){
+        e.preventDefault()
+        e.stopPropagation()
+      }
+    })    
   }
 }
 </script>
@@ -88,27 +128,28 @@ export default {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 101;  
+    z-index: 10001;  
     display: none;
     &.active {
       display: block;      
-    }
-    &.animatein {
-      .bg {
-        -webkit-transition-duration: .3s;
-        background: rgba(0,0,0,0.8);
-      }
-      .buy-container {
-        -webkit-transition-duration: .3s;
-        -webkit-transform: translateY(0%);
-      }
     }
     .bg {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0);
-      -webkit-transition-duration: .3s;
+      background: rgba(0,0,0,.8);
+      opacity: 0;
+      -webkit-transition: all .3s ease;
+    }
+    &.animatein {
+      .bg {
+        -webkit-transition: all .3s ease;
+        opacity: 1;
+      }
+      .buy-container {
+        -webkit-transition: all .3s ease;
+        -webkit-transform: translateY(0%);
+      }
     }
     .buy-container {
       position: absolute;
@@ -206,12 +247,6 @@ export default {
         &:last-child {
           margin-right: 0;
         }
-      }
-    }
-    &.active {
-      display: block;
-      .bg {
-        background: rgba(0,0,0,0.8);
       }
     }
   }

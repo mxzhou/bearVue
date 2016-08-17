@@ -4,7 +4,7 @@
         <Swiper :list="adList" :loop="true" :height="adHeight" :top="adTop"></Swiper>
         <Notes :list="announceList"></Notes>
         <Lists :goods-list="goodsHomeList.goodsList"></Lists>
-        <Buy :numer="number"></Buy>
+        <Buy :number="totalNum" :show="showBuy"></Buy>
     </div>
 </template>
 
@@ -19,7 +19,9 @@ export default {
     data(){
         return {
             adHeight: '1.88rem',
-            adTop: '-0.2rem'
+            adTop: '-0.2rem',
+            showBuy: false,
+            totalNum: 0
         }
     },
     vuex:{
@@ -67,6 +69,12 @@ export default {
     },
     ready(){
         console.log(this.$data);
+    },
+    methods: {
+        showBuyFunc (num) {
+            this.totalNum = num
+            this.showBuy = true
+        }
     }
 
 }

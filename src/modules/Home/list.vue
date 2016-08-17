@@ -3,12 +3,12 @@
     	<ul class="goods-list">
     		<li v-for="item in goodsList" class="article-item">
     			<div class="pic"><a v-link="{ name: 'goodsDetail',params: {aid: item.id } }"><img :src="item.coverImgUrl"></a></div>
-    			<h3>{{item.goodsName}}</h3>
+    			<h3><a v-link="{ name: 'goodsDetail',params: {aid: item.id } }">{{item.goodsName}}</a></h3>
     			<div class="goods-control"><div class="goods-status">
                     <div class="progress-bar">
-                      <div class="inner"></div>
+                      <div class="inner" style="{{(item.surplusNumber+'|'+item.needNumber)|caProgress}}"></div>
                     </div>
-                    <div class="btn-area"><a @click="onClick()" class="btn btn-green fr">夺宝</a>
+                    <div class="btn-area"><a @click="onClick(item.surplusNumber)" class="btn btn-green fr">夺宝</a>
                         <p>总需: {{ item.needNumber}}</p>
                         <p>剩余: <span class="yellow">{{ item.surplusNumber}}</span></p>
                     </div>
@@ -23,17 +23,25 @@
 <script type="text/ecmascript-6">
 export default {
   props: ['goodsList'],
+  filters: {
+    caProgress
+  },
   methods: {
-    onClick () {
-      this.$parent.showBuyFunc()
+    onClick (num) {
+      this.$parent.showBuyFunc(num)
     }
   }
+}
+function caProgress(number){
+    let surplusNumber = number.split('|')[0]
+    let needNumber = number.split('|')[1]
+    return 'width:'+((needNumber-surplusNumber)/needNumber*100)+'%'
 }
 </script>
 <style lang="less" scoped>
   .goods-list {
   	margin-top: 0.1rem;
-  	margin-bottom: 0.6rem;
+  	padding-bottom: 0.6rem;
   	overflow: hidden;
   	ul,li {
         margin: 0;
