@@ -1,7 +1,7 @@
 <template>
   <div class="vux-picker">
     <flexbox :gutter="0">
-      <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
+      <flexbox-item v-for="(index, one) in dataArray" style="margin-left:0;">
         <div class="vux-picker-item" :id="'vux-picker-' + uuid + '-' + index"></div>
       </flexbox-item>
     </flexbox>
@@ -23,16 +23,9 @@ export default {
     FlexboxItem,
     Loading
   },
-  created () {
-    if (this.columns !== 0) {
-      const length = this.columns
-      this.store = new Manager(this.data, length)
-      this.data = this.store.getColumns(this.value)
-    }
-  },
   ready () {
     this.$nextTick(() => {
-      this.render(this.value)
+      this.render()
     })
   },
   props: {
@@ -41,7 +34,7 @@ export default {
     },
     columns: {
       type: Number,
-      default: 0
+      default: 3
     },
     value: {
       type: Array,
@@ -57,7 +50,6 @@ export default {
       return `#vux-picker-${this.uuid}-${i}`
     },
     getScroller:function(data,index){
-      console.log(this.scroller)
       if (this.columns === 0) {
         return
       }
@@ -127,7 +119,7 @@ export default {
         console.log('response fail');
       });
     },
-    render (data, value) {
+    render () {
       const columns = this.columns;
       this.getScroller({addressId:0,addressType:1},0);
     },
@@ -141,6 +133,7 @@ export default {
   },
   data () {
     return {
+      dataArray:[0,1,2],
       show:false,
       scroller: [],
       count: 0,

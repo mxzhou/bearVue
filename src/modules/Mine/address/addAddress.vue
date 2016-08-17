@@ -6,7 +6,7 @@
     <group>
       <x-input title="用户名" placeholder="请输入收货人姓名" :required="false" :value.sync="name"></x-input>
       <x-input title="手机号码" placeholder="请输入手机号码" :required="false" :value.sync="phone"></x-input>
-      <address @on-hide="logHide" @on-show="logShow" :title="title" :value.sync="array" :list="addressData" placeholder="请选择"></address>
+      <address @on-hide="logHide" @on-show="logShow" :title="title" :value.sync="array" placeholder="请选择"></address>
       <x-textarea title="详细地址" placeholder="" :required="false" :value.sync="detail"></x-textarea>
       <switch title="设置为默认地址" :value.sync="show"></switch>
     </group>
@@ -18,7 +18,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { XInput,XTextarea,Group, Address, AddressChinaData, XButton, Cell,Switch} from '../../../components'
+  import { XInput,XTextarea,Group, Address, XButton, Cell,Switch} from '../../../components'
   import value2name from '../../../filters/value2name'
   import {changeTitle} from '../../../utils/hack'
 
@@ -39,7 +39,7 @@
         phone: '',
         detail: '',
         array: [],
-        addressData: AddressChinaData,
+        addressData: [],
         show:false
       }
     },
@@ -47,12 +47,6 @@
       this.array = [];
     },
     methods: {
-      changeData () {
-        this.value2 = ['430000', '430400', '430407']
-      },
-      getName (value) {
-        return value2name(value, AddressChinaData)
-      },
       logHide (str) {
         console.log('on-hide', str)
       },

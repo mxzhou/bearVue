@@ -13,22 +13,6 @@ let maps = {
       name: 'login',
       component: require('./modules/Login/index.vue')
     },
-    '/alert': {
-      name: 'alert',
-      component: require('./modules/Alert/index.vue')
-    },
-    '/toast':{
-      name: 'toast',
-      component: require('./modules/Toast/index.vue')
-    },
-    '/loading':{
-      name: 'loading',
-      component: require('./modules/Loading/index.vue')
-    },
-    '/allProduct':{
-      name: 'allProduct',
-      component: require('./modules/AllProduct/index.vue')
-    },
     // 我的夺宝 个人中心
     '/mine':{
       name: 'mine',

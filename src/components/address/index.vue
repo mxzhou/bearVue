@@ -22,13 +22,14 @@ export default {
       }
     },
     rawValue: Boolean,
-    list: {
-      type: Array,
-      required: true
-    },
     inlineDesc: String,
     placeholder: String,
     hideDistrict: Boolean
+  },
+  data(){
+    return{
+      list:[]
+    }
   },
   beforeCompile () {
     if (this.value.length && this.rawValue) {

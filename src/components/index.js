@@ -19,7 +19,6 @@ import Picker from './picker'
 import Popup from './popup'
 import PopupPicker from './popup-picker'
 import Address from './address'
-import AddressChinaData from './address/list'
 import Flexbox from './flexbox'
 import FlexboxItem from './flexbox-item'
 import XInput from './x-input'
@@ -50,7 +49,6 @@ const vux = {
   Popup,
   PopupPicker,
   Address,
-  AddressChinaData,
   Flexbox,
   FlexboxItem,
   XInput,

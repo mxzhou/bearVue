@@ -60,7 +60,7 @@
         <template v-for="item in moneyList">
           <a class="btn" :class="{'selected':$index == index}" @click="selectFunc($index)">{{item.key}}</a>
         </template>
-        <input type="number" class="btn" @focus="focusFunc" v-model="other" placeholder="其他金额">
+        <input type="number" class="btn" @focus="focusFunc" @blur="blurFunc" v-model="other" placeholder="其他金额">
       </div>
     </group>
     <group title="选择支付方式">
@@ -70,7 +70,7 @@
         </cell>
       </template>
     </group>
-    <div class="ui-bottom">
+    <div class="ui-bottom" :style="bottomStyle">
       <a class="ui_btn_bottom" @click="confirm">确认充值</a>
     </div>
   </div>
@@ -123,6 +123,9 @@
             text:"信用卡",img:creditcard,isIcon:true
           }
         ],
+        bottomStyle:{
+
+        }
       }
     },
     vuex:{
@@ -158,6 +161,13 @@
       },
       focusFunc:function(){
         this.index = 6;
+        this.bottomStyle = {
+          'position':'static',
+          'margin-top':'6rem'
+        }
+      },
+      blurFunc:function(){
+        this.bottomStyle = {}
       }
     }
   }
