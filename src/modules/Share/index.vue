@@ -4,7 +4,7 @@
 <template>
   <div>
     <div>
-      <scroller lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom" :height="height" v-rel:scroller lock>
+      <scroller lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom" :height="height" v-ref:scroller>
         <ul class="list">
           <template v-for="item in items">
             <single :item="item"></single>
