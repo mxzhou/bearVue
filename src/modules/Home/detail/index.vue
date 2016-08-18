@@ -3,7 +3,7 @@
 
         <Swiper :list="goodsDetail.goodsImgList" :loop="true" :height="adHeight" :theme="theme" :top="adTop"></Swiper>
         <!-- 商品信息 satrt -->
-        <div class="info">
+        <div class="m-info">
             <h3><span class="status green" v-if="goodsDetail.status!=1&&goodsDetail.status!=5">进行中</span><span class="status blue" v-if="goodsDetail.status==5">已揭晓</span><span class="status gray" v-if="goodsDetail.status==1">已下架</span>{{goodsDetail.goodsName}}</h3>
             <p>{{goodsDetail.goodsDesc}}</p>
         </div>
@@ -46,7 +46,7 @@
                 </div> 
             </div>
         </div>
-        <div class="join">
+        <div class="m-join">
             你还没有参加，赶快参加吧！
         </div>  
         <!-- 商品信息 satrt -->

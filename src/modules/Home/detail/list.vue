@@ -29,7 +29,6 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import "index.less";
 .joiner-list {
     position: relative;
     width: 100%;

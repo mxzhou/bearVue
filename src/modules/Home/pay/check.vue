@@ -1,9 +1,6 @@
-<style lang="less" scoped>
-@import "./index.less";
-</style>
 <template>
     <div>
-      <div class="status check">
+      <div class="m-status check">
         <img :src="imgCheck">
         <p class="p">支付正在处理中...</p>
         <p class="desc">{{time}}秒后确认支付结果</p>

@@ -1,15 +1,15 @@
-<style lang="less" scoped>
+<style lang="less">
 @import "./index.less";
 </style>
 <template>
     <div>
-      <div class="status" style="display:none;">
+      <div class="m-status" style="display:none;">
         <img :src="imgFail">
         <p class="p">非常抱歉！充值失败</p>
         <p class="desc">多支付的金额会退回到您的账号余额中<br>下次参与可以直接抵扣</p>
         <a class="btn" @click="handle">重新夺宝</a>
       </div>
-      <div class="status">
+      <div class="m-status">
         <img :src="imgSuccess">
         <p class="p">成功参与一元买！</p>
         <p class="desc">请等待系统为您揭晓</p>
