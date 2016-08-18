@@ -27,11 +27,14 @@ module.exports = {
   plugins: [
     new CleanPlugin([assetsPath], { root: projectRootPath }),
     new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV': JSON.stringify('production')
-      }
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
     }),
     new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false,  // remove all comments
+      },
       compress: { warnings: false }
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -41,6 +44,7 @@ module.exports = {
       minChunks: Infinity //Infinity
     }),
     new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
+    new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin({
       favicon:path.join(__dirname,'../src/assets/favicon.ico'),
       title: "",
@@ -61,7 +65,7 @@ module.exports = {
       { test: /\.vue$/,loader: 'vue', include: path.join(__dirname,'../src')},
       { test: /\.js$/, loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/},
       { test: /\.(jpe?g|png|gif)$/i, loaders: [
-        'url?limit=5000&name=images/[hash:8].[name].[ext]',
+        'url?limit=5120&name=images/[hash:8].[name].[ext]',
         'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
       ]},
       { test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'}
