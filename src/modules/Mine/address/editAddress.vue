@@ -1,6 +1,3 @@
-<style lang="less" scoped>
-  @import "index.less";
-</style>
 <style>
   .text-area .ui_label{
     position: relative;

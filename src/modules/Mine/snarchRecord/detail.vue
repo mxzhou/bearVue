@@ -1,9 +1,6 @@
-<style lang="less" scoped>
-  @import "./index.less";
-</style>
 <template>
   <div>
-    <div class="sDetail">
+    <div class="snarch-detail">
       <div class="desc">
         <p class="p1">外星人15.6英寸游戏本ALW15ER-3718</p>
         <p class="p2">期号: 301221522</p>
@@ -28,7 +25,7 @@
       </ul>
     </div>
     <alert :show.sync="show" title="幸运号码" button-text="确定">
-      <p class="lucktNum">
+      <p class="luckyNum">
         <span>1005654</span>
         <span>1005654</span>
         <span>1005654</span>

@@ -1,9 +1,6 @@
-<style lang="less" scoped>
-  @import "index.less";
-</style>
 <template>
   <div>
-    <div class="rule">
+    <div class="share-rule">
       <div class="banner">
         <img :src="imgBanner"/>
       </div>

@@ -1,9 +1,9 @@
-<style lang="less" scoped>
+<style lang="less">
   @import "./index.less";
 </style>
 <template>
   <div>
-    <ul class="record">
+    <ul class="rechage-record">
       <template v-for="item in items">
         <li>
           <p class="title">{{payType[item.payType]}}</p>
@@ -15,7 +15,7 @@
       </template>
     </ul>
     <div class="ui-bottom">
-      <a class="ui_btn_bottom">充值</a>
+      <a class="ui_btn_bottom" @click="chargeFunc()">充值</a>
     </div>
   </div>
 </template>
@@ -63,6 +63,9 @@
       this.getRechargeRecordList()
     },
     methods: {
+      chargeFunc:function(){
+        router.go('/mine/charge')
+      },
       add:function(){
         alert(0)
       }

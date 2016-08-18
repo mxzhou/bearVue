@@ -1,10 +1,10 @@
-<style lang="less" scoped>
+<style lang="less">
   @import "index.less";
 </style>
 <template>
   <div>
     <scroller lock-x scrollbar-y use-pullup use-pulldown v-if="show" @pulldown:loading="load"  @pullup:loading="loadBottom" :height="height" v-ref:scroller>
-      <ul class="list">
+      <ul class="announce-list">
         <template v-for="item in items">
           <li>
             <div class="left">

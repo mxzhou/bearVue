@@ -1,9 +1,6 @@
-<style lang="less" scoped>
-  @import "index.less";
-</style>
 <template>
   <div>
-    <div class="share">
+    <div class="make-share">
       <div class="hd">
         <x-textarea title="" placeholder="分享此刻的喜悦…" :required="false" :value.sync="content"></x-textarea>
         <div class="file-list" :style="styles">

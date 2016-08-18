@@ -77,8 +77,3 @@ export default {
 
 }
 </script>
-<!-- 引入样式 -->
-<style lang="less">
-@import "index.less";
-
-</style>

@@ -1,9 +1,6 @@
-<style lang="less" scoped>
-  @import "index.less";
-</style>
 <template>
   <div>
-    <div class="calc">
+    <div class="announce-calc">
       <div class="equation">
         <p class="hd">
           计算公式
@@ -25,7 +22,7 @@
         <p class="desc">3、将这100组数值之和除以商品总需参与人次后取余数，余数加上10,000,001即为“幸运号”。</p>
       </div>
     </div>
-    <div class="calc">
+    <div class="announce-calc">
       <p class="title">数值A</p>
       <p class="desc">= 截止取该商品最后购买时间前网站所有商品100条购买时间记录的加总</p>
       <p class="desc">= <span class="color-red">10047842</span></p>
@@ -59,7 +56,7 @@
        </table>
       </div>
     </div>
-    <div class="calc">
+    <div class="announce-calc">
       <p class="title">计算结果</p>
       <p class="desc">幸运号码: <span class="color-red">10003995</span></p>
     </div>

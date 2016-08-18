@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 // support requestAnimationFrame
 (function(window) {
   "use strict";
@@ -70,6 +70,7 @@ export default {
 </script>
 
 <style lang="less">
+  @import "./styles/ui/ui.less";
   html{
     height: 100%;
   }

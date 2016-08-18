@@ -1,8 +1,5 @@
-<style lang="less" scoped>
-@import "./index.less";
-</style>
 <template>
-  <div class="status">
+  <div class="recharge-status">
     <img :src="img">
     <p class="p">{{message}}</p>
     <p class="desc">{{desc1}}</p>

@@ -1,9 +1,9 @@
-<style lang="less" scoped>
+<style lang="less">
   @import "index.less";
 </style>
 <template>
   <div>
-    <ul class="list">
+    <ul class="lucky-list">
       <template v-for="item in items">
         <li @click="detailFunc(item.id)">
           <div class="box">

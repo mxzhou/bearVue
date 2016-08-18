@@ -1,14 +1,15 @@
-<style lang="less" scoped>
+<style lang="less">
   @import "index.less";
 </style>
 <template>
   <div>
-    <tab class="fix">
+    <tab class="fix-top">
       <template v-for="item in titleList">
         <tab-item :selected="item === '全部'" @click="getList($index)">{{item}}</tab-item>
       </template>
     </tab>
-    <ul class="list" v-show="!show">
+    <ul class="snarch-list" v-show="!show">
+
       <template v-for="item in items">
         <li>
           <div class="left">

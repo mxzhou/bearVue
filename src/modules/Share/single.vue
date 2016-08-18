@@ -1,8 +1,5 @@
-<style lang="less" scoped>
-  @import "index.less";
-</style>
 <template>
-    <li class="box">
+    <li class="share-box">
       <div class="left">
         <img class="img" :src="item.avatarUrl">
       </div>

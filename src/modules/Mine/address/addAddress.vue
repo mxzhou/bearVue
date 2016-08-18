@@ -1,6 +1,3 @@
-<style lang="less" scoped>
-  @import "index.less";
-</style>
 <template>
   <div class="row">
     <group>

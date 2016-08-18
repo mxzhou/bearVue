@@ -1,5 +1,5 @@
 @import "../../styles/ui/base/variable/ui_skin.less";
-.list{
+.share-list{
   background: #fff;
   .li{
     border-bottom: solid 1px #c7c7cc;
@@ -62,15 +62,7 @@
     }
   }
 }
-.pad{
-  position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
-  padding-bottom: .6rem;
-}
-.box{
+.share-box{
   display: flex;
   .left{
     width: .4rem;
@@ -179,20 +171,19 @@
     }
   }
 }
-.edit{
+.share-edit{
   width: .62rem;
   height: .62rem;
   position: fixed;
   bottom: .7rem;
   right:.2rem;
   border-radius: 100%;
+  .img{
+    width: .62rem;
+    height: .62rem;
+    border-radius: 100%;
+  }
 }
-.edit .img{
-  width: .62rem;
-  height: .62rem;
-  border-radius: 100%;
-}
-
 .fix{
   position: fixed;
   top:0;
@@ -215,7 +206,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.rule{
+.share-rule{
   background: #fff;
   .banner{
     width: 3.75rem;
@@ -274,7 +265,7 @@
   }
 }
 
-.share{
+.make-share{
  .hd{
    background: #fff;
  }

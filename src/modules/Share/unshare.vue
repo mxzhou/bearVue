@@ -1,9 +1,6 @@
-<style lang="less" scoped>
-  @import "index.less";
-</style>
 <template>
   <div>
-    <ul class="list">
+    <ul class="share-list">
       <template v-for="item in items">
         <li class="li">
           <div class="left">
