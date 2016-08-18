@@ -14,7 +14,7 @@ function generateExtractLoaders (loaders) {
 }
 module.exports = {
   entry: {
-    vendor: ['vue','vuex','vue-router'],
+    vendor: ['vue','vuex','vue-router','vue-resource','vuex-router-sync','vux-xscroll','fastclick'],
     bundle: './src/index'
   },
   output: {
@@ -59,7 +59,7 @@ module.exports = {
       { test: /\.vue$/,loader: 'vue', include: path.join(__dirname,'../src')},
       { test: /\.js$/, loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/},
       { test: /\.(jpe?g|png|gif)$/i, loaders: [
-        'url?limit=10000&name=images/[hash:8].[name].[ext]',
+        'url?limit=5000&name=images/[hash:8].[name].[ext]',
         'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
       ]},
       { test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'}

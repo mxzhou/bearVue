@@ -11,13 +11,12 @@ const environment = {
 
 module.exports = Object.assign({
 	API_ROOT:'/api',
-	KUGOU_ROOT:'/kugouapi',
 	host: 'localhost',
 	port: 3000,
 	apiHost: 'localhost',
 	apiPort: 3030,
 	app: {
-		title: 'Bear Vue Example',
+		title: '胖熊一元买',
 		description: 'All the modern best practices in one example.',
 		head: {
 			titleTemplate: 'Bear Vue Example: %s'

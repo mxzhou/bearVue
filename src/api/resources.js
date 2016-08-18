@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import {API_ROOT,KUGOU_ROOT} from '../config'
-import {signOut } from '../utils/authService'
+import {API_ROOT} from '../config'
 
 Vue.use(VueResource)
 
@@ -20,15 +19,6 @@ Vue.http.interceptors.push((request, next)=>{
     }
   })
 })
-
-export const UserResource = Vue.resource(API_ROOT + 'users{/id}')
-export const AuthResource = Vue.resource(API_ROOT + 'auth{/id}')
-export const ArticleResource = Vue.resource(API_ROOT + '{/id}{/controller}')
-export const TagResource = Vue.resource(API_ROOT + 'tags{/id}')
-export const CommentResource = Vue.resource(API_ROOT + 'comment{/id}{/controller}')
-export const MobileResource = Vue.resource(API_ROOT + 'mobile{/id}')
-
-export const AppResource = Vue.resource(API_ROOT + '{/id}')
 export const GoodsResource = Vue.resource(API_ROOT + '{/id}{/controller}')
 export const CartResource = Vue.resource(API_ROOT + '{/id}{/controller}')
 export const RechargeResource = Vue.resource(API_ROOT + '{/id}{/controller}');

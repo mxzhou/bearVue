@@ -1,16 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import middlewares from './middlewares'
-import articleList from './modules/article.list'
-import prenextArticle from './modules/article.prenext'
-import articleDetail from './modules/article.detail'
-import auth from './modules/auth'
-import commentList from './modules/comment.list'
-import globalVal from './modules/global.val'
-import options from './modules/options'
-import logins from './modules/logins'
-import tagList from './modules/tag.list'
-import showmsg from './modules/showmsg'
 import demoList from './modules/demo.list'
 import announceList from './modules/home/announce.list'
 import typeList from './modules/type.list'
@@ -31,16 +21,6 @@ Vue.config.debug = debug
 Vue.config.warnExpressionErrors = false
 
 let modules = {
-    articleList,
-    prenextArticle,
-    articleDetail,
-    auth,
-    commentList,
-    globalVal,
-    options,
-    logins,
-    tagList,
-    showmsg,
     demoList,
     announceList,
     typeList,
