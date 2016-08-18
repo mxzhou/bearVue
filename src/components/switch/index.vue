@@ -50,8 +50,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/ui/widget/ui_cell/ui_form/ui_form_common.less';
-@import '../../styles/ui/widget/ui_cell/ui_switch.less';
 
 .ui_cell_switch .ui_cell_ft {
   font-size: 0;

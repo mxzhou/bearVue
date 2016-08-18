@@ -64,5 +64,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/ui/widget/ui_nav/ui_nav.less';
+/*@import '../../styles/ui/widget/ui_nav/ui_nav.less';*/
 </style>

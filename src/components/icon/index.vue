@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/ui/icon/ui_icon_font.less';
+/*@import '../../styles/ui/icon/ui_icon_font.less';*/
 
 .icon_big:before {
   font-size: 1.04rem

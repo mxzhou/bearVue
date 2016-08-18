@@ -84,6 +84,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/ui/widget/ui_cell/ui_cell_global.less';
-@import '../../styles/ui/widget/ui_cell/ui_form/ui_form_common.less';
+/*@import '../../styles/ui/widget/ui_cell/ui_cell_global.less';*/
 </style>

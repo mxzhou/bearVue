@@ -31,5 +31,5 @@ return [
 </script>
 
   <style lang="less">
-@import '../../styles/ui/widget/ui_button/ui_button.less';
+/*@import '../../styles/ui/widget/ui_button/ui_button.less';*/
 </style>

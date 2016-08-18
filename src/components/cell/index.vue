@@ -52,8 +52,8 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/tap.less';
-@import '../../styles/ui/widget/ui_cell/ui_cell_global.less';
+/*@import '../../styles/tap.less';*/
+/*@import '../../styles/ui/widget/ui_cell/ui_cell_global.less';*/
 .ui_p{
   font-size: .16rem;
   min-width: .8rem;

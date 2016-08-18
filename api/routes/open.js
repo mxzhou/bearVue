@@ -162,9 +162,7 @@ router.post('/goods/open', function (req, res, next) {
       } ]
     }
   }
-  setTimeout(function(){
-    res.json(json);
-  },1000)
+  res.json(json);
 });
 router.post('/goods/win', function (req, res, next) {
   var json ={

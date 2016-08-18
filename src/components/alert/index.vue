@@ -48,6 +48,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/ui/widget/ui_tips/ui_mask.less';
-@import '../../styles/ui/widget/ui_tips/ui_dialog.less';
+/*@import '../../styles/ui/widget/ui_tips/ui_mask.less';*/
+/*@import '../../styles/ui/widget/ui_tips/ui_dialog.less';*/
 </style>

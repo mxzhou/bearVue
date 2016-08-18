@@ -18,8 +18,8 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/ui/widget/ui_cell/ui_access.less';
-@import '../../styles/ui/widget/ui_cell/ui_cell_global.less';
+/*@import '../../styles/ui/widget/ui_cell/ui_access.less';*/
+/*@import '../../styles/ui/widget/ui_cell/ui_cell_global.less';*/
 
 .hide-top.ui_cells:before {
   display: none;

@@ -23,6 +23,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/ui/widget/ui_tips/ui_mask.less';
-@import '../../styles/ui/widget/ui_tips/ui_toast.less';
+/*@import '../../styles/ui/widget/ui_tips/ui_mask.less';*/
+/*@import '../../styles/ui/widget/ui_tips/ui_toast.less';*/
 </style>

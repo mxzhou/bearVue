@@ -7,12 +7,14 @@ var assetsPath = path.resolve(projectRootPath, './dist');
 var CleanPlugin = require('clean-webpack-plugin');
 
 var SOURCE_MAP = false
+
 function generateExtractLoaders (loaders) {
   return loaders.map(function (loader) {
     return loader + '-loader' + (SOURCE_MAP ? '?sourceMap' : '')
   }).join('!')
 }
 module.exports = {
+  devtool:SOURCE_MAP ? 'source-map' : false,
   entry: {
     vendor: ['vue','vuex','vue-router','vue-resource','vuex-router-sync','vux-xscroll','fastclick'],
     bundle: './src/index'
@@ -76,7 +78,9 @@ module.exports = {
 
   },
   resolve: {
-    root: path.resolve(__dirname, 'node_modules'),
-    extensions: ['','.js','.vue','.scss']
-  }
+    extensions: ['', '.js', '.vue'],
+    alias: {
+      'src': path.resolve(__dirname, '../src')
+    }
+  },
 }
