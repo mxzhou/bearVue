@@ -15,12 +15,11 @@
     <div class="edit" @click="goRule">
       <img class="img" :src="edit"/>
     </div>
-    <loading :show="loading" :text="text1"></loading>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import {Tab, TabItem,Loading ,NavBar,Scroller} from '../../components'
+  import {Tab, TabItem ,NavBar,Scroller} from '../../components'
   import Single from './single.vue'
   import {changeTitle} from '../../utils/hack'
   import {getShareList} from '../../vuex/actions/actions.share'
@@ -28,7 +27,7 @@
   import edit from '../../assets/images/ic_addarticle.png'
   export default {
     components: {
-      Tab, TabItem,Loading,NavBar,Single,Scroller
+      Tab, TabItem,NavBar,Single,Scroller
     },
     filters: {
       formatDate
@@ -40,7 +39,6 @@
         lStorage:localStorage,
         sStorage:sessionStorage,
         pageNumber:1,
-        text1: '加载中...',
         height:'',
         bAdd:false,
         uuid:''
@@ -56,8 +54,7 @@
       getters: {
         items: function(store){
           return store.shareList.items
-        },
-        loading:({loaDing}) => loaDing.item.show
+        }
       },
       actions: {
         getShareList

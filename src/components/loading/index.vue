@@ -1,5 +1,5 @@
 <template>
-  <div id="loadingToast" class="ui_loading_toast" v-show="show">
+  <div id="loadingToast" class="ui_loading_toast" v-if="show">
     <div class="ui_mask_transparent"></div>
     <div class="ui_toast">
       <div class="ui_loading">

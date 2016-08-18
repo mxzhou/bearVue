@@ -1,5 +1,6 @@
 import api from '../api/index.home'
 import * as types from './types.home'
+import * as type from './types'
 //广告bnner列表
 export const getAdList = ({ dispatch }) => {
   api.getAdList().then(response => {
@@ -25,20 +26,25 @@ export const getAnnounceList = ({ dispatch }) => {
   })
 }
 //首页商品列表
-export const getGoodsList = ({ dispatch }) => {
+export const getGoodsList = ({ dispatch }, data, isAdd) => {
+  dispatch(type.CHANGE_LOADING, { loading: {show:true} })
   api.getGoodsList().then(response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_GOODS_LIST)
     }
     var data =response.data
     dispatch(types.SUCCESS_GET_GOODS_LIST, { list: data.data })
   }, response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     dispatch(types.FAILURE_GET_GOODS_LIST)
   })
 }
 //商品详情
 export const getGoodsDetail = ({ dispatch }) => {
+  dispatch(type.CHANGE_LOADING, { loading: {show:true} })
   api.getGoodsDetail().then(response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_GOODS_DETAIL)
     }
@@ -51,6 +57,7 @@ export const getGoodsDetail = ({ dispatch }) => {
     data.data.goodsImgList = goodsImgList
     dispatch(types.SUCCESS_GET_GOODS_DETAIL, { list: data.data })
   }, response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     dispatch(types.FAILURE_GET_GOODS_DETAIL)
   })
 }
@@ -80,13 +87,16 @@ export const getUserConsumeMoney = ({ dispatch }) => {
 }
 //商品参与者
 export const getGoodsJoiner = ({ dispatch }) => {
+  dispatch(type.CHANGE_LOADING, { loading: {show:true} })
   api.getGoodsJoiner().then(response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_GOODS_JOINER)
     }
     var data =response.data
     dispatch(types.SUCCESS_GET_GOODS_JOINER, { list: data.data })
   }, response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     dispatch(types.FAILURE_GET_GOODS_JOINER)
   })
 }

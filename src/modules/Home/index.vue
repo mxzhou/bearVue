@@ -63,9 +63,7 @@ export default {
         if(this.announceList.length < 1){
             this.getAnnounceList()
         }
-        if(this.goodsHomeList.length < 1){
-            this.getGoodsList()
-        }
+        this.getGoodsList({pageSize:10,lastId:this.lastId},false)
     },
     ready(){
         console.log(this.$data);

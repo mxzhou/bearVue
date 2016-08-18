@@ -69,7 +69,7 @@ import { Group, Cell, Swiper } from '../../../components'
 import { changeTitle } from '../../../utils/hack'
 import Buy from '../buy.vue'
 import Lists from './list.vue'
-import { getGoodsUser,getAdList,getGoodsDetail,getGoodsJoiner } from '../../../vuex/actions.home'
+import { getGoodsUser,getGoodsDetail,getGoodsJoiner } from '../../../vuex/actions.home'
 import clock from '../../../assets/images/ic_s_clock.png'
 import cup from '../../../assets/images/ic_s_cup.png'
 import photo from '../../../assets/images/ic_s_image.png'
@@ -99,12 +99,10 @@ export default {
             goodsUser: ({goodsUser}) => goodsUser.items,
             goodsJoiner: ({goodsJoiner}) => goodsJoiner.items,
             goodsDetail: ({goodsDetail}) => goodsDetail.items,
-            goodsDetailImg: ({goodsDetail}) => goodsDetail.items.goodsImgList,
-            adList: ({adList}) => adList.items
+            goodsDetailImg: ({goodsDetail}) => goodsDetail.items.goodsImgList
         },
         actions:{
             getGoodsUser,
-            getAdList,
             getGoodsDetail,
             getGoodsJoiner
         }
@@ -127,18 +125,9 @@ export default {
         changeTitle('胖熊一元买')
     },
     created(){
-         if(this.adList.length < 1){
-            this.getAdList()
-        }
-        if(this.goodsUser.length < 1){
-            this.getGoodsUser()
-        }
-        if(this.goodsDetail.length < 1){
-            this.getGoodsDetail()
-        }
-        if(this.goodsJoiner.length < 1){
-            this.getGoodsJoiner()
-        }
+        this.getGoodsUser()
+        this.getGoodsDetail()
+        this.getGoodsJoiner()
     },
     methods : {
         showBuyFunc () {

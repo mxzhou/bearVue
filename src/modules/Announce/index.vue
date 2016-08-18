@@ -27,12 +27,11 @@
         </template>
       </ul>
     </scroller>
-    <loading :show="loading" :text="text1"></loading>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import {Loading,NavBar,Scroller} from '../../components'
+  import {NavBar,Scroller} from '../../components'
   import CountDown from './count-down.vue'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
@@ -40,7 +39,7 @@
 
   export default {
     components: {
-      Loading,NavBar,CountDown,Scroller
+      NavBar,CountDown,Scroller
     },
     filters: {
       formatDate
@@ -55,7 +54,6 @@
         titleList:['全部','进行中','已揭晓'],
         lastTime:0,
         lastId:0,
-        text1: '加载中...',
         bAdd:false,
         height:'',
         uuid:''
@@ -71,8 +69,7 @@
         },
         data:function(store){
           return store.openList.data
-        },
-        loading:({loaDing}) => loaDing.item.show
+        }
 
       },
       actions: {
