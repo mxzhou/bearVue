@@ -57,7 +57,7 @@
           </template>
         </group>
         <Lists :list="goodsJoiner.userList"></Lists>
-        <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more>
+        <!-- <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more> -->
         <Buy :numer="number" :show="showBuy"></Buy>
         <div class="ui-bottom">
           <a class="ui_btn_bottom" @click="showBuyFunc()">立即夺宝</a>
@@ -142,6 +142,7 @@ export default {
         }
     },
     ready(){
+        //window.scrollTo(0, 0);
     },
     filters: {
         caProgress

@@ -15,7 +15,6 @@
                   </div>
                 </div>
     		</li>
-    		<li v-if="goodsList.length < 1" class="no-content">加载中...</li>
     	</ul>
     </div>
 </template>

@@ -24,7 +24,7 @@ export default {
   props: {    
     text: {
       type: String,
-      default: '加载更多'
+      default: ''
     },
     loading: {
       type: Boolean,
@@ -45,10 +45,7 @@ export default {
     }
   },
   destroyed () {
-    /*let $body = document.body
-    let _this = this
-    $body.removeEventListener('touchmove',function(){})
-    document.removeEventListener('scroll',function(){})*/
+    
   },
   methods: {
     
@@ -56,20 +53,22 @@ export default {
   ready(){
     let $body = document.body
     let _this = this
-    $body.addEventListener('touchmove',function(){
-      if(!(_this.loading || !_this.hasmore)) {
-        if($body.scrollTop + window.innerHeight + 100 >= $body.clientHeight){
-          _this.$parent.loadMore()
+    $body.removeEventListener('touchmove',handlerScroll)
+    document.removeEventListener('scroll',handlerScroll)
+    $body.addEventListener('touchmove',handlerScroll)
+    document.addEventListener('scroll',handlerScroll)
+    function handlerScroll(){
+      if(_this.$el==null){
+        $body.removeEventListener('touchmove',handlerScroll)
+        document.removeEventListener('scroll',handlerScroll)
+      }else{
+        if(!(_this.loading || !_this.hasmore)) {
+          if($body.scrollTop + window.innerHeight + 100 >= $body.clientHeight){
+            _this.$parent.loadMore()
+          }
         }
       }
-    })
-    document.addEventListener('scroll',function(){
-      if(!(_this.loading || !_this.hasmore)) {
-        if($body.scrollTop+window.innerHeight+50>=$body.clientHeight){
-          _this.$parent.loadMore()
-        }
-      }
-    })
+    }
   }
 }
 
