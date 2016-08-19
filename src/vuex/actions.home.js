@@ -27,14 +27,21 @@ export const getAnnounceList = ({ dispatch }) => {
 }
 //首页商品列表
 export const getGoodsList = ({ dispatch }, data, isAdd) => {
-  dispatch(type.CHANGE_LOADING, { loading: {show:true} })
-  api.getGoodsList().then(response => {
+  isAdd
+    ? dispatch(types.REQUEST_GOODS_LIST) 
+    : dispatch(type.CHANGE_LOADING, { loading: {show:true} }) 
+
+  api.getGoodsList(data).then(response => {
     dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_GOODS_LIST)
     }
-    var data =response.data
-    dispatch(types.SUCCESS_GET_GOODS_LIST, { list: data.data })
+    let json = response.data
+    let hasMore = !(json.length < data.pageSize)
+    isAdd
+      ? dispatch(types.SUCCESS_GET_GOODS_ADD_LIST, { list: json.data , hasMore: hasMore})
+      : dispatch(types.SUCCESS_GET_GOODS_LIST, { list: json.data , hasMore: hasMore})
+
   }, response => {
     dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     dispatch(types.FAILURE_GET_GOODS_LIST)
@@ -86,7 +93,7 @@ export const getUserConsumeMoney = ({ dispatch }) => {
   })
 }
 //商品参与者
-export const getGoodsJoiner = ({ dispatch }) => {
+export const getGoodsJoiner = ({ dispatch }, data, isAdd) => {
   dispatch(type.CHANGE_LOADING, { loading: {show:true} })
   api.getGoodsJoiner().then(response => {
     dispatch(type.CHANGE_LOADING, { loading: {show:false} })

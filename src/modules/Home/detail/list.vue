@@ -34,7 +34,6 @@ export default {
     width: 100%;
     background: #FFF;
     margin-top: .1rem;
-    margin-bottom: .44rem;
     .title {
         height: .44rem;
         line-height: .44rem;

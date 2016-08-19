@@ -124,7 +124,9 @@ export default function (router) {
     //一级页面增加底部导航，其他去掉
     router.app.goRouter(transition.to.path)
     //切换页面之后置顶
-    document.body.scrollTop = 0
+    setTimeout(function(){
+      document.body.scrollTop = 0
+    },500)
     if (transition.to.path === '/forbidden') {
       transition.abort()
     } else {

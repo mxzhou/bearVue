@@ -85,7 +85,7 @@ router.get('/goods/announce', function (req, res, next) {
   next();
 })
 //商品列表
-router.get('/goods/list',function(req, res, next){
+router.post('/goods/list',function(req, res, next){
   var json = {
       "status" : 1,
       "errorCode" : 0,

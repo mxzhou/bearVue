@@ -12,7 +12,7 @@ export default {
     return GoodsResource.get({id: 'goods', controller:'announce'})
   },
   getGoodsList:function (options) {
-    return GoodsResource.get({id: 'goods', controller:'list'})
+    return GoodsResource.save({id: 'goods', controller:'list'},options)
   },
   getGoodsDetail:function (options) {
     return GoodsResource.get({id: 'goods', controller:'detail'})

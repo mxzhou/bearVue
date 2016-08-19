@@ -26,6 +26,7 @@ import Empty from './empty'
 import NavBar from './nav-bar'
 import Winning from './winning'
 import CountDown from './count-down'
+import LoadMore from './load-more'
 
 const vux = {
   Switch,
@@ -55,7 +56,8 @@ const vux = {
   Empty,
   NavBar,
   Winning,
-  CountDown
+  CountDown,
+  LoadMore
 }
 
 module.exports = vux

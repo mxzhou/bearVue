@@ -6,10 +6,11 @@
 .ui_nav {
     position: fixed;
     z-index: 5000;
-    width: 100%;
+    width: 3.75rem;
     height: .5rem;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    margin-left: -3.75rem/2;
     opacity: 0.9;
     background: @uiNavBackgroundColor;
     display: flex;
@@ -19,6 +20,7 @@
         line-height: .5rem;
         font-size: .16rem;
         color: @uiNavLinkColor;
+        cursor: pointer;
         .img{
             width: .24rem;
             height: .24rem;

@@ -1,15 +1,15 @@
 <template>
     <div>
-
-        <Swiper :list="adList" :loop="true" :height="adHeight" :top="adTop"></Swiper>
+        <Swiper :list="adList" :loop="true" :auto="true" :height="adHeight" :top="adTop"></Swiper>
         <Notes :list="announceList"></Notes>
-        <Lists :goods-list="goodsHomeList.goodsList"></Lists>
+        <Lists :goods-list="goodsHomeList"></Lists>
+        <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more>
         <Buy :number="totalNum" :show="showBuy"></Buy>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-import { Swiper,NavBar } from '../../components'
+import { Swiper,LoadMore } from '../../components'
 import Notes from './notes.vue'
 import Lists from './list.vue'
 import Buy from './buy.vue'
@@ -29,7 +29,9 @@ export default {
             options: ({options}) => options.item,
             adList: ({adList}) => adList.items,
             announceList: ({announceList}) => announceList.items,
-            goodsHomeList: ({goodsHomeList}) => goodsHomeList.items
+            goodsHomeList: ({goodsHomeList}) => goodsHomeList.items,
+            isLoadList: ({goodsHomeList}) => goodsHomeList.isLoading,
+            hasMoreList: ({goodsHomeList}) => goodsHomeList.hasMore
         },
         actions:{
             getAdList,
@@ -37,21 +39,15 @@ export default {
             getGoodsList
         }
     },
-    route:{
-//        activate ({ next }) {
-//            this.getDemoList(this.options)
-//            next()
-//        }
-    },
     ready() {
         
     },
     components: {
         Swiper,
-        NavBar,
         Notes,
         Lists,
-        Buy
+        Buy,
+        LoadMore
     },
     init(){
         changeTitle('胖熊一元买')
@@ -63,17 +59,18 @@ export default {
         if(this.announceList.length < 1){
             this.getAnnounceList()
         }
-        this.getGoodsList({pageSize:10,lastId:this.lastId},false)
-    },
-    ready(){
-        console.log(this.$data);
+        this.getGoodsList({pageSize:10,lastId:0},false)
     },
     methods: {
         showBuyFunc (num) {
             this.totalNum = num
             this.showBuy = true
+        },
+        loadMore () {
+            this.getGoodsList({pageSize:10,lastId:0},true)
         }
     }
 
 }
 </script>
+

@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <Swiper :list="goodsDetail.goodsImgList" :loop="true" :height="adHeight" :theme="theme" :top="adTop"></Swiper>
+        <Swiper :list="goodsDetail.goodsImgList" :auto="true" :loop="true" :height="adHeight" :theme="theme" :top="adTop"></Swiper>
         <!-- 商品信息 satrt -->
         <div class="m-info">
             <h3><span class="status green" v-if="goodsDetail.status!=1&&goodsDetail.status!=5">进行中</span><span class="status blue" v-if="goodsDetail.status==5">已揭晓</span><span class="status gray" v-if="goodsDetail.status==1">已下架</span>{{goodsDetail.goodsName}}</h3>
@@ -57,6 +57,7 @@
           </template>
         </group>
         <Lists :list="goodsJoiner.userList"></Lists>
+        <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more>
         <Buy :numer="number" :show="showBuy"></Buy>
         <div class="ui-bottom">
           <a class="ui_btn_bottom" @click="showBuyFunc()">立即夺宝</a>
@@ -65,7 +66,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { Group, Cell, Swiper } from '../../../components'
+import { Group, Cell, Swiper, LoadMore } from '../../../components'
 import { changeTitle } from '../../../utils/hack'
 import Buy from '../buy.vue'
 import Lists from './list.vue'
@@ -99,7 +100,9 @@ export default {
             goodsUser: ({goodsUser}) => goodsUser.items,
             goodsJoiner: ({goodsJoiner}) => goodsJoiner.items,
             goodsDetail: ({goodsDetail}) => goodsDetail.items,
-            goodsDetailImg: ({goodsDetail}) => goodsDetail.items.goodsImgList
+            goodsDetailImg: ({goodsDetail}) => goodsDetail.items.goodsImgList,
+            isLoadList: ({goodsJoiner}) => goodsJoiner.isLoading,
+            hasMoreList: ({goodsJoiner}) => goodsJoiner.hasMore
         },
         actions:{
             getGoodsUser,
@@ -118,7 +121,8 @@ export default {
         Group,
         Lists,
         Cell,
-        Buy
+        Buy,
+        LoadMore
     },
     init(){
         console.log(this.goodsUser)
@@ -132,6 +136,9 @@ export default {
     methods : {
         showBuyFunc () {
             this.showBuy = true
+        },
+        loadMore () {
+            this.getGoodsJoiner({pageSize:10,lastId:0},true)
         }
     },
     ready(){

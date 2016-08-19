@@ -41,7 +41,6 @@ function caProgress(number){
 <style lang="less" scoped>
   .goods-list {
   	margin-top: 0.1rem;
-  	padding-bottom: 0.6rem;
   	overflow: hidden;
   	ul,li {
         margin: 0;
