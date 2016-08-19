@@ -3,7 +3,7 @@
         <Swiper :list="adList" :loop="true" :auto="true" :height="adHeight" :top="adTop"></Swiper>
         <Notes :list="announceList"></Notes>
         <Lists :goods-list="goodsHomeList"></Lists>
-        <!-- <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more> -->
+        <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more>
         <Buy :number="totalNum" :show="showBuy"></Buy>
     </div>
 </template>
