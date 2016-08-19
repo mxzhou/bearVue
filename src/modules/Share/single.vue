@@ -10,7 +10,7 @@
         </p>
         <p class="bd">{{winWords}}</p>
         <div class="ft">
-          <img v-for="img in imgs" class="display-img" :src="img">
+          <img v-for="img in imgs" class="display-img" v-lazy="img">
         </div>
         <div class="status clearfix">
           <img class="recommend" :src="recommend"/>
