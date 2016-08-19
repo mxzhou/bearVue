@@ -8,7 +8,7 @@
         <template v-for="item in items">
           <li>
             <div class="left">
-              <img class="img" :src="item.coverImgUrl">
+              <img class="img" v-lazy="item.coverImgUrl">
             </div>
             <div class="right">
               <p class="name">{{item.goodsName}}</p>

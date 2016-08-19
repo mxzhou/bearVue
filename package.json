@@ -105,6 +105,7 @@
     "shake.js": "^1.2.2",
     "validator": "^5.5.0",
     "vue-html-loader": "^1.2.3",
+    "vue-lazyload": "^0.5.0",
     "vux-blazy": "^1.6.4",
     "vux-xscroll": "^3.1.7",
     "webp-support": "^1.0.3"

@@ -16,7 +16,7 @@ function generateExtractLoaders (loaders) {
 module.exports = {
   devtool:SOURCE_MAP ? 'source-map' : false,
   entry: {
-    vendor: ['vue','vuex','vue-router','vue-resource','vuex-router-sync','vux-xscroll','fastclick'],
+    vendor: ['vue','vuex','vue-router','vue-resource','vuex-router-sync','./src/utils/vue-lazyload.es5','vux-xscroll','fastclick'],
     bundle: './src/index'
   },
   output: {
