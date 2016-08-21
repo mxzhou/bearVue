@@ -18,7 +18,7 @@ export default {
     return GoodsResource.get({id: 'goods', controller:'detail'})
   },
   getGoodsJoiner:function (options) {
-    return GoodsResource.get({id: 'goods', controller:'joiner'})
+    return GoodsResource.save({id: 'goods', controller:'joiner'},options)
   },
   getGoodsUser:function (options) {
     return GoodsResource.get({id: 'goods', controller:'user'})

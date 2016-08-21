@@ -24,12 +24,12 @@ const mutations = {
     state.data = action.list
     state.isLoading = false
     state.hasMore = action.hasMore
-    state.items = [...state.items, ...action.list.goodsList]
+    state.items = [...state.items, ...action.list.userList]
   },
   [SUCCESS_GET_GOODS_JOINER](state,action){
     state.isLoading = false
     state.hasMore = action.hasMore
-    state.items = action.list
+    state.items = action.list.userList
   }
 }
 

@@ -56,8 +56,8 @@
             </cell>
           </template>
         </group>
-        <Lists :list="goodsJoiner.userList"></Lists>
-        <!-- <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more> -->
+        <Lists :list="goodsJoiner"></Lists>
+        <load-more :loading="isLoadList" :hasmore="hasMoreList"></load-more>
         <Buy :numer="number" :show="showBuy"></Buy>
         <div class="ui-bottom">
           <a class="ui_btn_bottom" @click="showBuyFunc()">立即夺宝</a>
@@ -96,7 +96,6 @@ export default {
     },
     vuex:{
         getters:{
-            options: ({options}) => options.item,
             goodsUser: ({goodsUser}) => goodsUser.items,
             goodsJoiner: ({goodsJoiner}) => goodsJoiner.items,
             goodsDetail: ({goodsDetail}) => goodsDetail.items,
@@ -131,7 +130,7 @@ export default {
     created(){
         this.getGoodsUser()
         this.getGoodsDetail()
-        this.getGoodsJoiner()
+        this.getGoodsJoiner({pageSize:10,lastId:0},false)
     },
     methods : {
         showBuyFunc () {
@@ -142,7 +141,7 @@ export default {
         }
     },
     ready(){
-        //window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     },
     filters: {
         caProgress

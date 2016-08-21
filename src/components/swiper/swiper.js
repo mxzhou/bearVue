@@ -197,6 +197,7 @@ class Swiper {
       me._loopRender()
       e.preventDefault()
     }
+    console.log(me.$container)
     me.$container.addEventListener('touchstart', me.touchstartHandler, false)
     me.$container.addEventListener('touchmove', me.touchmoveHandler, false)
     me.$container.addEventListener('touchend', me.touchendHandler, false)

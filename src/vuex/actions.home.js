@@ -94,14 +94,19 @@ export const getUserConsumeMoney = ({ dispatch }) => {
 }
 //商品参与者
 export const getGoodsJoiner = ({ dispatch }, data, isAdd) => {
-  dispatch(type.CHANGE_LOADING, { loading: {show:true} })
+  isAdd
+    ? dispatch(types.REQUEST_GOODS_JOINER) 
+    : dispatch(type.CHANGE_LOADING, { loading: {show:true} }) 
   api.getGoodsJoiner().then(response => {
     dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_GOODS_JOINER)
     }
-    var data =response.data
-    dispatch(types.SUCCESS_GET_GOODS_JOINER, { list: data.data })
+    let json = response.data
+    let hasMore = !(json.length < data.pageSize)
+    isAdd
+      ? dispatch(types.SUCCESS_GET_GOODS_ADD_JOINER, { list: json.data , hasMore: hasMore})
+      : dispatch(types.SUCCESS_GET_GOODS_JOINER, { list: json.data , hasMore: hasMore})
   }, response => {
     dispatch(type.CHANGE_LOADING, { loading: {show:false} })
     dispatch(types.FAILURE_GET_GOODS_JOINER)

@@ -2,8 +2,8 @@
   .loading-text {
     text-align:center;
     padding-bottom: .6rem;
-    font-size: .14rem;
-    color: #333;
+    font-size: .12rem;
+    color: #999;
     margin-top: .1rem;
   }
 </style>
@@ -24,7 +24,7 @@
     props: {
       text: {
         type: String,
-        default: '加载更多'
+        default: '加载中...'
       },
       loading: {
         type: Boolean,
@@ -40,22 +40,14 @@
         if(!this.hasmore) {
           this.text = '暂无更多'
         }else {
-          this.text = '加载更多'
+          this.text = '加载中...'
         }
       }
     },
     methods: {
-      moveFn:function(){
-        let $body = document.body
-        if(!(this.loading || !this.hasmore)) {
-          if($body.scrollTop + window.innerHeight + 100 >= $body.clientHeight){
-            this.$parent.loadMore()
-          }
-        }
-      },
       scrollFn:function(){
         let $body = document.body
-        if(!(this.loading || !this.hasmore)) {
+        if(!this.loading && this.hasmore) {
           if($body.scrollTop+window.innerHeight+50>=$body.clientHeight){
             this.$parent.loadMore()
           }
@@ -64,14 +56,13 @@
     },
     ready(){
       let $body = document.body
-      $body.addEventListener('touchmove',this.moveFn,false)
+      $body.addEventListener('touchmove',this.scrollFn,false)
       document.addEventListener('scroll',this.scrollFn,false)
     },
     destroyed () {
       let $body = document.body
-      $body.removeEventListener('touchmove',this.moveFn)
+      $body.removeEventListener('touchmove',this.scrollFn)
       document.removeEventListener('scroll',this.scrollFn)
     }
   }
-
 </script>

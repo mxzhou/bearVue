@@ -269,7 +269,7 @@ router.get('/goods/detail',function(req, res, next){
     next();
 })
 //参与者列表
-router.get('/goods/joiner',function(req, res, next){
+router.post('/goods/joiner',function(req, res, next){
   var json = {
       "status" : 1,
       "errorCode" : 0,

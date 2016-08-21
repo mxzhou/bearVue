@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-slider" :class="theme ? 'white' : ''">
+  <div class="vux-slider" id="{{id}}" :class="theme ? 'white' : ''">
     <div class="vux-swiper" :style="{height: xheight,marginTop:top}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
@@ -20,7 +20,7 @@
 <script>
 import Swiper from './swiper'
 import { go } from '../../libs/router'
-
+let swiperId = 'swiper'+new Date().getTime()
 export default {
   ready () {
     if (!(this.list && this.list.length === 0)) {
@@ -38,7 +38,7 @@ export default {
     },
     render () {
       this.swiper = new Swiper({
-        container: this.$el,
+        container: document.querySelector('#'+swiperId),
         direction: this.direction,
         auto: this.auto,
         loop: this.loop,
@@ -153,7 +153,8 @@ export default {
       current: this.index,
       mTop: this.top,
       xheight: 'auto',
-      length: this.list.length
+      length: this.list.length,
+      id: swiperId
     }
   },
   watch: {
