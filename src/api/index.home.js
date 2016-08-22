@@ -5,31 +5,34 @@ import {
   CartResource} from './resources'
 
 export default {
-  getAdList:function (options) {
+  getAdList: function (options) {
     return GoodsResource.get({id: 'goods', controller:'head'})
   },
-  getAnnounceList:function (options) {
+  getAnnounceList: function (options) {
     return GoodsResource.get({id: 'goods', controller:'announce'})
   },
-  getGoodsList:function (options) {
+  getGoodsList: function (options) {
     return GoodsResource.save({id: 'goods', controller:'list'},options)
   },
-  getGoodsDetail:function (options) {
+  getGoodsDetail: function (options) {
     return GoodsResource.get({id: 'goods', controller:'detail'})
   },
-  getGoodsJoiner:function (options) {
+  getGoodsJoiner: function (options) {
     return GoodsResource.save({id: 'goods', controller:'joiner'},options)
   },
-  getGoodsUser:function (options) {
+  getGoodsUser: function (options) {
     return GoodsResource.get({id: 'goods', controller:'user'})
   },
-  getCartDetail:function (options) {
+  getCartDetail: function (options) {
     return CartResource.get({id: 'cart', controller:'detail'})
   },
-  getUserConsumeMoney:function (options) {
+  getUserConsumeMoney: function (options) {
     return CartResource.get({id: 'user', controller:'consumeMoney'})
   },
-  getGoodsPicDetail:function (options) {
+  getGoodsPicDetail: function (options) {
     return CartResource.get({id: 'goods', controller:'picDetail'})
+  },
+  getGoodsPast: function (options) {
+    return CartResource.get({id: 'goods', controller:'past'})
   }
 }

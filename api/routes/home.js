@@ -563,6 +563,151 @@ router.get('/goods/picDetail',function(req, res, next){
   res.json(json);
   next();
 })
+router.get('/goods/past',function(req, res, next){
+  var json = {
+  "status" : 1,
+  "errorCode" : 0,
+  "errorMessage" : null,
+  "servertime" : 1471860061090,
+  "data" : {
+    "total" : 0,
+    "goodsList" : [ {
+      "id" : 100097565,
+      "openTime" : 1471429349807,
+      "kgUid" : 1207042103,
+      "nickname" : "?郭✨✨✨",
+      "ip" : "1.28.221.253",
+      "winCode" : 10000678,
+      "address" : "内蒙古自治区包头市",
+      "joinNumber" : 142,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1u6J4BbZT1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097556,
+      "openTime" : 1471429125555,
+      "kgUid" : 1203371572,
+      "nickname" : "活下去的动力",
+      "ip" : "113.117.33.42",
+      "winCode" : 10001959,
+      "address" : "广东省揭阳市",
+      "joinNumber" : 408,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png"
+    }, {
+      "id" : 100097552,
+      "openTime" : 1471428915771,
+      "kgUid" : 1200842170,
+      "nickname" : "?年大吉?",
+      "ip" : "14.153.189.49",
+      "winCode" : 10005170,
+      "address" : "广东省深圳市",
+      "joinNumber" : 834,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T13kb4B_Dg1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097544,
+      "openTime" : 1471428734061,
+      "kgUid" : 1209440181,
+      "nickname" : "这是真的吗",
+      "ip" : "223.73.18.66",
+      "winCode" : 10004086,
+      "address" : "广东省揭阳市",
+      "joinNumber" : 1557,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1vch4B4Lv1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097536,
+      "openTime" : 1471428584761,
+      "kgUid" : 1203196283,
+      "nickname" : "新年好",
+      "ip" : "223.104.23.31",
+      "winCode" : 10003220,
+      "address" : "海南省海口市",
+      "joinNumber" : 108,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1AcZ4B7Yv1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097526,
+      "openTime" : 1471428354340,
+      "kgUid" : 1201397300,
+      "nickname" : "宝宝饿了给个苹果吧",
+      "ip" : "14.30.35.81",
+      "winCode" : 10005540,
+      "address" : "广东省广州市",
+      "joinNumber" : 517,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1LUE4BmVv1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097517,
+      "openTime" : 1471423215329,
+      "kgUid" : 1206595420,
+      "nickname" : "传说卸载就能中",
+      "ip" : "223.74.205.62",
+      "winCode" : 10005236,
+      "address" : "广东省潮州市",
+      "joinNumber" : 815,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png"
+    }, {
+      "id" : 100097510,
+      "openTime" : 1471422903726,
+      "kgUid" : 1203896512,
+      "nickname" : "为什么不会中",
+      "ip" : "223.104.90.24",
+      "winCode" : 10002283,
+      "address" : "广西壮族自治区南宁市",
+      "joinNumber" : 80,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1d.V4Byxj1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097499,
+      "openTime" : 1471422695518,
+      "kgUid" : 1200249876,
+      "nickname" : "不再相信一元买了",
+      "ip" : "219.135.114.165",
+      "winCode" : 10005880,
+      "address" : "广东省佛山市",
+      "joinNumber" : 112,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png"
+    }, {
+      "id" : 100097498,
+      "openTime" : 1471422389183,
+      "kgUid" : 1208230585,
+      "nickname" : "巢宝宝中大象物极必反",
+      "ip" : "219.133.188.20",
+      "winCode" : 10001773,
+      "address" : "广东省深圳市",
+      "joinNumber" : 3037,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1J6h4BCL_1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097493,
+      "openTime" : 1471422358368,
+      "kgUid" : 1201004493,
+      "nickname" : "据木头的胖纸",
+      "ip" : "14.17.44.215",
+      "winCode" : 10000700,
+      "address" : "广东省深圳市",
+      "joinNumber" : 332,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1ocE4BTdT1RCvBVdK.jpeg"
+    }, {
+      "id" : 100097485,
+      "openTime" : 1471422188051,
+      "kgUid" : 1200031438,
+      "nickname" : "胖熊不爱我了",
+      "ip" : "183.10.123.202",
+      "winCode" : 10002060,
+      "address" : "广东省潮州市",
+      "joinNumber" : 124,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1emZ4Bmxv1RCvBVdK.png"
+    }, {
+      "id" : 100097476,
+      "openTime" : 1471421910461,
+      "kgUid" : 1204764566,
+      "nickname" : "大奖就是我",
+      "ip" : "36.62.184.130",
+      "winCode" : 10005545,
+      "address" : "安徽省滁州市",
+      "joinNumber" : 5,
+      "avatarUrl" : "http://p1.fx.kgimg.com/v2/kmh_1_img/T1u5V4BsZj1RCvBVdK.jpeg"
+    }]
+  }
+}
+
+    res.json(json);
+    next();
+})
 /*router.get('/goods/detail',function(req, res, next){
   var json = 
     res.json(json);
