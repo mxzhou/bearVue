@@ -28,5 +28,8 @@ export default {
   },
   getUserConsumeMoney:function (options) {
     return CartResource.get({id: 'user', controller:'consumeMoney'})
+  },
+  getGoodsPicDetail:function (options) {
+    return CartResource.get({id: 'goods', controller:'picDetail'})
   }
 }

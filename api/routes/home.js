@@ -546,6 +546,23 @@ router.get('/user/buyInfo/codes',function(req, res, next){
   res.json(json);
   next();
 })
+//图文详情
+router.get('/goods/picDetail',function(req, res, next){
+  var json = {
+    "status" : 1,
+    "errorCode" : 0,
+    "errorMessage" : null,
+    "servertime" : 1471313572785,
+    "data" : [ 
+    'http://img1.cache.netease.com/catchpic/9/96/9699DFB815A922F3DF50F3ABD3B00135.jpg',
+    'http://img1.cache.netease.com/catchpic/9/96/9699DFB815A922F3DF50F3ABD3B00135.jpg',
+    'http://img1.cache.netease.com/catchpic/9/96/9699DFB815A922F3DF50F3ABD3B00135.jpg',
+    'http://img1.cache.netease.com/catchpic/9/96/9699DFB815A922F3DF50F3ABD3B00135.jpg',
+     ]
+  }
+  res.json(json);
+  next();
+})
 /*router.get('/goods/detail',function(req, res, next){
   var json = 
     res.json(json);

@@ -41,7 +41,7 @@
                     <p>揭晓时间: 2434234</p>
                 </div> 
                 <div class="lucky-num">
-                    <a class="fr">计算详情&gt;</a>
+                    <a class="fr" @click="goCalculate()">计算详情&gt;</a>
                     幸运号码：10004435
                 </div> 
             </div>
@@ -52,7 +52,7 @@
         <!-- 商品信息 satrt -->
         <group style="margin-top:-.1rem;">
           <template v-for="item in list">
-            <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img">
+            <cell :title="item.text" :link="item.link" :value="item.value" :is-icon="item.isIcon" :icon-url="item.img">
             </cell>
           </template>
         </group>
@@ -82,16 +82,8 @@ export default {
             theme: true,
             showBuy: false,
             number: 5,
-            list:[
-              {
-                text:"图文详情",link:'/mine/snarchRecord',img:photo,isIcon:true
-              },
-              {
-                text:"往期揭晓",link:'/mine/luckyRecord',img:cup,isIcon:true
-              },
-              {
-                text:"晒单分享",link:'/mine/displayRecord',img:photo,isIcon:true
-              }]
+            id: 0,
+            list:[]
         }
     },
     vuex:{
@@ -107,6 +99,22 @@ export default {
             getGoodsUser,
             getGoodsDetail,
             getGoodsJoiner
+        }
+    },
+    watch: {
+        goodsDetail () {
+            let id = this.goodsDetail.id
+            this.list = [
+              {
+                text: "图文详情", link: '/goods/picDetail/'+id, img: photo, isIcon: true, value: '建议在wifi下查看'
+              },
+              {
+                text:"往期揭晓",link:'/goods/past/'+id,img:cup,isIcon:true
+              },
+              {
+                text:"晒单分享",link:'/goods/share/'+id,img:photo,isIcon:true
+              },
+            ]
         }
     },
     route:{
@@ -138,6 +146,9 @@ export default {
         },
         loadMore () {
             this.getGoodsJoiner({pageSize:10,lastId:0},true)
+        },
+        goCalculate () {
+            router.go('calculate')
         }
     },
     ready(){

@@ -112,6 +112,21 @@ export const getGoodsJoiner = ({ dispatch }, data, isAdd) => {
     dispatch(types.FAILURE_GET_GOODS_JOINER)
   })
 }
+//商品图文详情
+export const getGoodsPicDetail = ({ dispatch }) => {
+  dispatch(type.CHANGE_LOADING, { loading: {show:true} }) 
+  api.getGoodsPicDetail().then(response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_GOODS_PIC_DETAIL)
+    }
+    var data =response.data
+    dispatch(types.SUCCESS_GET_GOODS_PIC_DETAIL, { list: data.data })
+  }, response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
+    dispatch(types.FAILURE_GET_GOODS_PIC_DETAIL)
+  })
+}
 //商品参与者本人
 export const getGoodsUser = ({ dispatch }) => {
   api.getGoodsUser().then(response => {

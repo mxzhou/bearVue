@@ -73,6 +73,9 @@ export default {
     margin-bottom: -0.1rem;
   }
 }
+.ui_cell_ft {
+  font-size: .12rem;
+}
 .ui_cell_ft.with_arrow:after {
   content: " ";
   display: inline-block;
@@ -83,7 +86,7 @@ export default {
   border-color: #c7c7cc;
   border-style: solid;
   position: relative;
-  top: -0.01rem;
-  margin-left: .05rem;
+  top: 0;
+  margin-left: 0;
 }
 </style>
