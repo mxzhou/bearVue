@@ -40,14 +40,14 @@ export default {
   computed: {
   },
   ready () {
-    var _this = this;
-    var pullDownFlag,pullUpFlag;
+    var _this = this,
+    pullDownFlag,pullUpFlag,
+    font = document.documentElement.style['font-size'].replace('px',''),
+    height =  0.5*font;
     function positionJudge(){
-      console.log('y:'+this.y)
-      console.log('scrollY:'+this.maxScrollY)
-      if(this.y>50){    //判断下拉
+      if(this.y>height){    //判断下拉
         pullDownFlag = 1;
-      }else if(this.y<(this.maxScrollY-50)){   //判断上拉
+      }else if(this.y<(this.maxScrollY-height)){   //判断上拉
         pullUpFlag = 1;
       }
     }
