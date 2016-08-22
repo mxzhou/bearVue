@@ -6,12 +6,16 @@
     <iscroll lock-x scrollbar-y use-pullup use-pulldown @pulldown:loading="load" v-if="show" @pullup:loading="loadBottom" :height="height" v-ref:scroller>
       <ul class="share-list">
         <template v-for="item in items">
-          <single :item="item"></single>
+          <single :item="item" @expand="expandFunc"></single>
         </template>
       </ul>
     </iscroll>
     <div class="share-edit" @click="goRule">
       <img class="img" :src="edit"/>
+    </div>
+    <div class="m-expand-mask" v-if="bExpand" @click="collapse"></div>
+    <div class="expandImg" v-if="bExpand" @click="collapse">
+      <img :src="expandSrc" class="expand-img" @click="collapse">
     </div>
   </div>
 </template>
@@ -39,7 +43,9 @@
         pageNumber:1,
         height:'',
         bAdd:false,
-        uuid:''
+        uuid:'',
+        bExpand:false,
+        expandSrc:''
       }
     },
     init() {
@@ -88,6 +94,13 @@
       },
       goRule:function(){
         router.go('/share/rule')
+      },
+      expandFunc:function(img){
+        this.bExpand = true
+        this.expandSrc = img;
+      },
+      collapse:function(){
+        this.bExpand = false
       }
     }
   }

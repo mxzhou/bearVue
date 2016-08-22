@@ -10,7 +10,9 @@
         </p>
         <p class="bd">{{winWords}}</p>
         <div class="ft">
-          <img v-for="img in imgs" class="display-img" v-lazy="img">
+          <template v-for="img in imgs">
+            <img class="display-img" v-lazy="img" @click="expandFunc(img)">
+          </template>
         </div>
         <div class="status clearfix">
           <img class="recommend" :src="recommend"/>
@@ -51,10 +53,17 @@
         return this.item.sharePicUrl.split(',')
       }
     },
+    methods:{
+      expandFunc:function(img){
+        this.$emit('expand', img)
+      }
+    },
     data () {
       return {
         recommend:recommend,
-        imgs:[]
+        imgs:[],
+        expandSrc:'',
+        bExpand:false
       }
     }
   }
