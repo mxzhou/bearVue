@@ -3,7 +3,7 @@
 </style>
 <template>
   <div>
-    <scroller lock-x scrollbar-y use-pullup use-pulldown v-if="show" @pulldown:loading="load"  @pullup:loading="loadBottom" :height="height" v-ref:scroller>
+    <Iscroll v-if="show" @pulldown:loading="load"  @pullup:loading="loadBottom">
       <ul class="announce-list">
         <template v-for="item in items">
           <li>
@@ -26,12 +26,12 @@
           </li>
         </template>
       </ul>
-    </scroller>
+    </Iscroll>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import {NavBar,Scroller} from '../../components'
+  import {NavBar,Iscroll} from '../../components'
   import CountDown from './count-down.vue'
   import {changeTitle} from '../../utils/hack'
   import {getOpenList} from '../../vuex/actions/actions.open'
@@ -39,7 +39,7 @@
 
   export default {
     components: {
-      NavBar,CountDown,Scroller
+      NavBar,CountDown,Iscroll
     },
     filters: {
       formatDate
@@ -78,26 +78,16 @@
     },
     watch: {
       items(val,oldVal) {
+        this.show = true
         if(this.bAdd){
           this.$broadcast('pullup:reset', this.uuid);
         }else{
           this.$broadcast('pulldown:reset', this.uuid);
         }
-        this.show = true
         this.lastId = val[val.length-1].id
       }
     },
     created(){
-      var doc = document,
-          metaEl = doc.querySelector('meta[name="viewport"]'),
-          scale,
-          dpr,
-          font = doc.documentElement.style['font-size'].replace('px',''),
-          match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/);
-      scale = parseFloat(match[1]);
-      var dHeight = document.documentElement.getBoundingClientRect().height;
-      var height = dHeight - 0.6*font;
-      this.$set('height',height+'px');
       this.getOpenList({pageSize:10,lastId:0},false)
     },
     methods:{

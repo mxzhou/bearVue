@@ -27,6 +27,7 @@ import NavBar from './nav-bar'
 import Winning from './winning'
 import CountDown from './count-down'
 import LoadMore from './load-more'
+import Iscroll from './iscroll'
 
 const vux = {
   Switch,
@@ -57,7 +58,8 @@ const vux = {
   NavBar,
   Winning,
   CountDown,
-  LoadMore
+  LoadMore,
+  Iscroll
 }
 
 module.exports = vux
