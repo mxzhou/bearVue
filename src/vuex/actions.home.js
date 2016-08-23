@@ -47,6 +47,28 @@ export const getGoodsList = ({ dispatch }, data, isAdd) => {
     dispatch(types.FAILURE_GET_GOODS_LIST)
   })
 }
+//商品往期揭晓
+export const getGoodsPast = ({ dispatch }, data, isAdd) => {
+  isAdd
+    ? dispatch(types.REQUEST_GOODS_PAST) 
+    : dispatch(type.CHANGE_LOADING, { loading: {show:true} }) 
+
+  api.getGoodsPast(data).then(response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_GOODS_PAST)
+    }
+    let json = response.data
+    let hasMore = !(json.length < data.pageSize)
+    isAdd
+      ? dispatch(types.SUCCESS_GET_GOODS_ADD_PAST, { list: json.data , hasMore: hasMore})
+      : dispatch(types.SUCCESS_GET_GOODS_PAST, { list: json.data , hasMore: hasMore})
+
+  }, response => {
+    dispatch(type.CHANGE_LOADING, { loading: {show:false} })
+    dispatch(types.FAILURE_GET_GOODS_PAST)
+  })
+}
 //商品详情
 export const getGoodsDetail = ({ dispatch }) => {
   dispatch(type.CHANGE_LOADING, { loading: {show:true} })

@@ -6,6 +6,7 @@ import goodsDetail from './modules/home/goods.detail'
 import goodsPicDetail from './modules/home/goods.pic.detail'
 import cartDetail from './modules/home/cart.detail'
 import userConsumeMoney from './modules/home/user.consume.money'
+import goodsPast from './modules/home/goods.past'
 
 export default {
   goodsHomeList,
@@ -15,5 +16,6 @@ export default {
   goodsUser,
   goodsJoiner,
   userConsumeMoney,
-  cartDetail
+  cartDetail,
+  goodsPast
 }
