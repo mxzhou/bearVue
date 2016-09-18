@@ -3,7 +3,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var host =  'localhost';
-var port =  3000;
+var port =  require('../src/config.js').port;
 module.exports = {
   devtool: 'inline-source-map',
   debug: true,
