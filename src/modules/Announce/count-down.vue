@@ -52,7 +52,13 @@ export default {
       show:true,
       imgRecount:imgRecount,
       imglabel:imglabel,
-      items:{}
+      items:{},
+      timeTemp:0,
+      remain_ssec:0,
+      remain_msec:0,
+      remain_sec:0,
+      remain_minute:0,
+      remain_hour:0
     }
   },
   filters: {
@@ -68,45 +74,62 @@ export default {
     }
   },
   created(){
-    var _this = this;
-    var times = this.time;
-    var timeTemp,                           // 临时时间
-        remain_ssec = 0,                    // mm
-        remain_sec = 0,                     // 秒
-        remain_minute = 0,                  // 分钟
-        remain_hour = 0,                    // 小时
-        timetag = Date.now(),               // 上一帧的时间
-        hour = 0,                           // 最终显示小时
-        min = 0,                            // 最终显示分钟
-        sec = 0;                            // 最终显示秒
-    function count(){
-      timeTemp = parseInt(times / 10);
-      remain_ssec = timeTemp % 100;
-      timeTemp = parseInt(timeTemp / 100);
+    this.times = this.time;
+    this.timeTemp = this.times;                           // 临时时间
+    alert(this.timeTemp)
+    this.remain_ssec = 0;                    // mm
+    this.remain_msec = 0;
+    this.remain_sec = 0;                     // 秒
+    this.remain_minute = 0;                  // 分钟
+    this.remain_hour = 0;                    // 小时
+    this.timetag = Date.now();               // 上一帧的时间
+    this.hour = 0;                           // 最终显示小时
+    this.min = 0;                            // 最终显示分钟
+    this.sec = 0;                            // 最终显示秒
+    this.ssec = 0;
+    this.msec = 0;
+    this.count();
+    this.reqAni = window.requestAnimationFrame(this.begin);
+  },
+  beforeDestroy () {
+    cancelAnimationFrame(this.reqAni)
+  },
+  methods: {
+    count(){
+      console.log(this.timeTemp)
+      this.timeTemp = parseInt(this.timeTemp / 10);
+      this.remain_ssec = this.timeTemp % 10;
+
+      this.timeTemp = parseInt(this.timeTemp / 10);
+      this.remain_msec = this.timeTemp % 10;
+
+      this.timeTemp = parseInt(this.timeTemp / 10);
       // 秒数
-      remain_sec = timeTemp % 60;
-      timeTemp = parseInt(timeTemp / 60);
+      this.remain_sec = this.timeTemp % 60;
+      this.timeTemp = parseInt(this.timeTemp / 60);
       // 分数
-      remain_minute = timeTemp % 60;
-      timeTemp = parseInt(timeTemp / 60);
+      this.remain_minute = this.timeTemp % 60;
+      this.timeTemp = parseInt(this.timeTemp / 60);
       // 小时数
-      remain_hour = timeTemp % 24;
-      timeTemp = parseInt(timeTemp / 24);
-    }
+      this.remain_hour = this.timeTemp % 24;
+      this.timeTemp = parseInt(this.timeTemp / 24);
+      console.log('count')
+      console.log(this.remain_minute+':'+this.remain_sec+':'+this.remain_hour)
 
-    count();
-
-    function begin() {
-      var minus = Date.now() - timetag;
-      if ((minus) >= 100) {
-        times = times - minus;
-        count()
+    },
+    begin() {
+      let _this = this,hour,min,sec,ssec,msec;
+      let minus = Date.now() - this.timetag;
+      if ((minus) >= 10) {
+        this.times = this.times - minus;
+        console.log(this.times)
+        this.count()
+        console.log(this.remain_minute+':'+this.remain_sec+':'+this.remain_hour)
         //   当时间结束后倒计时停止
-        if ((remain_minute <= 0) && (remain_sec <= 0) && (remain_hour <= 0)) {
-          remain_minute = remain_sec = remain_hour = 0;
+        if ((this.remain_minute <= 0) && (this.remain_sec <= 0) && (this.remain_hour <= 0)) {
+          this.remain_minute = this.remain_sec = this.remain_hour = 0;
           _this.$set('lastTime', '正在开奖');
-
-          _this.$http.post('/api/goods/win',{aaa:1}).then((response) => {
+          _this.$http.post('/goods/win',{id:_this.itemId}).then((response) => {
             _this.$set('items', response.data);
             _this.$set('show', false);
           }, (response) => {
@@ -114,30 +137,19 @@ export default {
           });
           return;
         }
-        timetag = Date.now();
+        alert(0)
+        this.timetag = Date.now();
       }
       // 以下部分做为时间显示时补零
-      if (remain_hour < 10) {
-        hour = '0' + remain_hour;
-      } else {
-        hour = remain_hour;
-      }
-      if (remain_minute < 10) {
-        min = '0' + remain_minute;
-      } else {
-        min = remain_minute;
-      }
-      if (remain_sec < 10) {
-        sec = '0' + remain_sec;
-      } else {
-        sec = remain_sec;
-      }
-      _this.$set('lastTime', min + ':' + sec + ':' + remain_ssec);
-      window.requestAnimationFrame(begin);
+      hour = this.remain_hour < 10 ? '0' + this.remain_hour : this.remain_hour;
+      min = this.remain_minute < 10 ? '0' + this.remain_minute : this.remain_minute;
+      sec = this.remain_sec < 10 ? '0' + this.remain_sec : this.remain_sec;
+      ssec = this.remain_ssec;
+      msec = this.remain_msec;
+      _this.$set('lastTime', min + ':' + sec + ':' +msec+ssec);
+      this.reqAni = window.requestAnimationFrame(this.begin);
     }
-    window.requestAnimationFrame(begin);
-  },
-  methods: {}
+  }
 }
 
 function intNumber(n){

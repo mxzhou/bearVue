@@ -28,6 +28,14 @@
 
         return id;
       };
+  window.cancelAnimationFrame = window.cancelAnimationFrame
+      || window.cancelRequestAnimationFrame
+      || window.webkitCancelAnimationFrame
+      || window.webkitCancelRequestAnimationFrame
+      || window.mozCancelRequestAnimationFrame
+      || window.oCancelRequestAnimationFrame
+      || window.msCancelRequestAnimationFrame
+      || clearTimeout;
 })(window);
 import FastClick from 'fastclick'
 import store from './vuex/store'
@@ -46,7 +54,7 @@ export default {
   vuex: {
     getters: {
 
-      loading:({loaDing}) => loaDing.item.show
+      loading:({loading}) => loading.item.show
 
     }
   },

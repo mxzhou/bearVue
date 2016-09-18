@@ -68,7 +68,7 @@
       getters:{
         items: ({typeList}) => typeList.items,
         list: ({goodsList}) => goodsList.items.goodsList,
-        loading:({loaDing}) => loaDing.item.show
+        loading:({loading}) => loading.item.show
       },
 
       actions:{

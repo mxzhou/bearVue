@@ -4,7 +4,7 @@ import middlewares from './middlewares'
 import demoList from './modules/demo.list'
 import announceList from './modules/home/announce.list'
 import typeList from './modules/type.list'
-import loaDing from './modules/loading'
+import loading from './modules/loading'
 import rechargeRecord from './modules/recharge.record'
 import snarchRecord from './modules/snarch.record'
 import addressList from './modules/mine/address.list'
@@ -23,7 +23,7 @@ let modules = {
     demoList,
     announceList,
     typeList,
-    loaDing,
+    loading,
     rechargeRecord,
     snarchRecord,
     addressList,

@@ -20,7 +20,7 @@
                 <p class="p">揭晓时间：{{(data.servertime+'|'+item.openTime)|formatDate}}</p>
               </div>
               <div v-if="item.status==3">
-                <count-down :time="item.startTime+60*1000-data.servertime" :item-id="item.id"></count-down>
+                <count-down :time="item.startTime+3*60*1000-data.servertime" :item-id="item.id"></count-down>
               </div>
             </div>
           </li>
@@ -100,23 +100,6 @@
         this.bAdd = true;
         this.uuid = uuid
         this.getOpenList({pageSize:10,lastId:this.lastId},true);
-      },
-      getList:function(index){
-        if(index == 1){
-          this.show = true;
-        }else{
-          this.show = false;
-        }
-      },
-      fn:function(){
-        alert('立即夺宝')
-      },
-      addFunc:function() {
-        alert('add')
-      },
-      detailFunc:function(){
-        alert(0)
-        router.go('/mine/snarchDetail')
       }
     }
   }
