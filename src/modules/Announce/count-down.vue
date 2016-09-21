@@ -53,12 +53,6 @@ export default {
       imgRecount:imgRecount,
       imglabel:imglabel,
       items:{},
-      timeTemp:0,
-      remain_ssec:0,
-      remain_msec:0,
-      remain_sec:0,
-      remain_minute:0,
-      remain_hour:0
     }
   },
   filters: {
@@ -74,20 +68,14 @@ export default {
     }
   },
   created(){
+    alert(1)
     this.times = this.time;
-    this.timeTemp = this.times;                           // 临时时间
-    alert(this.timeTemp)
     this.remain_ssec = 0;                    // mm
     this.remain_msec = 0;
     this.remain_sec = 0;                     // 秒
     this.remain_minute = 0;                  // 分钟
     this.remain_hour = 0;                    // 小时
     this.timetag = Date.now();               // 上一帧的时间
-    this.hour = 0;                           // 最终显示小时
-    this.min = 0;                            // 最终显示分钟
-    this.sec = 0;                            // 最终显示秒
-    this.ssec = 0;
-    this.msec = 0;
     this.count();
     this.reqAni = window.requestAnimationFrame(this.begin);
   },
@@ -96,8 +84,7 @@ export default {
   },
   methods: {
     count(){
-      console.log(this.timeTemp)
-      this.timeTemp = parseInt(this.timeTemp / 10);
+      this.timeTemp = parseInt(this.times/10);
       this.remain_ssec = this.timeTemp % 10;
 
       this.timeTemp = parseInt(this.timeTemp / 10);
@@ -113,31 +100,36 @@ export default {
       // 小时数
       this.remain_hour = this.timeTemp % 24;
       this.timeTemp = parseInt(this.timeTemp / 24);
-      console.log('count')
-      console.log(this.remain_minute+':'+this.remain_sec+':'+this.remain_hour)
-
     },
     begin() {
-      let _this = this,hour,min,sec,ssec,msec;
-      let minus = Date.now() - this.timetag;
+      var _this = this,
+          hour = 0,                           // 最终显示小时
+          min = 0,                            // 最终显示分钟
+          sec = 0,                            // 最终显示秒
+          ssec = 0,
+          msec = 0;
+      var minus = Date.now() - this.timetag;
       if ((minus) >= 10) {
         this.times = this.times - minus;
-        console.log(this.times)
         this.count()
-        console.log(this.remain_minute+':'+this.remain_sec+':'+this.remain_hour)
         //   当时间结束后倒计时停止
         if ((this.remain_minute <= 0) && (this.remain_sec <= 0) && (this.remain_hour <= 0)) {
           this.remain_minute = this.remain_sec = this.remain_hour = 0;
-          _this.$set('lastTime', '正在开奖');
-          _this.$http.post('/goods/win',{id:_this.itemId}).then((response) => {
-            _this.$set('items', response.data);
+          this.$set('lastTime', '正在开奖');
+          this.$http.post('/goods/win',{id:_this.itemId}).then((response) => {
+            let data = response.data;
+            console.log(data)
+            if(data.errorCode!=0){
+              return;
+            }
+            console.log(data.data)
+            _this.$set('items', data);
             _this.$set('show', false);
           }, (response) => {
             // error callback
           });
           return;
         }
-        alert(0)
         this.timetag = Date.now();
       }
       // 以下部分做为时间显示时补零
@@ -146,8 +138,8 @@ export default {
       sec = this.remain_sec < 10 ? '0' + this.remain_sec : this.remain_sec;
       ssec = this.remain_ssec;
       msec = this.remain_msec;
-      _this.$set('lastTime', min + ':' + sec + ':' +msec+ssec);
-      this.reqAni = window.requestAnimationFrame(this.begin);
+      this.$set('lastTime', min + ':' + sec + ':' +msec+ssec);
+      this.reqAni = window.requestAnimationFrame(this.begin.bind(this));
     }
   }
 }

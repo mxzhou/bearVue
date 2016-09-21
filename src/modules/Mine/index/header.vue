@@ -45,25 +45,39 @@
       <a class="button" @click="add">充值</a>
     </p>
   </div>
+  <toast :show="show" type="text">{{errorMsg}}</toast>
 </template>
 
 <script type="text/ecmascript-6">
-  import {XButton} from '../../../components'
+  import {Toast} from '../../../components'
   export default {
-    props: {
-      money: Number
-    },
     components: {
-      XButton
+      Toast
     },
     data () {
       return {
+        money:0,
+        errorMsg:'',
+        show:false
       }
     },
     methods: {
       add:function(){
         router.go('/mine/charge')
       }
+    },
+    created(){
+      this.$http.post('/user/consumeMoney',{}).then((response) => {
+        let data = response.data
+        if(data.errorCode!=0){
+          this.$set('errorMsg', data.errorMsg);
+          this.$set('show', true);
+          return;
+        }
+        this.$set('money', data.data);
+      }, (response) => {
+        // error callback
+      });
     }
   }
 

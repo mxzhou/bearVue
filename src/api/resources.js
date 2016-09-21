@@ -9,7 +9,9 @@ Vue.http.options.crossOrigin = true
 Vue.http.options.credentials = true
 
 Vue.http.interceptors.push((request, next)=>{
-  Object.assign(request.body,{"kgUid":791949749,"token":"2bb14f008c7ccf7aaeec82c8b81b167e358d794fc671fade2bb3fc78f5e38f32"});
+  if(request.body){
+    Object.assign(request.body,userObject);
+  }
   request.url =API_ROOT +  request.url;
   // 这里对请求体进行处理
   request.headers = request.headers || {}
@@ -24,5 +26,5 @@ Vue.http.interceptors.push((request, next)=>{
 export const GoodsResource = Vue.resource( '{/id}{/controller}')
 export const CartResource = Vue.resource( '{/id}{/controller}')
 export const RechargeResource = Vue.resource( '{/id}{/controller}');
-export const MineResource = Vue.resource( '{/id}{/controller}');
+export const MineResource = Vue.resource( '{/part}{/id}{/controller}');
 export const openResource = Vue.resource( '{/id}{/controller}');

@@ -88,22 +88,17 @@
       }
     },
     created(){
-      this.getSnarchRecordList()
+      this.getSnarchRecordList({pageNumber:1,pageSize:10,type:0})
     },
     methods:{
       getList:function(index){
-        if(index == 1){
-          this.show = true;
-        }else{
-          this.show = false;
-
-        }
+        let type = [0,3,5];
+        this.getSnarchRecordList({pageNumber:1,pageSize:10,type:type[index]})
       },
       fn:function(){
         alert('立即夺宝')
       },
       addFunc:function() {
-        alert('add')
       },
       detailFunc:function(id){
         alert(id)

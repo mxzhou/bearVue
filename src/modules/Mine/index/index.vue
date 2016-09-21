@@ -3,7 +3,7 @@
 </style>
 <template>
   <div class="user">
-    <Bg :money="188"></Bg>
+    <Bg></Bg>
     <group>
       <template v-for="item in list">
         <cell :title="item.text" :link="item.link" :is-icon="item.isIcon" :icon-url="item.img">
@@ -17,7 +17,7 @@
       </template>
     </group>
     <group>
-        <p class="desc">我的ID:101100110</p>
+        <p class="desc">我的ID:{{detailData.kgUid}}</p>
     </group>
   </div>
 </template>
@@ -42,6 +42,7 @@
     },
     data () {
       return {
+        detailData:{},
         navList:[{
           name:'全部商品',
           link:''
@@ -76,6 +77,19 @@
     },
     init() {
       changeTitle('我的夺宝')
+    },
+    created(){
+      this.$http.post('/user/detail',{targetKgUid:userObject.kgUid}).then((response) => {
+        let data = response.data
+        if(data.errorCode!=0){
+//          this.$set('errorMsg', data.errorMsg);
+//          this.$set('show', true);
+          return;
+        }
+        this.$set('detailData', data.data);
+      }, (response) => {
+        // error callback
+      });
     },
     methods: {
 

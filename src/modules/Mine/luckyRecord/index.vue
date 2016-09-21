@@ -28,8 +28,9 @@
             </div>
           </div>
           <div class="bottom clearfix">
-            {{'已支付'}}
-            <a class="btn f-fr" @click.stop="selectAddress(item.id)">选择收货地址</a>
+            {{orderStatus[item.orderStatus]}}
+            <a v-if="item.orderStatus == 0" class="btn f-fr" @click.stop="selectAddress(item.id)">选择收货地址</a>
+            <a v-if="item.orderStatus == 3" class="btn f-fr" @click.stop="selectAddress(item.id)">查看物流</a>
           </div>
         </li>
       </template>
@@ -40,7 +41,7 @@
 <script type="text/ecmascript-6">
   import { Tab, TabItem,Loading } from '../../../components'
   import {changeTitle} from '../../../utils/hack'
-  import {getSnarchRecordList} from '../../../vuex/actions'
+  import {getLuckyList} from '../../../vuex/actions'
 
 
   export default {
@@ -49,7 +50,14 @@
     },
     data () {
       return {
-        title: '全部'
+        title: '全部',
+        orderStatus: {
+          '0':'恭喜您获得商品',
+          '1':'等待奖品派发',
+          '2':'奖品已派发',
+          '3':'已发货',
+          '5':'已晒单'
+        }
       }
     },
     init() {
@@ -58,16 +66,16 @@
     vuex:{
       getters:{
         items:function(store){
-          return store.snarchRecord.items
+          return store.luckyList.items
         }
       },
 
       actions:{
-        getSnarchRecordList,
+        getLuckyList,
       }
     },
     created(){
-      this.getSnarchRecordList()
+      this.getLuckyList({pageNumber:1,pageSize:10})
     },
     methods: {
       selectAddress:function(id){

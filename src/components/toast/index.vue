@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 export default {
   props: {
     show: {
@@ -29,7 +29,7 @@ export default {
     },
     width: {
       type: String,
-      default: '1rem'
+      default: '1.5rem'
     }
   },
   computed: {
@@ -56,9 +56,12 @@ export default {
 </script>
 
 <style lang="less">
-/*@import '../../styles/ui/widget/ui_tips/ui_mask.less';*/
-/*@import '../../styles/ui/icon/ui_icon_font.less';*/
-/*@import '../../styles/ui/widget/ui_tips/ui_toast.less';*/
+
+
+
+@import '../../styles/ui/widget/ui_tips/ui_mask.less';
+@import '../../styles/ui/icon/ui_icon_font.less';
+@import '../../styles/ui/widget/ui_tips/ui_toast.less';
 
 .ui_toast {
   z-index: 200;
@@ -69,7 +72,6 @@ export default {
   color: #F76260;
 }
 .ui_toast.ui_toast_text{
-  min-height: 0;
 }
 .ui_toast_text .ui_toast_content {
   margin: 0;

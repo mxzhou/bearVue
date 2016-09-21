@@ -6,14 +6,14 @@ var compiler = webpack(webpackConfig);
 var port = (config.port) || 3000;
 var serverOptions = {
   contentBase: 'http://0.0.0.0' + ':' + port,
-  quiet: false,
-  noInfo: false,
+  quiet: true,
+  noInfo: true,
   hot: true,
   inline: true,
   lazy: false,
   publicPath: webpackConfig.output.publicPath,
-  stats: {colors: true},
-  headers: {'Access-Control-Allow-Origin': '*'}
+  headers: {'Access-Control-Allow-Origin': '*'},
+  stats: {colors: true}
 };
 
 var app = new Express();

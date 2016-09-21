@@ -61,10 +61,10 @@ export const getRechargeRecordList = ({ dispatch }) => {
 }
 
 // 夺宝列表
-export const getSnarchRecordList = ({ dispatch }) => {
+export const getSnarchRecordList = ({ dispatch },data) => {
   dispatch(types.CHANGE_LOADING, { loading: {show:true} })
 
-  api.getSnarchRecordList().then(response => {
+  api.getSnarchRecordList(data).then(response => {
     dispatch(types.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_SNARCH_RECORD_LIST)
@@ -75,14 +75,29 @@ export const getSnarchRecordList = ({ dispatch }) => {
     dispatch(types.FAILURE_GET_SNARCH_RECORD_LIST)
   })
 }
+// 幸运列表
+export const getLuckyList = ({ dispatch },data) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+
+  api.getLuckyList(data).then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_LUCKY_LIST)
+    }
+    var data =response.data;
+    dispatch(types.SUCCESS_GET_LUCKY_LIST, { list: data.data.winLogList })
+  }, response => {
+    dispatch(types.FAILURE_GET_LUCKY_LIST)
+  })
+}
+
 export const changeLoading = ({ dispatch },loading) => {
   dispatch(types.CHANGE_LOADING, { loading: loading })
 }
 // 地址列表
-export const getAddressList = ({ dispatch }) => {
+export const getAddressList = ({ dispatch },data={}) => {
   dispatch(types.CHANGE_LOADING, { loading: {show:true} })
-
-  api.getAddressList().then(response => {
+  api.getAddressList(data).then(response => {
     dispatch(types.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_ADDRESS_LIST)
