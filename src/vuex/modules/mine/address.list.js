@@ -12,7 +12,6 @@ const mutations = {
     state.items = []
   },
   [SUCCESS_GET_ADDRESS_LIST](state,action){
-    console.log( action.list)
     state.items = action.list
   }
 }

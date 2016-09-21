@@ -20,6 +20,9 @@ export default {
   getRechageRecord:function(data){
     return MineResource.save({part:'user',controller:'payLog'},data)
   },
+  getUserDetail:function(data){
+    return MineResource.save({part:'user',controller:'detail'},data)
+  },
   getSnarchRecordList:function(data){
     return MineResource.save({part:'user',id:'buyLog',controller:'list'},data)
   },

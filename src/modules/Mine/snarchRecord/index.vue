@@ -29,9 +29,10 @@
               </div>
             </div>
             <div class="clearfix p f-pr">
+              <div v-if="item.status == 3">倒计时：<span class="color-red"></span></div>
               本期参与：<span class="color-red">{{item.userJoinNumber}}</span>人次
               <a class="f-fr color-blue" @click.stop="detailFunc(item.id)">查看详情></a>
-              <img :src="received" v-if="item.status != 0" alt="已获得" class="received"/>
+              <img :src="received" v-if="item.status == 5 && item.nickname == user.nickname" alt="已获得" class="received"/>
             </div>
             <div class="detailInfo" v-if="item.status == 5">
               <p class="p">获奖者：{{item.nickname}}</p>
@@ -81,7 +82,10 @@
       getters: {
         items: function(store){
           return store.snarchRecord.items
-        }
+        },
+        user:function(store){
+          return store.userDetail.data
+        },
       },
       actions: {
         getSnarchRecordList

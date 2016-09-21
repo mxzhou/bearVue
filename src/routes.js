@@ -30,11 +30,15 @@ let maps = {
       component: require('./modules/Mine/address/select.vue')
     },
     '/mine/addAddress':{
-      name: 'address',
+      name: 'addAddress',
       component: require('./modules/Mine/address/addAddress.vue')
     },
     '/mine/editAddress':{
       name: 'editAddress',
+      component: require('./modules/Mine/address/editAddress.vue')
+    },
+    '/mine/editAddress/:id':{
+      name: 'editAddress2',
       component: require('./modules/Mine/address/editAddress.vue')
     },
     // 我的夺宝 夺宝记录

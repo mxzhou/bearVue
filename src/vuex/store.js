@@ -9,6 +9,7 @@ import rechargeRecord from './modules/recharge.record'
 import snarchRecord from './modules/snarch.record'
 import addressList from './modules/mine/address.list'
 import detailList from './modules/mine/detail.list'
+import userDetail from './modules/mine/user.detail'
 import luckyList from './modules/mine/lucky.record'
 import openList from './modules/open/open.list'
 import win from './modules/open/win'
@@ -32,7 +33,8 @@ let modules = {
     luckyList,
     openList,
     win,
-    shareList
+    shareList,
+    userDetail
 }
 Object.assign(modules,modulesHome)
 export default new Vuex.Store({

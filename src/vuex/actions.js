@@ -75,6 +75,21 @@ export const getSnarchRecordList = ({ dispatch },data) => {
     dispatch(types.FAILURE_GET_SNARCH_RECORD_LIST)
   })
 }
+// 夺宝列表
+export const getUserDetail = ({ dispatch },data) => {
+  dispatch(types.CHANGE_LOADING, { loading: {show:true} })
+
+  api.getUserDetail(data).then(response => {
+    dispatch(types.CHANGE_LOADING, { loading: {show:false} })
+    if(!response.ok){
+      return dispatch(types.FAILURE_GET_USER_DETAIL)
+    }
+    var data =response.data;
+    dispatch(types.SUCCESS_GET_USER_DETAIL, { data: data.data })
+  }, response => {
+    dispatch(types.FAILURE_GET_USER_DETAIL)
+  })
+}
 // 幸运列表
 export const getLuckyList = ({ dispatch },data) => {
   dispatch(types.CHANGE_LOADING, { loading: {show:true} })

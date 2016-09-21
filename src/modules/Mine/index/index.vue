@@ -31,6 +31,7 @@
   import notepad from '../../../assets/images/ic_s_notepad.png'
   import photo from '../../../assets/images/ic_s_photo.png'
   import pin from '../../../assets/images/ic_s_pin.png'
+  import {getUserDetail} from '../../../vuex/actions'
 
   export default {
     components: {
@@ -42,7 +43,6 @@
     },
     data () {
       return {
-        detailData:{},
         navList:[{
           name:'全部商品',
           link:''
@@ -75,21 +75,19 @@
           }],
       }
     },
+    vuex:{
+      getters:{
+        detailData:function(store){
+          return store.userDetail.data
+        }
+      },
+      actions:{getUserDetail}
+    },
     init() {
       changeTitle('我的夺宝')
     },
     created(){
-      this.$http.post('/user/detail',{targetKgUid:userObject.kgUid}).then((response) => {
-        let data = response.data
-        if(data.errorCode!=0){
-//          this.$set('errorMsg', data.errorMsg);
-//          this.$set('show', true);
-          return;
-        }
-        this.$set('detailData', data.data);
-      }, (response) => {
-        // error callback
-      });
+      this.getUserDetail({targetKgUid:userObject.kgUid})
     },
     methods: {
 

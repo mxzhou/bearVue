@@ -34,13 +34,16 @@
 }
 .address_list{
   background: #fff;
-  padding:0 0 .44rem .15rem;
+  padding-left: .15rem;
+  margin-bottom: .44rem;
   .box{
     display: flex;
     align-items: center;
     padding: .1rem .1rem .1rem 0;
-    border-top: .01rem solid #D3D6DA;
-
+    border-bottom: .01rem solid #D3D6DA;
+    &:last-child{
+      border: 0;
+    }
     .select{
       width: .2rem;
       height: .2rem;

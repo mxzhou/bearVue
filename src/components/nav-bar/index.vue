@@ -57,7 +57,6 @@ export default {
     
   },
   attached () {
-    console.log(124234323244)
   }
 }
 

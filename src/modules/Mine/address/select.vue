@@ -25,7 +25,7 @@
           </li>
         </template>
       </ul>
-      <div class="ui-bottom">
+      <div class="ui-bottom" v-show="items.length > 0">
         <a class="ui_btn_bottom" @click="submitFunc()">确定</a>
       </div>
     </div>
@@ -67,8 +67,7 @@
         noAddress:noAddress,
         arrow:arrow,
         index:0,
-        orderId:this.$route.params.id,
-        addressId:''
+        orderId:this.$route.params.id
       }
     },
     init() {
@@ -90,28 +89,34 @@
         this.getAddressList()
       }
     },
-    computed:{
-      addressId(){
-        return (this.items[0]? this.items[0].id:'')
-      }
-    },
     methods: {
       addAddress:function(){
-        router.go('/mine/addAddress')
+        const id =this.$route.params.id;
+        router.go({ name: 'addAddress',params: { id: id }})
       },
-      editFunc:function(id){
-        alert(id);
-        router.go({name:'editAddress'})
-
+      editFunc:function(){
+        const id =this.$route.params.id;
+        router.go({ name: 'editAddress2',params: { id: id }})
       },
       selectFunc:function(id,index){
-        this.addressId = id;
         this.index = index;
       },
       submitFunc:function(){
-        alert(this.orderId)
-        alert(this.addressId)
-//        router.go({name:'editAddress'})
+        var data = {
+          userAddressId: this.items[this.index].id,
+          id: this.orderId
+        }
+        this.$http.post('/user/win/setAddress',data).then((response) => {
+          let data = response.data;
+          console.log(data)
+          if(data.errorCode!=0){
+            return;
+          }
+          location.href = "#/mine/luckyRecord"
+        }, (response) => {
+          // error callback
+        });
+        console.log(data);
       }
     }
   }
