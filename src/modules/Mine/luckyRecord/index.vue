@@ -16,13 +16,13 @@
                 <p class="p">期号：{{item.id}}</p>
                 <p class="p">总需：{{item.needNumber}}</p>
                 <p class="p">
-                  幸运号码：<span class="color-red">{{item.userJoinNumber}}</span>人次
+                  幸运号码：<span class="color-red">{{item.winCode}}</span>
                 </p>
                 <p class="p">
-                  本期参与：<span class="color-red">{{item.userJoinNumber}}</span>人次
+                  本期参与：<span class="color-red">{{item.joinNumber}}</span>人次
                 </p>
                 <p class="p">
-                  揭晓时间：<span class="color-red">{{item.userJoinNumber}}</span>人次
+                  揭晓时间：{{item.openTime|formatDate}}
                 </p>
               </div>
             </div>
@@ -42,20 +42,24 @@
   import { Tab, TabItem,Loading } from '../../../components'
   import {changeTitle} from '../../../utils/hack'
   import {getLuckyList} from '../../../vuex/actions'
+  import {formatDate} from '../../../utils/filters'
 
 
   export default {
     components: {
       Tab, TabItem,Loading
     },
+    filters: {
+      formatDate
+    },
     data () {
       return {
         title: '全部',
         orderStatus: {
-          '0':'恭喜您获得商品',
+          '0':'已中奖',
           '1':'等待奖品派发',
           '2':'奖品已派发',
-          '3':'已发货',
+          '3':'奖品已发货',
           '5':'已晒单'
         }
       }

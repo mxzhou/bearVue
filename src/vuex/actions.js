@@ -45,10 +45,10 @@ export const getGoodsList = ({ dispatch }) => {
   })
 }
 // 充值列表
-export const getRechargeRecordList = ({ dispatch }) => {
+export const getRechargeRecordList = ({ dispatch },data={}) => {
   dispatch(types.CHANGE_LOADING, { loading: {show:true} })
 
-  api.getRechageRecord().then(response => {
+  api.getRechageRecord(data).then(response => {
     dispatch(types.CHANGE_LOADING, { loading: {show:false} })
     if(!response.ok){
       return dispatch(types.FAILURE_GET_RECHARGE_RECORD_LIST)

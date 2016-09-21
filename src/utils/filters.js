@@ -48,6 +48,5 @@ exports.formatDate =  (time) => {
 
   let seconds = tmpDate.getSeconds();
   seconds = seconds<10 ? ('0'+seconds) : seconds;
-
-  return year + '.' + month + '.' + day + ' ' + hours + ':' + minutes+ ':' + seconds
+  return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes+ ':' + seconds
 }

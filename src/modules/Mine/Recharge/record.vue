@@ -60,7 +60,7 @@
       changeTitle('充值记录');
     },
     created(){
-      this.getRechargeRecordList()
+      this.getRechargeRecordList({lastId:0,pageSize:10})
     },
     methods: {
       chargeFunc:function(){

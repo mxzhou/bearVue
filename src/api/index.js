@@ -17,8 +17,8 @@ export default {
   getGoodsList:function(){
     return GoodsResource.get({id:'goods',controller:'list'})
   },
-  getRechageRecord:function(){
-    return RechargeResource.get({id:'user',controller:'payLog'})
+  getRechageRecord:function(data){
+    return MineResource.save({part:'user',controller:'payLog'},data)
   },
   getSnarchRecordList:function(data){
     return MineResource.save({part:'user',id:'buyLog',controller:'list'},data)
